@@ -99,3 +99,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .container-custom {
+    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 font-medium text-white transition-colors duration-300 rounded-lg bg-steamboat-blue hover:bg-steamboat-darkBlue;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 font-medium transition-colors duration-300 rounded-lg bg-steamboat-white text-steamboat-darkBlue hover:bg-gray-200;
+  }
+  
+  .section-title {
+    @apply mb-6 text-3xl font-bold text-steamboat-darkBlue sm:text-4xl lg:text-5xl;
+  }
+  
+  .section-subtitle {
+    @apply mb-12 text-xl text-steamboat-gray;
+  }
+  
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-black/70 to-black/30;
+  }
+}
