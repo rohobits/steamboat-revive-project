@@ -1,4 +1,3 @@
-
 import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
 import ServiceSection from "@/components/ServiceSection";
@@ -88,33 +87,11 @@ const Index = () => {
     },
   ];
 
-  // Tour service data
-  const tourServices = [
-    {
-      name: "Guided Mountain Bike Tour",
-      description: "Expert-led mountain bike tours on Steamboat's best trails. All abilities welcome.",
-      price: "From $95/person",
-      image: "https://images.unsplash.com/photo-1602353195884-44ea7f36e6b7?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
-    },
-    {
-      name: "Backcountry Ski Tour",
-      description: "Guided backcountry skiing in pristine powder away from the crowds.",
-      price: "From $125/person",
-      image: "https://images.unsplash.com/photo-1551524559-8af4e6624178?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
-    },
-    {
-      name: "Scenic E-Bike Tour",
-      description: "Explore Steamboat's scenic countryside and historic sites on electric bikes.",
-      price: "From $85/person",
-      image: "https://images.unsplash.com/photo-1593099295589-04c768df0671?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
-    },
-  ];
-
   return (
     <>
       <NavBar />
       <HeroSection />
-      
+
       <ServiceSection
         id="ski"
         title="Ski & Snowboard Rentals"
@@ -122,7 +99,7 @@ const Index = () => {
         services={skiServices}
         bgColor="bg-white"
       />
-      
+
       <ServiceSection
         id="bike"
         title="Bike Rentals"
@@ -130,15 +107,7 @@ const Index = () => {
         services={bikeServices}
         bgColor="bg-gray-50"
       />
-      
-      <ServiceSection
-        id="tours"
-        title="Guided Tours"
-        subtitle="Experience Steamboat with knowledgeable local guides"
-        services={tourServices}
-        bgColor="bg-white"
-      />
-      
+
       <AboutSection />
       <TestimonialSection />
       <ContactSection />

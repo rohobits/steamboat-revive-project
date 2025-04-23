@@ -27,7 +27,7 @@ const Footer = () => {
                 <a href="#bike" className="text-gray-300 hover:text-white transition-colors duration-300">Bike Rentals</a>
               </li>
               <li>
-                <a href="#tours" className="text-gray-300 hover:text-white transition-colors duration-300">Tours</a>
+                <a href="/bike-service" className="text-gray-300 hover:text-white transition-colors duration-300">Bike Service</a>
               </li>
               <li>
                 <a href="#about" className="text-gray-300 hover:text-white transition-colors duration-300">About Us</a>

@@ -14,7 +14,8 @@ const NavBar = () => {
     { name: "Home", href: "#" },
     { name: "Ski Rentals", href: "#ski" },
     { name: "Bike Rentals", href: "#bike" },
-    { name: "Tours", href: "#tours" },
+    // Added new Bike Service link
+    { name: "Bike Service", href: "/bike-service" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
