@@ -1,4 +1,3 @@
-
 import { MapPin, Users, Star, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -86,19 +85,6 @@ export default function BikeService() {
           </div>
         </div>
 
-        {/* Suspension Service Callout */}
-        <div className="bg-steamboat-blue text-white rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-bold mb-4">Specialized Suspension Service</h2>
-          <p className="text-lg mb-6">
-            Our suspension experts are factory-trained to service Fox, RockShox, and other major brands. 
-            We provide comprehensive fork and shock maintenance to keep your suspension performing optimally 
-            on Steamboat's demanding terrain.
-          </p>
-          <p className="text-sm italic">
-            Contact us for suspension service pricing, as costs vary based on your specific components and service needs.
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
           {servicePackages.map((pkg) => (
             <Card key={pkg.level} className="border-2">
@@ -121,6 +107,25 @@ export default function BikeService() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Suspension Service Section */}
+        <div className="bg-gray-50 rounded-lg p-8 mt-12 mb-12">
+          <div className="flex items-start space-x-4 mb-6">
+            <Wrench className="text-steamboat-blue" size={32} />
+            <div>
+              <h2 className="text-2xl font-bold text-steamboat-darkBlue mb-3">Suspension Service</h2>
+              <p className="text-lg text-steamboat-gray mb-4">
+                Our suspension experts are factory-trained to service Fox, RockShox, and other major brands. 
+                We provide comprehensive fork and shock maintenance to keep your suspension performing optimally 
+                on Steamboat's demanding terrain.
+              </p>
+              <p className="text-sm italic text-steamboat-gray">
+                Suspension service pricing varies based on your specific components and service needs. 
+                Contact us for a personalized quote.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Reviews Section */}
