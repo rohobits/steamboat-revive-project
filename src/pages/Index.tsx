@@ -1,4 +1,3 @@
-
 import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
 import ServiceSection from "@/components/ServiceSection";
@@ -14,13 +13,13 @@ const Index = () => {
       name: "Full Suspension Mountain Bike",
       description: "Advanced full suspension bikes for technical terrain and trail riding.",
       price: "From $65/day",
-      image: "https://images.unsplash.com/photo-1598552183423-b95d565f3ab3?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&q=80",
     },
     {
       name: "Hardtail Mountain Bike",
       description: "Versatile hardtail bikes ideal for cross-country and trail riding.",
       price: "From $45/day",
-      image: "https://images.unsplash.com/photo-1618254074137-c211a45caef9?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&q=80",
     },
     {
       name: "Electric Mountain Bike",
@@ -38,7 +37,7 @@ const Index = () => {
       name: "Cruiser Bike",
       description: "Comfortable cruiser bikes for casual riding around town and bike paths.",
       price: "From $30/day",
-      image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&q=80",
     },
     {
       name: "Kids Bike",
