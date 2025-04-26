@@ -14,7 +14,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      {/* set basename to your GH Pages subpath */}
+      <BrowserRouter basename="/steamboat-revive-project">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bike-service" element={<BikeService />} />
