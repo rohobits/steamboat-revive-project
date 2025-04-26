@@ -21,7 +21,7 @@ export default function BikeService() {
       {/* Navigation bar so you can get back to Home, Rent a Bike, etc. */}
       <NavBar />
 
-      <div className="min-h-screen bg-white">
+      <div className="pt-20 min-h-screen bg-white">
         <div className="container-custom py-16">
           <div className="flex items-center space-x-4 mb-8">
             <Wrench className="text-steamboat-blue" size={36} />
