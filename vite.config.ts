@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/steamboat-revive-project/",
+  base: "/steamboat-revive-project/",   // ← ensure correct sub-path on GH Pages
   server: {
     host: "::",
     port: 8080,
@@ -20,6 +20,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: "docs",       // <-- emit static files here for GitHub Pages
+    outDir: "docs",                     // ← emit into docs/ for the Pages action
   },
 }));
