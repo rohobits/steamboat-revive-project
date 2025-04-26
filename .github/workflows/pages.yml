@@ -5,13 +5,14 @@ on:
     branches:
       - main    # or your default branch
 
+permissions:
+  contents: read   # allow checkout
+  pages: write     # allow publishing
+  id-token: write  # required by actions/deploy-pages@v4
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read   # allow checkout
-      pages: write     # allow publishing
 
     steps:
       - name: Checkout repository
