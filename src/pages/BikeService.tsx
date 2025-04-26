@@ -1,64 +1,37 @@
-import { MapPin, Users, Star, Wrench } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const servicePackages = [
-  {
-    level: "Level 1",
-    price: "$119.99",
-    recommendation: "Recommended Every 30 Hours",
-    description: "Everything Torqued, Aligned & Adjusted",
-    features: [
-      "Torque All Fasteners",
-      "Align & Adjust Breaks",
-      "Align & Adjust Shifting",
-      "Adjust Headset",
-      "Inspect Bottom Bracket",
-      "Bike Wash"
-    ]
-  },
-  {
-    level: "Level 2",
-    price: "$169.99",
-    recommendation: "Recommended Every 50 Hours",
-    description: "Everything Cleaned, Tensioned & Aligned",
-    features: [
-      "Level 1 +",
-      "Drive Train Removed For Deep Clean",
-      "Lateral & Vertical Wheel True"
-    ]
-  },
-  {
-    level: "Level 3",
-    price: "$369.99",
-    recommendation: "Recommended Every 100 Hours",
-    description: "The Entire Bike Stripped, Cleaned & Tuned To Perfection",
-    features: [
-      "Level 2 +",
-      "Complete Tear Down & Deep Clean of All Parts",
-      "Full Bearing Rebuild For Non-Functioning Bearings",
-      "Reassemble bike and lube all parts",
-      "Replace All Cable & Housing"
-    ]
-  }
-];
+import { MapPin, Wrench } from "lucide-react";
 
-const reviews = [
+const bikeServicePackages = [
   {
-    text: "The bike service team at Steamboat did an incredible job with my Trek. The suspension feels better than when it was new!",
-    author: "Mike R.",
-    rating: 5
+    name: "Flat Fix",
+    description:
+      "Includes labor to remove wheel and replace with new tube. Price does not include cost of tube.",
+    price: "$15",
   },
   {
-    text: "Professional service and amazing attention to detail. These guys really know their stuff when it comes to bike maintenance.",
-    author: "Sarah L.",
-    rating: 5
+    name: "Basic Tune",
+    description:
+      "Brake and gear adjustment; lube chain; safety check all bolts; air tires.",
+    price: "$70",
   },
   {
-    text: "Best bike shop in Steamboat! They completely restored my mountain bike and the service was outstanding.",
-    author: "Tom K.",
-    rating: 5
-  }
+    name: "Full Tune",
+    description:
+      "Everything in basic tune plus: true front and rear wheels, clean and polish frame, major cleaning of drivetrain.",
+    price: "$120",
+  },
+  {
+    name: "Overhaul",
+    description:
+      "Complete teardown and rebuild of bike. Includes all services in Full Tune with deep cleaning and re-greasing of all major components.",
+    price: "$200",
+  },
+  {
+    name: "Suspension Service",
+    description:
+      "Fork & shock air sleeve service. Complete factory service available (pricing varies).",
+    price: "From $45",
+  },
 ];
 
 export default function BikeService() {
@@ -69,99 +42,37 @@ export default function BikeService() {
           <Wrench className="text-steamboat-blue" size={36} />
           <h1 className="section-title mb-0">Bike Service Packages</h1>
         </div>
-
-        {/* Expert Staff Section */}
-        <div className="bg-gray-50 rounded-lg p-8 mb-12">
-          <div className="flex items-start space-x-4 mb-6">
-            <Users className="text-steamboat-blue" size={32} />
-            <div>
-              <h2 className="text-2xl font-bold text-steamboat-darkBlue mb-3">Expert Bike Technicians</h2>
-              <p className="text-lg text-steamboat-gray">
-                Our certified bike technicians bring decades of combined experience to every service. 
-                From basic tune-ups to complex repairs, our team's expertise ensures your bike performs at its best 
-                on Steamboat's world-class trails.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        <p className="section-subtitle max-w-2xl">
+          Our expert mechanics offer a full range of services to keep your bike in peak condition. Estimates are always free!
+        </p>
         <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
-          {servicePackages.map((pkg) => (
-            <Card key={pkg.level} className="border-2">
-              <CardHeader className="text-center bg-gray-800 text-white rounded-t-lg">
-                <CardTitle className="text-2xl font-bold">{pkg.level}</CardTitle>
-                <p className="text-gray-200">{pkg.recommendation}</p>
-              </CardHeader>
-              <CardContent className="p-6">
-                <div className="text-center mb-6">
-                  <span className="text-3xl font-bold text-steamboat-blue">{pkg.price}</span>
-                  <p className="mt-2 text-gray-600">{pkg.description}</p>
-                </div>
-                <ul className="space-y-3">
-                  {pkg.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-700">
-                      <span className="ml-2">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+          {bikeServicePackages.map((pkg) => (
+            <div
+              key={pkg.name}
+              className="rounded-lg shadow-lg bg-white p-6 flex flex-col justify-between border border-gray-100"
+            >
+              <h2 className="text-xl font-semibold text-steamboat-darkBlue mb-2">
+                {pkg.name}
+              </h2>
+              <p className="text-steamboat-gray mb-4 min-h-[64px]">{pkg.description}</p>
+              <div className="flex items-end justify-between">
+                <span className="text-lg font-bold text-steamboat-blue">
+                  {pkg.price}
+                </span>
+                <Wrench className="text-steamboat-darkBlue" />
+              </div>
+            </div>
           ))}
         </div>
-
-        {/* Suspension Service Section */}
-        <div className="bg-gray-50 rounded-lg p-8 mt-12 mb-12">
-          <div className="flex items-start space-x-4 mb-6">
-            <Wrench className="text-steamboat-blue" size={32} />
-            <div>
-              <h2 className="text-2xl font-bold text-steamboat-darkBlue mb-3">Suspension Service</h2>
-              <p className="text-lg text-steamboat-gray mb-4">
-                Our suspension experts are factory-trained to service Fox, RockShox, and other major brands. 
-                We provide comprehensive fork and shock maintenance to keep your suspension performing optimally 
-                on Steamboat's demanding terrain.
-              </p>
-              <p className="text-sm italic text-steamboat-gray">
-                Suspension service pricing varies based on your specific components and service needs. 
-                Contact us for a personalized quote.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Reviews Section */}
-        <div className="mt-16">
-          <div className="flex items-center space-x-4 mb-8">
-            <Star className="text-steamboat-blue" size={32} />
-            <h2 className="text-2xl font-bold text-steamboat-darkBlue">What Our Customers Say</h2>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review, index) => (
-              <Card key={index} className="border-2">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="text-steamboat-orange" size={20} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-steamboat-gray mb-4 italic">"{review.text}"</p>
-                  <p className="font-semibold text-steamboat-darkBlue">- {review.author}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 bg-gray-50 border border-steamboat-blue/20 rounded-lg p-6 space-y-4">
-          <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
-            <MapPin className="text-steamboat-blue mb-4 md:mb-0" size={28} />
-            <div>
-              <p className="font-medium text-steamboat-darkBlue">
-                Have a service question? Stop by 442 Lincoln Avenue in Steamboat Springs or call us at (970) 879-8428.
-              </p>
-              <p className="text-steamboat-gray mt-2">
-                Our expert technicians are happy to assess your bike and provide detailed service recommendations.
-              </p>
-            </div>
+        <div className="mt-12 bg-gray-50 border border-steamboat-blue/20 rounded-lg p-6 flex flex-col md:flex-row md:items-center md:space-x-4">
+          <MapPin className="text-steamboat-blue mb-4 md:mb-0" size={28} />
+          <div>
+            <p className="font-medium text-steamboat-darkBlue">
+              Have a service question? Stop by 442 Lincoln Avenue in Steamboat Springs or call us at (970) 879-8428.
+            </p>
+            <p className="text-steamboat-gray text-sm">
+              Note: Prices shown are for labor only. Parts and accessories extra.
+            </p>
           </div>
         </div>
       </div>

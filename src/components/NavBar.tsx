@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -11,7 +12,9 @@ const NavBar = () => {
 
   const navItems = [
     { name: "Home", href: "#" },
+    { name: "Ski Rentals", href: "#ski" },
     { name: "Bike Rentals", href: "#bike" },
+    // Added new Bike Service link
     { name: "Bike Service", href: "/bike-service" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
