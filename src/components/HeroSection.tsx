@@ -19,12 +19,14 @@ const HeroSection = () => {
           biking in Colorado
         </p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-          <a href="#bike" className="btn-primary">
+          <a href="#bike" className="btn-primary" onClick={() => window.scrollTo(0, 0)}>
             Rent a Bike
           </a>
-
-          {/* This Link now respects basename="/steamboat-revive-project" */}
-          <Link to="/bike-service" className="btn-secondary">
+          <Link
+            to="/bike-service"
+            className="btn-secondary"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             Bike Service
           </Link>
         </div>
