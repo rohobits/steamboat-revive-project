@@ -22,9 +22,9 @@ const NavBar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img
-            src={`${BASE_URL}images/logo.svg`}
+            src={`${BASE_URL}images/logo.jpg.png`}
             alt="Steamboat Ski and Bike Kare"
-            className="h-12 w-auto"
+            className="h-12 w-auto object-contain"
           />
           <span className="sr-only">Steamboat Ski and Bike Kare</span>
         </Link>
@@ -56,7 +56,7 @@ const NavBar = () => {
         <div className="md:hidden">
           <button
             type="button"
-            onClick={() => setMobileMenuOpen(o => !o)}
+            onClick={() => setMobileMenuOpen((o) => !o)}
             className="text-steamboat-darkGray hover:text-steamboat-blue"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
