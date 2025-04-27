@@ -1,13 +1,13 @@
-// src/components/NavBar.tsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // routes vs. in-page anchors
   const navItems = [
     { name: "Home", to: "/" },
     { name: "Bike Rentals", hash: "bike" },
@@ -20,12 +20,16 @@ const NavBar = () => {
     <nav className="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
       <div className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <span className="text-2xl font-bold text-steamboat-blue">Steamboat</span>
-          <span className="text-2xl font-bold text-steamboat-red">Ski&Bike</span>
+        <Link to="/" className="flex items-center space-x-2">
+          <img
+            src={`${BASE_URL}images/logo.svg`}
+            alt="Steamboat Ski and Bike Kare"
+            className="h-12 w-auto"
+          />
+          <span className="sr-only">Steamboat Ski and Bike Kare</span>
         </Link>
 
-        {/* Desktop */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) =>
             item.to ? (
@@ -37,27 +41,30 @@ const NavBar = () => {
                 {item.name}
               </Link>
             ) : (
-              <Link
+              <a
                 key={item.name}
-                to={{ pathname: "/", hash: `#${item.hash}` }}
+                href={`${BASE_URL}#${item.hash}`}
                 className="text-steamboat-darkGray hover:text-steamboat-blue font-medium transition-colors duration-300"
               >
                 {item.name}
-              </Link>
+              </a>
             )
           )}
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-steamboat-darkGray hover:text-steamboat-blue"
-          onClick={() => setMobileMenuOpen((o) => !o)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(o => !o)}
+            className="text-steamboat-darkGray hover:text-steamboat-blue"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <div
         className={cn(
           "md:hidden bg-white transition-all duration-300 ease-in-out",
@@ -76,14 +83,14 @@ const NavBar = () => {
                 {item.name}
               </Link>
             ) : (
-              <Link
+              <a
                 key={item.name}
-                to={{ pathname: "/", hash: `#${item.hash}` }}
+                href={`${BASE_URL}#${item.hash}`}
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2 text-base font-medium text-steamboat-darkGray hover:text-steamboat-blue hover:bg-gray-50 rounded-md"
               >
                 {item.name}
-              </Link>
+              </a>
             )
           )}
         </div>
