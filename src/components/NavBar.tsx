@@ -1,3 +1,4 @@
+// src/components/NavBar.tsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -5,53 +6,50 @@ import { cn } from "@/lib/utils";
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const base = import.meta.env.BASE_URL; // "/steamboat-revive-project/"
 
+  // routes vs. in-page anchors
   const navItems = [
     { name: "Home", to: "/" },
-    { name: "Bike Rentals", anchor: "bike" },
+    { name: "Bike Rentals", hash: "bike" },
     { name: "Bike Service", to: "/bike-service" },
-    { name: "About", anchor: "about" },
-    { name: "Contact", anchor: "contact" },
+    { name: "About", hash: "about" },
+    { name: "Contact", hash: "contact" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
       <div className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
-        <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
+        <Link to="/" className="flex items-center">
           <span className="text-2xl font-bold text-steamboat-blue">Steamboat</span>
           <span className="text-2xl font-bold text-steamboat-red">Ski&Bike</span>
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) =>
             item.to ? (
               <Link
                 key={item.name}
                 to={item.to}
-                onClick={() => window.scrollTo(0, 0)}
                 className="text-steamboat-darkGray hover:text-steamboat-blue font-medium transition-colors duration-300"
               >
                 {item.name}
               </Link>
             ) : (
-              <a
+              <Link
                 key={item.name}
-                href={`${base}#${item.anchor}`}
-                onClick={() => window.scrollTo(0, 0)}
+                to={{ pathname: "/", hash: `#${item.hash}` }}
                 className="text-steamboat-darkGray hover:text-steamboat-blue font-medium transition-colors duration-300"
               >
                 {item.name}
-              </a>
+              </Link>
             )
           )}
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile toggle */}
         <button
-          type="button"
           className="md:hidden text-steamboat-darkGray hover:text-steamboat-blue"
           onClick={() => setMobileMenuOpen((o) => !o)}
         >
@@ -59,7 +57,7 @@ const NavBar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <div
         className={cn(
           "md:hidden bg-white transition-all duration-300 ease-in-out",
@@ -72,26 +70,20 @@ const NavBar = () => {
               <Link
                 key={item.name}
                 to={item.to}
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                  setMobileMenuOpen(false);
-                }}
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2 text-base font-medium text-steamboat-darkGray hover:text-steamboat-blue hover:bg-gray-50 rounded-md"
               >
                 {item.name}
               </Link>
             ) : (
-              <a
+              <Link
                 key={item.name}
-                href={`${base}#${item.anchor}`}
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                  setMobileMenuOpen(false);
-                }}
+                to={{ pathname: "/", hash: `#${item.hash}` }}
+                onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2 text-base font-medium text-steamboat-darkGray hover:text-steamboat-blue hover:bg-gray-50 rounded-md"
               >
                 {item.name}
-              </a>
+              </Link>
             )
           )}
         </div>
