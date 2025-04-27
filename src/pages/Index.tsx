@@ -3,11 +3,12 @@ import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
 import ServiceSection from "@/components/ServiceSection";
 import AboutSection from "@/components/AboutSection";
+import EventsSection from "@/components/EventsSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-// Vite will replace this at build-time with "/steamboat-revive-project/"
+// Vite will inject your base public path (e.g. "/steamboat-revive-project/")
 const BASE_URL = import.meta.env.BASE_URL;
 
 const Index = () => {
@@ -38,7 +39,7 @@ const Index = () => {
     },
     {
       name: "Cruiser Bike",
-      description: "Comfortable cruiser bikes for casual riding around town and bike paths.",
+      description: "Comfortable cruiser bikes for casual riding around town and on bike paths.",
       price: "From $30/day",
       image: `${BASE_URL}images/cruiser.jpg`,
     },
@@ -70,7 +71,10 @@ const Index = () => {
         <AboutSection />
       </section>
 
-      {/* Testimonials */}
+      {/* Events Section */}
+      <EventsSection />
+
+      {/* Testimonials Section */}
       <TestimonialSection />
 
       {/* Contact Section */}
