@@ -7,8 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-steamboat-darkBlue text-white">
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Logo + Description */}
           <div>
             <div className="mb-4">
@@ -20,10 +19,11 @@ const Footer = () => {
               <span className="sr-only">Steamboat Ski and Bike Kare</span>
             </div>
             <p className="text-gray-300">
-              Premium ski and bike rentals in the heart of Steamboat Springs, Colorado. Experience top-quality equipment and expert service.
+              Premium ski and bike rentals in the heart of Steamboat Springs,
+              Colorado. Experience top-quality equipment and expert service.
             </p>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
@@ -35,54 +35,65 @@ const Footer = () => {
               <li><a href="#about" className="text-gray-300 hover:text-white">About Us</a></li>
             </ul>
           </div>
-          
-          {/* Contact */}
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Contact</h3>
-            <ul className="space-y-6 text-gray-300">
-              <li>
-                <span className="font-medium">Downtown</span><br/>
-                442 Lincoln Avenue<br/>
-                Steamboat Springs, CO 80487<br/>
-                <a href="tel:9708799144" className="hover:text-white">(970) 879-9144</a>
-              </li>
-              <li>
-                <span className="font-medium">Mountain</span><br/>
-                2250 Apres Ski Way<br/>
-                Steamboat Springs, CO 80487<br/>
-                <a href="tel:9708796350" className="hover:text-white">(970) 879-6350</a>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Hours */}
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Hours</h3>
-            <div className="space-y-6 text-gray-300">
-              
-              {/* Downtown Hours */}
-              <div>
-                <span className="font-medium">Downtown</span><br/>
-                <span className="font-bold text-white">Winter Hours</span><br/>
-                Mon–Sat | 8 am – 6 pm<br/>
-                Sun | 8 am – 5 pm<br/>
-                <span className="font-bold text-white mt-2 block">Summer Hours</span><br/>
-                Mon–Sat | 9 am – 6 pm<br/>
-                Sun | 9 am – 5 pm
+
+          {/* Locations (combined contact & hours) */}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {/* Downtown */}
+            <div className="text-gray-300">
+              <h3 className="mb-2 text-lg font-semibold text-white">Downtown</h3>
+              <a
+                href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                442 Lincoln Avenue<br />
+                Steamboat Springs, CO 80487
+              </a>
+              <p className="mt-2">
+                <span className="font-medium">Phone:</span>{' '}
+                <a href="tel:9708799144" className="hover:text-white">
+                  (970) 879-9144
+                </a>
+              </p>
+              <div className="mt-2">
+                <p className="font-bold text-white">Winter Hours</p>
+                <p>Mon–Sat | 8 am – 6 pm</p>
+                <p>Sun | 8 am – 5 pm</p>
+                <p className="mt-2 font-bold text-white">Summer Hours</p>
+                <p>Mon–Sat | 9 am – 6 pm</p>
+                <p>Sun | 9 am – 5 pm</p>
               </div>
-              
-              {/* Mountain Hours */}
-              <div>
-                <span className="font-medium">Mountain</span><br/>
-                <span className="font-bold text-white">Winter Hours</span><br/>
-                Daily | 7:45 am – 5 pm<br/>
-                <span className="font-bold text-white mt-2 block">Summer Hours</span><br/>
-                Closed
+            </div>
+
+            {/* Mountain */}
+            <div className="text-gray-300">
+              <h3 className="mb-2 text-lg font-semibold text-white">Mountain</h3>
+              <a
+                href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare+-+Gondola+Square/@40.4565424,-106.804615,17z/data=!3m1!4b1!4m6!3m5!1s0x87426eba1111b891:0xf42b39da70b52b27!8m2!3d40.4565424!4d-106.804615!16s%2Fg%2F11g9vxtwmb?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                2250 Apres Ski Way<br />
+                Steamboat Springs, CO 80487
+              </a>
+              <p className="mt-2">
+                <span className="font-medium">Phone:</span>{' '}
+                <a href="tel:9708796350" className="hover:text-white">
+                  (970) 879-6350
+                </a>
+              </p>
+              <div className="mt-2">
+                <p className="font-bold text-white">Winter Hours</p>
+                <p>Daily | 7:45 am – 5 pm</p>
+                <p className="mt-2 font-bold text-white">Summer Hours</p>
+                <p>Closed</p>
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Bottom Bar */}
         <div className="pt-8 mt-8 border-t border-gray-700">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
