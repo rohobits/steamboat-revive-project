@@ -1,10 +1,10 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 
 const ContactSection = () => {
   // Google Maps embed URLs for each address
-  const downtownMap = 
+  const downtownMap =
     "https://maps.google.com/maps?q=442%20Lincoln%20Ave%2C%20Steamboat%20Springs%2C%20CO%2080487&output=embed";
-  const mountainMap = 
+  const mountainMap =
     "https://maps.google.com/maps?q=2250%20Apres%20Ski%20Way%2C%20Steamboat%20Springs%2C%20CO%2080487&output=embed";
 
   return (
@@ -13,7 +13,8 @@ const ContactSection = () => {
         <div className="text-center">
           <h2 className="section-title">Contact Us</h2>
           <p className="section-subtitle">
-            Have questions or ready to reserve your equipment? Get in touch with us!
+            Have questions or ready to reserve your equipment? Get in touch with
+            us!
           </p>
         </div>
 
@@ -34,25 +35,53 @@ const ContactSection = () => {
           </div>
           <div className="p-8 bg-gray-50 rounded-lg shadow-lg">
             <div className="space-y-6">
+              {/* Address */}
               <div className="flex items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">Downtown</h3>
+                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                    Downtown
+                  </h3>
                   <p className="mt-1 text-steamboat-gray">
-                    442 Lincoln Avenue<br />
+                    442 Lincoln Avenue
+                    <br />
                     Steamboat Springs, CO 80487
                   </p>
                 </div>
               </div>
+
+              {/* Phone */}
               <div className="flex items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">Phone</h3>
-                  <p className="mt-1 text-steamboat-gray">(970) 879-9144</p>
+                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                    Phone
+                  </h3>
+                  <p className="mt-1 text-steamboat-gray">
+                    (970) 879-9144
+                  </p>
+                </div>
+              </div>
+
+              {/* Hours */}
+              <div className="flex items-start">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                  <Clock className="w-6 h-6 text-white" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                    Hours
+                  </h3>
+                  <p className="mt-1 text-steamboat-gray">
+                    <strong>Winter:</strong> 8am–6pm Mon–Sat, 8am–5pm Sun
+                  </p>
+                  <p className="text-steamboat-gray">
+                    <strong>Summer:</strong> 9am–6pm Mon–Sat, 9am–5pm Sun
+                  </p>
                 </div>
               </div>
             </div>
@@ -73,42 +102,55 @@ const ContactSection = () => {
           </div>
           <div className="p-8 bg-gray-50 rounded-lg shadow-lg">
             <div className="space-y-6">
+              {/* Address */}
               <div className="flex items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">Mountain</h3>
+                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                    Mountain
+                  </h3>
                   <p className="mt-1 text-steamboat-gray">
-                    2250 Apres Ski Way<br />
+                    2250 Apres Ski Way
+                    <br />
                     Steamboat Springs, CO 80487
                   </p>
                 </div>
               </div>
+
+              {/* Phone */}
               <div className="flex items-start">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">Phone</h3>
-                  <p className="mt-1 text-steamboat-gray">(970) 879-6350</p>
+                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                    Phone
+                  </h3>
+                  <p className="mt-1 text-steamboat-gray">
+                    (970) 879-6350
+                  </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Hours (shared by both) */}
-        <div className="pt-4 mt-6 border-t border-gray-200">
-          <h3 className="text-lg font-medium text-steamboat-darkBlue">Hours</h3>
-          <div className="grid grid-cols-1 gap-2 mt-3 sm:grid-cols-2">
-            <div>
-              <span className="font-medium">Winter Season:</span>
-              <p className="text-steamboat-gray">8 am – 6 pm Daily</p>
-            </div>
-            <div>
-              <span className="font-medium">Summer Season:</span>
-              <p className="text-steamboat-gray">9 am – 5 pm Daily</p>
+              {/* Hours */}
+              <div className="flex items-start">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                  <Clock className="w-6 h-6 text-white" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                    Hours
+                  </h3>
+                  <p className="mt-1 text-steamboat-gray">
+                    <strong>Winter:</strong> 7:45am–5pm Daily
+                  </p>
+                  <p className="text-steamboat-gray">
+                    <strong>Summer:</strong> Closed
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
