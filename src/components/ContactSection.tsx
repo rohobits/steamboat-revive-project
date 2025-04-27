@@ -71,11 +71,16 @@ const ContactSection = () => {
                 <h3 className="text-lg font-medium text-steamboat-darkBlue">
                   Hours
                 </h3>
-                {/* Winter Hours */}
-                <p className="mt-1 text-steamboat-gray">Mon–Sat | 8 am – 6 pm</p>
+                <p className="mt-1 font-bold text-steamboat-darkBlue">
+                  Winter Hours
+                </p>
+                <p className="text-steamboat-gray">Mon–Sat | 8 am – 6 pm</p>
                 <p className="text-steamboat-gray">Sun | 8 am – 5 pm</p>
-                {/* Summer Hours */}
-                <p className="mt-1 text-steamboat-gray">Mon–Sat | 9 am – 6 pm</p>
+
+                <p className="mt-2 font-bold text-steamboat-darkBlue">
+                  Summer Hours
+                </p>
+                <p className="text-steamboat-gray">Mon–Sat | 9 am – 6 pm</p>
                 <p className="text-steamboat-gray">Sun | 9 am – 5 pm</p>
               </div>
             </div>
@@ -134,10 +139,15 @@ const ContactSection = () => {
                 <h3 className="text-lg font-medium text-steamboat-darkBlue">
                   Hours
                 </h3>
-                {/* Winter Hours */}
-                <p className="mt-1 text-steamboat-gray">Daily | 7:45 am – 5 pm</p>
-                {/* Summer Closed */}
-                <p className="text-steamboat-gray">Summer | Closed</p>
+                <p className="mt-1 font-bold text-steamboat-darkBlue">
+                  Winter Hours
+                </p>
+                <p className="text-steamboat-gray">Daily | 7:45 am – 5 pm</p>
+
+                <p className="mt-2 font-bold text-steamboat-darkBlue">
+                  Summer Hours
+                </p>
+                <p className="text-steamboat-gray">Closed</p>
               </div>
             </div>
           </div>
