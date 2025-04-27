@@ -42,14 +42,29 @@ export default function ShopPage() {
 
       <main className="container-custom py-20 bg-white">
         <h1 className="section-title text-center">Shop Our Inventory</h1>
-        {/* Locally widget container (anchor removed to hide powered-by bar) */}
+        {/* Locally widget container with hidden fallback anchor */}
         <div
           id="lcly-button-0"
           data-switchlive="true"
           data-switchlive-impression="true"
           data-switchlive-impression-id-PL="1"
           className="mt-8 flex justify-center"
-        />
+        >
+          {/* Fallback anchor needed by widget; hidden to remove the default bar */}
+          <a
+            id="lcly-link-0"
+            data-switchlive="true"
+            data-switchlive-mode="auto"
+            data-switchlive-id-PL="6"
+            role="button"
+            href="https://www.locally.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "none" }}
+          >
+            Powered by Locally
+          </a>
+        </div>
       </main>
 
       <Footer />
