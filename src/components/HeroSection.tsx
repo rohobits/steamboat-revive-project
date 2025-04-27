@@ -6,7 +6,7 @@ const HeroSection = () => {
       className="relative h-screen bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?auto=format&fit=crop&q=80')",
+          'url('${BASE_URL}images/hero.jpg')',
       }}
     >
       <div className="hero-overlay"></div>
