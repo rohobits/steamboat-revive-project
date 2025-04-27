@@ -147,7 +147,7 @@ const ContactSection = () => {
                 <p className="mt-1 font-bold text-steamboat-darkBlue">Winter Hours</p>
                 <p className="text-steamboat-gray">Daily | 7:45 am – 5 pm</p>
                 <p className="mt-2 font-bold text-steamboat-darkBlue">Summer Hours</p>
-                <p className="text-steamboat-gray">Closed</p>
+                <p className="text-steamboat-gray">Closed (April - November)</p>
               </div>
             </div>
           </div>
