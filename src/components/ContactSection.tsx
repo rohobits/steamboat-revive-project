@@ -1,17 +1,17 @@
 import { MapPin, Phone, Clock } from "lucide-react";
 
 const ContactSection = () => {
-  // Full Google Maps links when you click the address
+  // Exact Google Maps page URLs for clicking
   const downtownMapUrl =
     "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
   const mountainMapUrl =
     "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare+-+Gondola+Square/@40.4565424,-106.8071899,16z/data=!3m1!4b1!4m6!3m5!1s0x87426eba1111b891:0xf42b39da70b52b27!8m2!3d40.4565424!4d-106.804615!16s%2Fg%2F11g9vxtwmb?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
 
-  // Embed URLs using the exact lat/long coordinates
+  // Embed by Place ID for exact business marker
   const downtownEmbed =
-    "https://maps.google.com/maps?q=40.4842758,-106.8311456&z=17&output=embed";
+    "https://maps.google.com/maps?q=0x874268da15fbba5f:0x7a95cdcaa994ae5b&z=17&output=embed";
   const mountainEmbed =
-    "https://maps.google.com/maps?q=40.4565424,-106.804615&z=16&output=embed";
+    "https://maps.google.com/maps?q=0x87426eba1111b891:0xf42b39da70b52b27&z=16&output=embed";
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -19,8 +19,7 @@ const ContactSection = () => {
         <div className="text-center">
           <h2 className="section-title">Contact Us</h2>
           <p className="section-subtitle">
-            Have questions or ready to reserve your equipment? Get in touch
-            with us!
+            Have questions or ready to reserve your equipment? Get in touch with us!
           </p>
         </div>
 
@@ -39,7 +38,7 @@ const ContactSection = () => {
             />
           </div>
           <div className="p-8 bg-gray-50 rounded-lg shadow-lg space-y-6">
-            {/* Address (clickable) */}
+            {/* Address */}
             <a
               href={downtownMapUrl}
               target="_blank"
@@ -61,11 +60,8 @@ const ContactSection = () => {
               </div>
             </a>
 
-            {/* Phone (clickable) */}
-            <a
-              href="tel:9708799144"
-              className="flex items-start hover:text-steamboat-blue"
-            >
+            {/* Phone */}
+            <a href="tel:9708799144" className="flex items-start hover:text-steamboat-blue">
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                 <Phone className="w-6 h-6 text-white" />
               </div>
@@ -114,7 +110,7 @@ const ContactSection = () => {
             />
           </div>
           <div className="p-8 bg-gray-50 rounded-lg shadow-lg space-y-6">
-            {/* Address (clickable) */}
+            {/* Address */}
             <a
               href={mountainMapUrl}
               target="_blank"
@@ -136,11 +132,8 @@ const ContactSection = () => {
               </div>
             </a>
 
-            {/* Phone (clickable) */}
-            <a
-              href="tel:9708796350"
-              className="flex items-start hover:text-steamboat-blue"
-            >
+            {/* Phone */}
+            <a href="tel:9708796350" className="flex items-start hover:text-steamboat-blue">
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                 <Phone className="w-6 h-6 text-white" />
               </div>
