@@ -1,7 +1,6 @@
 import { MapPin, Phone, Clock } from "lucide-react";
 
 const ContactSection = () => {
-  // Google Maps embed URLs for each address
   const downtownMap =
     "https://maps.google.com/maps?q=442%20Lincoln%20Ave%2C%20Steamboat%20Springs%2C%20CO%2080487&output=embed";
   const mountainMap =
@@ -18,9 +17,8 @@ const ContactSection = () => {
           </p>
         </div>
 
-        {/* Two-column layout: map & info for each location */}
         <div className="grid grid-cols-1 gap-12 mt-16 lg:grid-cols-2">
-          {/* Downtown Location */}
+          {/* Downtown */}
           <div className="rounded-lg overflow-hidden h-96">
             <iframe
               src={downtownMap}
@@ -33,61 +31,57 @@ const ContactSection = () => {
               title="Downtown Steamboat Springs Map"
             />
           </div>
-          <div className="p-8 bg-gray-50 rounded-lg shadow-lg">
-            <div className="space-y-6">
-              {/* Address */}
-              <div className="flex items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
-                    Downtown
-                  </h3>
-                  <p className="mt-1 text-steamboat-gray">
-                    442 Lincoln Avenue
-                    <br />
-                    Steamboat Springs, CO 80487
-                  </p>
-                </div>
+          <div className="p-8 bg-gray-50 rounded-lg shadow-lg space-y-6">
+            {/* Address */}
+            <div className="flex items-start">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                <MapPin className="w-6 h-6 text-white" />
               </div>
-
-              {/* Phone */}
-              <div className="flex items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
-                    Phone
-                  </h3>
-                  <p className="mt-1 text-steamboat-gray">
-                    (970) 879-9144
-                  </p>
-                </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                  Downtown
+                </h3>
+                <p className="mt-1 text-steamboat-gray">
+                  442 Lincoln Avenue
+                  <br />
+                  Steamboat Springs, CO 80487
+                </p>
               </div>
+            </div>
 
-              {/* Hours */}
-              <div className="flex items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
-                  <Clock className="w-6 h-6 text-white" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
-                    Hours
-                  </h3>
-                  <p className="mt-1 text-steamboat-gray">
-                    <strong>Winter:</strong> 8am–6pm Mon–Sat, 8am–5pm Sun
-                  </p>
-                  <p className="text-steamboat-gray">
-                    <strong>Summer:</strong> 9am–6pm Mon–Sat, 9am–5pm Sun
-                  </p>
-                </div>
+            {/* Phone */}
+            <div className="flex items-start">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                <Phone className="w-6 h-6 text-white" />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                  Phone
+                </h3>
+                <p className="mt-1 text-steamboat-gray">(970) 879-9144</p>
+              </div>
+            </div>
+
+            {/* Hours */}
+            <div className="flex items-start">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                <Clock className="w-6 h-6 text-white" />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                  Hours
+                </h3>
+                {/* Winter Hours */}
+                <p className="mt-1 text-steamboat-gray">Mon–Sat | 8 am – 6 pm</p>
+                <p className="text-steamboat-gray">Sun | 8 am – 5 pm</p>
+                {/* Summer Hours */}
+                <p className="mt-1 text-steamboat-gray">Mon–Sat | 9 am – 6 pm</p>
+                <p className="text-steamboat-gray">Sun | 9 am – 5 pm</p>
               </div>
             </div>
           </div>
 
-          {/* Mountain Location */}
+          {/* Mountain */}
           <div className="rounded-lg overflow-hidden h-96">
             <iframe
               src={mountainMap}
@@ -100,56 +94,50 @@ const ContactSection = () => {
               title="Mountain Location Map"
             />
           </div>
-          <div className="p-8 bg-gray-50 rounded-lg shadow-lg">
-            <div className="space-y-6">
-              {/* Address */}
-              <div className="flex items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
-                    Mountain
-                  </h3>
-                  <p className="mt-1 text-steamboat-gray">
-                    2250 Apres Ski Way
-                    <br />
-                    Steamboat Springs, CO 80487
-                  </p>
-                </div>
+          <div className="p-8 bg-gray-50 rounded-lg shadow-lg space-y-6">
+            {/* Address */}
+            <div className="flex items-start">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                <MapPin className="w-6 h-6 text-white" />
               </div>
-
-              {/* Phone */}
-              <div className="flex items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
-                    Phone
-                  </h3>
-                  <p className="mt-1 text-steamboat-gray">
-                    (970) 879-6350
-                  </p>
-                </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                  Mountain
+                </h3>
+                <p className="mt-1 text-steamboat-gray">
+                  2250 Apres Ski Way
+                  <br />
+                  Steamboat Springs, CO 80487
+                </p>
               </div>
+            </div>
 
-              {/* Hours */}
-              <div className="flex items-start">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
-                  <Clock className="w-6 h-6 text-white" />
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-medium text-steamboat-darkBlue">
-                    Hours
-                  </h3>
-                  <p className="mt-1 text-steamboat-gray">
-                    <strong>Winter:</strong> 7:45am–5pm Daily
-                  </p>
-                  <p className="text-steamboat-gray">
-                    <strong>Summer:</strong> Closed
-                  </p>
-                </div>
+            {/* Phone */}
+            <div className="flex items-start">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                <Phone className="w-6 h-6 text-white" />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                  Phone
+                </h3>
+                <p className="mt-1 text-steamboat-gray">(970) 879-6350</p>
+              </div>
+            </div>
+
+            {/* Hours */}
+            <div className="flex items-start">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
+                <Clock className="w-6 h-6 text-white" />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-steamboat-darkBlue">
+                  Hours
+                </h3>
+                {/* Winter Hours */}
+                <p className="mt-1 text-steamboat-gray">Daily | 7:45 am – 5 pm</p>
+                {/* Summer Closed */}
+                <p className="text-steamboat-gray">Summer | Closed</p>
               </div>
             </div>
           </div>
