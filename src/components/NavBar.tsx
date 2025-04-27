@@ -13,6 +13,7 @@ const NavBar = () => {
     { name: "Bike Rentals", hash: "bike" },
     { name: "Bike Service", to: "/bike-service" },
     { name: "About", hash: "about" },
+    { name: "Shop", to: "/shop"},
     { name: "Events", to: "/events"},
     { name: "Contact", hash: "contact" },
   ];
