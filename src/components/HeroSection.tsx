@@ -8,7 +8,7 @@ const HeroSection = () => (
   <section
     className="relative h-screen bg-cover bg-center"
     style={{
-      backgroundImage: `url('${BASE_URL}images/hero.jpg')`,
+      backgroundImage: `url('${BASE_URL}images/hero.jpg')',
     }}
   >
     <div className="hero-overlay"></div>
