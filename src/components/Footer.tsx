@@ -6,50 +6,50 @@ const BASE_URL = import.meta.env.BASE_URL;
 const Footer = () => (
   <footer className="bg-steamboat-darkBlue text-white">
     <div className="container-custom py-12">
-      {/* 4 columns: Logo, Quick Links, Downtown, Mountain */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-        
-        {/* Logo + Description */}
-        <div>
+      {/* Four equal columns */}
+      <div className="flex flex-wrap gap-8">
+        {/* 1. Logo & Desc */}
+        <div className="w-full md:w-1/4">
           <img
             src={`${BASE_URL}images/logo.jpg.png`}
             alt="Steamboat Ski and Bike Kare"
             className="h-12 w-auto mb-4 object-contain"
           />
           <p className="text-gray-300">
-            Premium ski and bike rentals in the heart of Steamboat Springs, Colorado. Experience top-quality equipment and expert service.
+            Premium ski and bike rentals in the heart of Steamboat Springs,
+            Colorado. Experience top-quality equipment and expert service.
           </p>
         </div>
 
-        {/* Quick Links */}
-        <div>
+        {/* 2. Quick Links */}
+        <div className="w-full md:w-1/4">
           <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
-          <ul className="space-y-2">
-            <li><Link to="/" className="text-gray-300 hover:text-white">Home</Link></li>
-            <li><a href="#ski" className="text-gray-300 hover:text-white">Ski Rentals</a></li>
-            <li><a href="#bike" className="text-gray-300 hover:text-white">Bike Rentals</a></li>
-            <li><Link to="/bike-service" className="text-gray-300 hover:text-white">Bike Service</Link></li>
-            <li><a href="#about" className="text-gray-300 hover:text-white">About Us</a></li>
+          <ul className="space-y-2 text-gray-300">
+            <li><Link to="/" className="hover:text-white">Home</Link></li>
+            <li><a href="#ski" className="hover:text-white">Ski Rentals</a></li>
+            <li><a href="#bike" className="hover:text-white">Bike Rentals</a></li>
+            <li><Link to="/bike-service" className="hover:text-white">Bike Service</Link></li>
+            <li><a href="#about" className="hover:text-white">About Us</a></li>
           </ul>
         </div>
 
-        {/* Downtown */}
-        <div>
+        {/* 3. Downtown Location */}
+        <div className="w-full md:w-1/4 text-gray-300">
           <h3 className="mb-2 text-lg font-semibold text-white">Downtown</h3>
           <a
             href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white block mb-2"
+            className="block mb-2 hover:text-white"
           >
             442 Lincoln Avenue<br/>
             Steamboat Springs, CO 80487
           </a>
-          <p className="text-gray-300 mb-4">
+          <p className="mb-4">
             <span className="font-medium">Phone:</span>{' '}
             <a href="tel:9708799144" className="hover:text-white">(970) 879-9144</a>
           </p>
-          <div className="text-gray-300">
+          <div>
             <p className="font-bold text-white">Winter Hours</p>
             <p>Mon–Sat | 8 am – 6 pm</p>
             <p>Sun | 8 am – 5 pm</p>
@@ -59,23 +59,23 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Mountain */}
-        <div>
+        {/* 4. Mountain Location */}
+        <div className="w-full md:w-1/4 text-gray-300">
           <h3 className="mb-2 text-lg font-semibold text-white">Mountain</h3>
           <a
             href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare+-+Gondola+Square/@40.4565424,-106.804615,17z/data=!3m1!4b1!4m6!3m5!1s0x87426eba1111b891:0xf42b39da70b52b27!8m2!3d40.4565424!4d-106.804615!16s%2Fg%2F11g9vxtwmb?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white block mb-2"
+            className="block mb-2 hover:text-white"
           >
             2250 Apres Ski Way<br/>
             Steamboat Springs, CO 80487
           </a>
-          <p className="text-gray-300 mb-4">
+          <p className="mb-4">
             <span className="font-medium">Phone:</span>{' '}
             <a href="tel:9708796350" className="hover:text-white">(970) 879-6350</a>
           </p>
-          <div className="text-gray-300">
+          <div>
             <p className="font-bold text-white">Winter Hours</p>
             <p>Daily | 7:45 am – 5 pm</p>
             <p className="mt-2 font-bold text-white">Summer Hours</p>
