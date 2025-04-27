@@ -19,12 +19,12 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
       <div className="container-custom flex items-center justify-between h-20">
-        {/* Logo */}
+        {/* Logo: 48px tall, up to 200px wide */}
         <Link to="/" className="flex items-center space-x-2">
           <img
             src={`${BASE_URL}images/logo.jpg.png`}
             alt="Steamboat Ski and Bike Kare"
-            className="h-12 w-auto object-contain"
+            className="h-12 w-auto max-w-[200px] object-contain"
           />
           <span className="sr-only">Steamboat Ski and Bike Kare</span>
         </Link>
@@ -56,7 +56,7 @@ const NavBar = () => {
         <div className="md:hidden">
           <button
             type="button"
-            onClick={() => setMobileMenuOpen((o) => !o)}
+            onClick={() => setMobileMenuOpen(o => !o)}
             className="text-steamboat-darkGray hover:text-steamboat-blue"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
