@@ -51,17 +51,17 @@ export default function EventsSection() {
                   <Clock className="mr-2" size={16} />
                   <span>{ev.time}</span>
                 </div>
-              <div className="flex justify-center mt-8">
-                <a
-                  href="/steamboat-revive-project/events"
-                  className="btn-secondary"
-                  >
-                View Full Calendar
-                </a>
-              </div>
               )}
             </a>
           ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          <a
+            href="/steamboat-revive-project/events"
+            className="btn-secondary"
+          >
+            View Full Calendar
+          </a>
         </div>
       </div>
     </section>
