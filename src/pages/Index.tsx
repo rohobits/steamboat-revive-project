@@ -13,37 +13,39 @@ const Index = () => {
       name: "Full Suspension Mountain Bike",
       description: "Advanced full suspension bikes for technical terrain and trail riding.",
       price: "From $65/day",
-      image: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&q=80",
+      image: "/images/full-suspension.jpg",
     },
     {
       name: "Hardtail Mountain Bike",
       description: "Versatile hardtail bikes ideal for cross-country and trail riding.",
       price: "From $45/day",
-      image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&q=80",
+      image: "/images/hardtail.jpg",
     },
     {
       name: "Electric Mountain Bike",
       description: "Pedal-assisted e-bikes for extended range and climbing capabilities.",
       price: "From $75/day",
-      image: "https://images.unsplash.com/photo-1594058573823-d8edf1ad3380?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
+      image: "/images/electric.jpg",
     },
     {
       name: "Road Bike",
-      description: "Lightweight road bikes for pavement riding and exploring Steamboat's scenic roads.",
+      description:
+        "Lightweight road bikes for pavement riding and exploring Steamboat's scenic roads.",
       price: "From $55/day",
-      image: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
+      image: "/images/road-bike.jpg",
     },
     {
       name: "Cruiser Bike",
       description: "Comfortable cruiser bikes for casual riding around town and bike paths.",
       price: "From $30/day",
-      image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&q=80",
+      image: "/images/cruiser.jpg",
     },
     {
       name: "Kids Bike",
-      description: "Quality bikes sized for young riders with options for various ages and abilities.",
+      description:
+        "Quality bikes sized for young riders with options for various ages and abilities.",
       price: "From $25/day",
-      image: "https://images.unsplash.com/photo-1530968033775-2c92736b131e?ixlib=rb-1.2.1&auto=format&fit=crop&q=80",
+      image: "/images/kids-bike.jpg",
     },
   ];
 
@@ -52,6 +54,7 @@ const Index = () => {
       <NavBar />
       <HeroSection />
 
+      {/* Bike Rentals */}
       <ServiceSection
         id="bike"
         title="Bike Rentals"
@@ -60,9 +63,19 @@ const Index = () => {
         bgColor="bg-white"
       />
 
-      <AboutSection />
+      {/* About Us */}
+      <section id="about">
+        <AboutSection />
+      </section>
+
+      {/* Testimonials */}
       <TestimonialSection />
-      <ContactSection />
+
+      {/* Contact */}
+      <section id="contact">
+        <ContactSection />
+      </section>
+
       <Footer />
     </>
   );
