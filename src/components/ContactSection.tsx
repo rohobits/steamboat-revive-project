@@ -1,10 +1,10 @@
 import { MapPin, Phone, Clock } from "lucide-react";
 
 const ContactSection = () => {
-  const downtownMap =
-    "https://maps.google.com/maps?q=442%20Lincoln%20Ave%2C%20Steamboat%20Springs%2C%20CO%2080487&output=embed";
-  const mountainMap =
-    "https://maps.google.com/maps?q=2250%20Apres%20Ski%20Way%2C%20Steamboat%20Springs%2C%20CO%2080487&output=embed";
+  const downtownMapUrl =
+    "https://www.google.com/maps/search/?api=1&query=442+Lincoln+Ave%2C+Steamboat+Springs%2C+CO+80487";
+  const mountainMapUrl =
+    "https://www.google.com/maps/search/?api=1&query=2250+Apres+Ski+Way%2C+Steamboat+Springs%2C+CO+80487";
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -21,7 +21,7 @@ const ContactSection = () => {
           {/* Downtown */}
           <div className="rounded-lg overflow-hidden h-96">
             <iframe
-              src={downtownMap}
+              src={downtownMapUrl.replace("search/?", "maps?q=") + "&output=embed"}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -32,8 +32,13 @@ const ContactSection = () => {
             />
           </div>
           <div className="p-8 bg-gray-50 rounded-lg shadow-lg space-y-6">
-            {/* Address */}
-            <div className="flex items-start">
+            {/* Address (clickable) */}
+            <a
+              href={downtownMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start hover:text-steamboat-blue"
+            >
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
@@ -47,10 +52,13 @@ const ContactSection = () => {
                   Steamboat Springs, CO 80487
                 </p>
               </div>
-            </div>
+            </a>
 
-            {/* Phone */}
-            <div className="flex items-start">
+            {/* Phone (clickable) */}
+            <a
+              href="tel:9708799144"
+              className="flex items-start hover:text-steamboat-blue"
+            >
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                 <Phone className="w-6 h-6 text-white" />
               </div>
@@ -60,7 +68,7 @@ const ContactSection = () => {
                 </h3>
                 <p className="mt-1 text-steamboat-gray">(970) 879-9144</p>
               </div>
-            </div>
+            </a>
 
             {/* Hours */}
             <div className="flex items-start">
@@ -89,7 +97,7 @@ const ContactSection = () => {
           {/* Mountain */}
           <div className="rounded-lg overflow-hidden h-96">
             <iframe
-              src={mountainMap}
+              src={mountainMapUrl.replace("search/?", "maps?q=") + "&output=embed"}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -100,8 +108,13 @@ const ContactSection = () => {
             />
           </div>
           <div className="p-8 bg-gray-50 rounded-lg shadow-lg space-y-6">
-            {/* Address */}
-            <div className="flex items-start">
+            {/* Address (clickable) */}
+            <a
+              href={mountainMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start hover:text-steamboat-blue"
+            >
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
@@ -115,10 +128,13 @@ const ContactSection = () => {
                   Steamboat Springs, CO 80487
                 </p>
               </div>
-            </div>
+            </a>
 
-            {/* Phone */}
-            <div className="flex items-start">
+            {/* Phone (clickable) */}
+            <a
+              href="tel:9708796350"
+              className="flex items-start hover:text-steamboat-blue"
+            >
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-steamboat-blue">
                 <Phone className="w-6 h-6 text-white" />
               </div>
@@ -128,7 +144,7 @@ const ContactSection = () => {
                 </h3>
                 <p className="mt-1 text-steamboat-gray">(970) 879-6350</p>
               </div>
-            </div>
+            </a>
 
             {/* Hours */}
             <div className="flex items-start">
