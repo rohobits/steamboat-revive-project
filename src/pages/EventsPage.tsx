@@ -12,7 +12,7 @@ export default function EventsPage() {
     <>
       <NavBar />
 
-      <main className="container-custom py-20 bg-gray-50">
+      <main className="container-custom pt-20 py-20 bg-gray-50">
         <h1 className="section-title text-center">Full Events Calendar</h1>
         <div className="mt-8 flex justify-center">
           <Calendar
