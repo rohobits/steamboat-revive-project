@@ -5,6 +5,18 @@ import Footer from "@/components/Footer";
 
 export default function ShopPage() {
   useEffect(() => {
+    // Inject custom styles to hide Locally branding and enforce responsiveness
+    const style = document.createElement("style");
+    style.innerHTML = `
+      /* Hide Locally "Powered by" anchor */
+      #lcly-button-0 > a { display: none !important; }
+      /* Ensure widget respects container width */
+      #lcly-button-0 { width: 100% !important; }
+      /* Allow horizontal scroll on small screens */
+      .locally-wrapper { overflow-x: auto; }
+    `;
+    document.head.appendChild(style);
+
     // Dynamically inject the Locally widget script
     const script = document.createElement("script");
     script.async = true;
@@ -13,12 +25,9 @@ export default function ShopPage() {
 
     // Configure the widget
     var __lcly_channel_domain_0 = "locally";
-    var lcly_config_0 = {
-      store: "20274",
-      uri: "search",
-    };
+    var lcly_config_0 = { store: "20274", uri: "search" };
     var lcly_query_0 = Object.keys(lcly_config_0)
-      .reduce(function (a, k) {
+      .reduce((a, k) => {
         a.push(
           encodeURIComponent(k) + "=" +
             encodeURIComponent(
@@ -31,8 +40,7 @@ export default function ShopPage() {
       }, [])
       .join("&");
     var lcly_endpoint_0 =
-      "https://SteamboatSkiandBikeKare.locally.com/widgets/search.js?" +
-      lcly_query_0;
+      "https://SteamboatSkiandBikeKare.locally.com/widgets/search.js?" + lcly_query_0;
     script.src = lcly_endpoint_0;
   }, []);
 
@@ -42,28 +50,29 @@ export default function ShopPage() {
 
       <main className="container-custom py-20 bg-white">
         <h1 className="section-title text-center">Shop Our Inventory</h1>
-        {/* Locally widget container with hidden fallback anchor */}
-        <div
-          id="lcly-button-0"
-          data-switchlive="true"
-          data-switchlive-impression="true"
-          data-switchlive-impression-id-PL="1"
-          className="mt-8 flex justify-center"
-        >
-          {/* Fallback anchor needed by widget; hidden to remove the default bar */}
-          <a
-            id="lcly-link-0"
+        {/* Wrap widget for responsive scroll */}
+        <div className="locally-wrapper mt-8">
+          <div
+            id="lcly-button-0"
             data-switchlive="true"
-            data-switchlive-mode="auto"
-            data-switchlive-id-PL="6"
-            role="button"
-            href="https://www.locally.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "none" }}
+            data-switchlive-impression="true"
+            data-switchlive-impression-id-PL="1"
+            className="flex justify-center"
           >
-            Powered by Locally
-          </a>
+            {/* Fallback anchor (hidden by CSS) required by widget */}
+            <a
+              id="lcly-link-0"
+              data-switchlive="true"
+              data-switchlive-mode="auto"
+              data-switchlive-id-PL="6"
+              role="button"
+              href="https://www.locally.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Powered by Locally
+            </a>
+          </div>
         </div>
       </main>
 
