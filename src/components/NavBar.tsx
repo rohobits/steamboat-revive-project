@@ -12,6 +12,7 @@ const NavBar = () => {
     { name: "Home", to: "/" },
     { name: "Bike Rentals", hash: "bike" },
     { name: "Bike Service", to: "/bike-service" },
+    { name: "Ski Tuning", to: "/ski-tuning" }, 
     { name: "About", hash: "about" },
     { name: "Shop", to: "/shop"},
     { name: "Events", to: "/events"},
