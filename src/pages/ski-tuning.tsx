@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 const BASE_URL = import.meta.env.BASE_URL;
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
 
 export default function SkiTuningPage() {
   return (
@@ -26,7 +27,7 @@ export default function SkiTuningPage() {
               playsInline
             >
               <source
-                src={`${BASE_URL}videos/ski-tune-loop.m4v`}
+                src={`${BASE_URL}videos/ski-tune-loop.mp4`}
                 type="video/mp4"
               />
               Sorry, your browser doesn't support embedded videos.
@@ -37,9 +38,9 @@ export default function SkiTuningPage() {
             </div>
           </div>
 
-          {/* Free Overnight Banner */}
-          <section className="my-8 bg-steamboat-blue text-white text-center py-4 rounded">
-            <h2 className="text-2xl font-semibold mb-0">Free Overnight Ski Tuning</h2>
+          {/* Guaranteed Overnight Tunes Banner */}
+          <section className="my-8 bg-steamboat-red text-white text-center py-6 rounded shadow-lg">
+            <h2 className="text-3xl font-extrabold uppercase mb-0">Guaranteed Overnight Tunes</h2>
           </section>
 
           {/* Expert Technicians Section */}
@@ -79,7 +80,9 @@ export default function SkiTuningPage() {
               Call Us With Questions
             </a>
             <a
-              href="#"
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 border border-steamboat-blue text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
             >
               Bring Your Skis In Today
