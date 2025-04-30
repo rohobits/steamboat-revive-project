@@ -4,8 +4,6 @@ import Footer from "@/components/Footer";
 import { Users, MapPin, Settings, Layers, Droplet, Compass } from "lucide-react";
 
 const BASE_URL = import.meta.env.BASE_URL;
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
-
 export default function SkiTuningPage() {
   return (
     <>
@@ -84,6 +82,29 @@ export default function SkiTuningPage() {
             </div>
           </section>
 
+          {/* DPS PhantomGlide Banner */}
+          <section className="my-16 flex flex-col lg:flex-row items-center bg-black text-white rounded-lg overflow-hidden">
+            <div className="w-full lg:w-1/2 p-8">
+              <h3 className="text-3xl lg:text-4xl font-extrabold uppercase mb-4">Add DPS Phantom Glide™</h3>
+              <p className="mb-6 text-lg">PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.</p>
+              <a
+                href="https://www.dpsskis.com/collections/phantom-glide/products/phantomglide"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 bg-steamboat-red text-white font-semibold rounded shadow hover:bg-red-700 transition"
+              >
+                Learn More
+              </a>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <img
+                src={`${BASE_URL}images/phantom-glide.png`}
+                alt="PHANTOM Glide Single Application Kit"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </section>
+
           {/* Call to Action */}
           <section className="mb-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a
@@ -93,7 +114,7 @@ export default function SkiTuningPage() {
               Call Us With Questions
             </a>
             <a
-              href={GOOGLE_MAPS_URL}
+              href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border border-steamboat-blue text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
@@ -116,7 +137,6 @@ export default function SkiTuningPage() {
           </section>
         </div>
       </div>
-
       <Footer />
     </>
   );
