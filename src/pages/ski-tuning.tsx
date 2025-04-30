@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Users, MapPin } from "lucide-react";
+import { Users, MapPin, Settings, Layers, Droplet, Compass } from "lucide-react";
 
 const BASE_URL = import.meta.env.BASE_URL;
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
@@ -50,17 +50,41 @@ export default function SkiTuningPage() {
             </div>
           </section>
 
-          {/* Benefits List */}
+          {/* Features Section */}
           <section className="mb-12">
             <p className="mb-4 text-steamboat-gray leading-relaxed">
-              Enhance your ski’s performance with our custom edge bevels, pro-grade base structure, hot-wax finish, and precision tuning crafted for Steamboat’s diverse terrain. Experience superior glide, increased control, and unmatched durability.
+              Enhance your ski’s performance with our comprehensive feature set designed for optimal glide, control, and durability.
             </p>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 list-disc list-inside text-steamboat-gray">
-              <li>Custom edge bevels</li>
-              <li>Pro-grade base structure</li>
-              <li>Hot-wax finish</li>
-              <li>Precision tuning for all conditions</li>
-            </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-6">
+              <div className="flex items-start space-x-3">
+                <Settings className="text-steamboat-blue" size={32} />
+                <div>
+                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Custom Edge Bevels</h4>
+                  <p className="text-steamboat-gray">Tailored bevel angles for precise control.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Layers className="text-steamboat-blue" size={32} />
+                <div>
+                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Pro-Grade Base Structure</h4>
+                  <p className="text-steamboat-gray">Engineered patterning for superior snow release.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Droplet className="text-steamboat-blue" size={32} />
+                <div>
+                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Hot-Wax Finish</h4>
+                  <p className="text-steamboat-gray">Premium wax for maximum glide efficiency.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Compass className="text-steamboat-blue" size={32} />
+                <div>
+                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Precision Tuning</h4>
+                  <p className="text-steamboat-gray">Adapted to any condition Steamboat throws at you.</p>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* Call to Action */}
