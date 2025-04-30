@@ -10,7 +10,6 @@ export default function SkiTuningPage() {
   return (
     <>
       <NavBar />
-
       <div className="pt-20 bg-white">
         {/* Hero Section (full width) */}
         <section className="relative w-full h-96 overflow-hidden">
@@ -33,7 +32,7 @@ export default function SkiTuningPage() {
           </div>
         </section>
 
-        {/* Main Content Container */}
+        {/* Main Content */}
         <div className="container-custom py-16">
           {/* Page Title */}
           <div className="mb-8">
@@ -106,9 +105,9 @@ export default function SkiTuningPage() {
           </section>
         </div>
 
-        {/* Phantom Glide Banner (full width, no rounded edges) */}
-        <section className="w-full bg-black text-white flex flex-col lg:flex-row items-center overflow-hidden my-12 px-6 lg:px-16 py-6">
-          <div className="lg:w-2/3">
+        {/* Phantom Glide Banner (full-width, responsive, no rounding) */}
+        <section className="w-full bg-black text-white flex flex-col lg:flex-row items-stretch overflow-hidden my-12">
+          <div className="lg:w-2/3 p-6">
             <h3 className="text-2xl lg:text-3xl font-extrabold uppercase mb-4 text-steamboat-red">
               Ask About Adding a Phantom Glide To Your Next Ski Tune
             </h3>
@@ -116,7 +115,7 @@ export default function SkiTuningPage() {
               PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.
             </p>
           </div>
-          <div className="lg:w-1/3 h-full flex-shrink-0">
+          <div className="lg:w-1/3">
             <img
               src={`${BASE_URL}images/phantom-glide.png`}
               alt="PHANTOM Glide Single Application Kit"
@@ -125,9 +124,8 @@ export default function SkiTuningPage() {
           </div>
         </section>
 
-        {/* Main Footer Actions */}
+        {/* Footer Actions */}
         <div className="container-custom py-16">
-          {/* Call to Action Buttons */}
           <section className="mb-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="tel:9708799144"
@@ -144,8 +142,6 @@ export default function SkiTuningPage() {
               Bring Your Skis In Today
             </a>
           </section>
-
-          {/* Contact Info */}
           <section className="mt-12 bg-gray-50 border border-steamboat-blue/20 rounded-lg p-6">
             <div className="flex items-start space-x-4">
               <MapPin className="text-steamboat-blue" size={28} />
