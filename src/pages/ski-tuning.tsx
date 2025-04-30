@@ -52,9 +52,6 @@ export default function SkiTuningPage() {
 
           {/* Features Section */}
           <section className="mb-12">
-            <p className="mb-4 text-steamboat-gray leading-relaxed">
-              Enhance your ski’s performance with our comprehensive feature set designed for optimal glide, control, and durability.
-            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-6">
               <div className="flex items-start space-x-3">
                 <Settings className="text-steamboat-blue" size={32} />
@@ -119,6 +116,7 @@ export default function SkiTuningPage() {
           </section>
         </div>
       </div>
+
       <Footer />
     </>
   );
