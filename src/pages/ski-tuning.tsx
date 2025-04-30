@@ -25,6 +25,7 @@ export default function SkiTuningPage() {
               loop
               muted
               playsInline
+              preload="auto"
             >
               <source
                 src={`${BASE_URL}videos/ski-tune-loop.mp4`}
