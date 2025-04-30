@@ -38,54 +38,7 @@ export default function SkiTuningPage() {
             <div className="flex items-start space-x-4">
               <Users className="text-steamboat-blue" size={32} />
               <div>
-                <h3 className="text-2xl font-bold text-steamboat-darkBlue mb-3">
-                  Expert Ski Technicians
-                </h3>
-                <p className="text-lg text-steamboat-gray">
-                  Our experienced technicians use top-tier equipment and proven techniques to deliver precise ski tuning that boosts performance and longevity, ensuring smooth, controlled turns on every run.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Features Section */}
-          <section className="mb-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-6">
-              <div className="flex items-start space-x-3">
-                <Settings className="text-steamboat-blue" size={32} />
-                <div>
-                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Custom Edge Bevels</h4>
-                  <p className="text-steamboat-gray">Tailored bevel angles for precise control.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Layers className="text-steamboat-blue" size={32} />
-                <div>
-                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Pro-Grade Base Structure</h4>
-                  <p className="text-steamboat-gray">Engineered patterning for superior snow release.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Droplet className="text-steamboat-blue" size={32} />
-                <div>
-                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Hot-Wax Finish</h4>
-                  <p className="text-steamboat-gray">Premium wax for maximum glide efficiency.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Compass className="text-steamboat-blue" size={32} />
-                <div>
-                  <h4 className="text-lg font-semibold text-steamboat-darkBlue">Precision Tuning</h4>
-                  <p className="text-steamboat-gray">Adapted to any condition Steamboat throws at you.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* DPS PhantomGlide Banner */}
-          <section className="my-16 flex flex-col lg:flex-row items-center bg-black text-white rounded-lg overflow-hidden">
-            <div className="w-full lg:w-1/2 p-8">
-              <h3 className="text-3xl lg:text-4xl font-extrabold uppercase mb-4">Add DPS Phantom Glide™</h3>
+                <h3 className="text-3xl lg:text-4xl font-extrabold uppercase mb-4">Phantom Glide to any ski tune</h3>
               <p className="mb-6 text-lg">PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.</p>
               <a
                 href="https://www.dpsskis.com/collections/phantom-glide/products/phantomglide"
