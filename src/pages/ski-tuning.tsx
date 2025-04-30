@@ -33,7 +33,7 @@ export default function SkiTuningPage() {
           </div>
         </section>
 
-        {/* Main Content */}
+        {/* Main Content Container */}
         <div className="container-custom py-16">
           {/* Page Title */}
           <div className="mb-8">
@@ -106,8 +106,8 @@ export default function SkiTuningPage() {
           </section>
         </div>
 
-        {/* Phantom Glide Banner (full width) */}
-        <section className="w-full bg-black text-white flex flex-col lg:flex-row items-center rounded-lg overflow-hidden my-12 px-6 lg:px-16 py-8">
+        {/* Phantom Glide Banner (full width, no rounded edges) */}
+        <section className="w-full bg-black text-white flex flex-col lg:flex-row items-center overflow-hidden my-12 px-6 lg:px-16 py-8">
           <div className="lg:w-2/3">
             <h3 className="text-2xl lg:text-3xl font-extrabold uppercase mb-4 text-steamboat-red">
               Ask About Adding a Phantom Glide To Your Next Ski Tune
@@ -120,13 +120,14 @@ export default function SkiTuningPage() {
             <img
               src={`${BASE_URL}images/phantom-glide.png`}
               alt="PHANTOM Glide Single Application Kit"
-              className="max-h-32 object-contain"
+              className="w-full h-auto object-contain"
             />
           </div>
         </section>
 
         {/* Main Footer Actions */}
         <div className="container-custom py-16">
+          {/* Call to Action Buttons */}
           <section className="mb-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="tel:9708799144"
@@ -144,6 +145,7 @@ export default function SkiTuningPage() {
             </a>
           </section>
 
+          {/* Contact Info */}
           <section className="mt-12 bg-gray-50 border border-steamboat-blue/20 rounded-lg p-6">
             <div className="flex items-start space-x-4">
               <MapPin className="text-steamboat-blue" size={28} />
