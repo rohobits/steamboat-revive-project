@@ -10,8 +10,9 @@ export default function SkiTuningPage() {
   return (
     <>
       <NavBar />
+
       <div className="pt-20 bg-white">
-        {/* Hero Section */}
+        {/* Hero Section (full width) */}
         <section className="relative w-full h-96 overflow-hidden">
           <video
             className="absolute inset-0 w-full h-full object-cover"
@@ -81,24 +82,23 @@ export default function SkiTuningPage() {
             </div>
           </section>
 
-          {/* Phantom Glide Banner */}
-          <section className="my-12 flex flex-col lg:flex-row items-center bg-black text-white rounded-lg overflow-hidden">
-            {/* Phantom Glide Banner */}
-            <div className="w-full lg:w-1/2 p-8">
-              <h3 className="text-3xl lg:text-4xl font-extrabold uppercase mb-4">Phantom Glide to any ski tune</h3>
-              <p className="mb-6 text-lg">
+          {/* Phantom Glide Banner (smaller) */}
+          <section className="my-8 flex flex-col lg:flex-row items-center bg-black text-white rounded-lg overflow-hidden">
+            <div className="w-full lg:w-2/3 p-4">
+              <h3 className="text-xl lg:text-2xl font-extrabold uppercase mb-3">Add Phantom Glide To Any Ski Tune</h3>
+              <p className="mb-4 text-base">
                 PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.
               </p>
               <a
                 href="https://www.dpsskis.com/collections/phantom-glide/products/phantomglide"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-steamboat-red text-white font-semibold rounded shadow hover:bg-red-700 transition"
+                className="inline-block px-5 py-2 bg-steamboat-red text-white font-semibold rounded shadow hover:bg-red-700 transition"
               >
                 Learn More
               </a>
             </div>
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/3">
               <img
                 src={`${BASE_URL}images/phantom-glide.png`}
                 alt="PHANTOM Glide Single Application Kit"
