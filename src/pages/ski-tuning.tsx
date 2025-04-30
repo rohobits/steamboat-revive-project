@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Wrench, Users, MapPin } from "lucide-react";
+import { Users, MapPin } from "lucide-react";
 
 const BASE_URL = import.meta.env.BASE_URL;
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
@@ -24,22 +24,16 @@ export default function SkiTuningPage() {
             preload="auto"
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-4">
-            <h2 className="text-3xl font-bold">Premium Ski Tuning in Steamboat Springs</h2>
-            <p className="mt-2 text-lg">Guaranteed Overnight Service</p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold drop-shadow-lg">Premium Ski Tuning in Steamboat Springs</h2>
+            <p className="mt-3 text-xl lg:text-2xl drop-shadow-md">A custom tune for any condition that comes your way</p>
           </div>
         </section>
 
         <div className="container-custom py-16">
           {/* Title Section */}
-          <div className="flex items-center space-x-4 mb-8">
-            <Wrench className="text-steamboat-blue" size={36} />
-            <h1 className="section-title mb-0">Premium Ski Tuning</h1>
+          <div className="mb-8">
+            <h1 className="section-title text-steamboat-darkBlue">Premium Ski Tuning</h1>
           </div>
-
-          {/* Guaranteed Overnight Tunes Banner */}
-          <section className="my-8 bg-steamboat-blue text-white text-center py-6 rounded shadow-lg">
-            <h2 className="text-3xl font-extrabold uppercase mb-0">Guaranteed Overnight Tunes</h2>
-          </section>
 
           {/* Expert Technicians Section */}
           <section className="bg-gray-50 rounded-lg p-8 mb-12">
