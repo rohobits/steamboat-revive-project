@@ -75,7 +75,7 @@ export default function SkiTuningPage() {
           <section className="mb-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="tel:9708799144"
-              className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow transition hover:bg-white hover:text-steamboat-blue"
+              className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow border border-steamboat-blue transition hover:bg-white hover:text-steamboat-blue"
             >
               Call Us With Questions
             </a>
