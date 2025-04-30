@@ -84,7 +84,7 @@ export default function SkiTuningPage() {
           {/* Phantom Glide Banner */}
           <section className="my-16 flex flex-col lg:flex-row items-center bg-black text-white rounded-lg overflow-hidden">
             <div className="w-full lg:w-1/2 p-8">
-              <h3 className="text-3xl lg:text-4xl font-extrabold uppercase mb-4">Phantom Glide to any ski tune</h3>
+              <h3 className="text-3xl lg:text-4xl font-extrabold uppercase mb-4">Add Phantom Glide to any ski tune</h3>
               <p className="mb-6 text-lg">
                 PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.
               </p>
