@@ -39,7 +39,7 @@ export default function SkiTuningPage() {
           </div>
 
           {/* Guaranteed Overnight Tunes Banner */}
-          <section className="my-8 bg-steamboat-red text-white text-center py-6 rounded shadow-lg">
+          <section className="my-8 bg-steamboat-blue text-white text-center py-6 rounded shadow-lg">
             <h2 className="text-3xl font-extrabold uppercase mb-0">Guaranteed Overnight Tunes</h2>
           </section>
 
@@ -75,7 +75,7 @@ export default function SkiTuningPage() {
           <section className="mb-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="tel:9708799144"
-              className="px-6 py-3 bg-red-600 text-white font-semibold rounded shadow hover:bg-red-700 transition"
+              className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow transition hover:bg-white hover:text-steamboat-blue"
             >
               Call Us With Questions
             </a>
@@ -97,9 +97,7 @@ export default function SkiTuningPage() {
                 <p className="font-medium text-steamboat-darkBlue">
                   Have a question? Stop by 442 Lincoln Avenue in Steamboat Springs or <a href="tel:9708799144" className="text-steamboat-blue underline">call us</a>.
                 </p>
-                <p className="text-steamboat-gray mt-2">
-                  Walk-ins are always welcome.
-                </p>
+                <p className="text-steamboat-gray mt-2">Walk-ins are always welcome.</p>
               </div>
             </div>
           </section>
