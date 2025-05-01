@@ -1,21 +1,33 @@
 import React from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Users, MapPin, Settings, Layers, Droplet, Compass } from "lucide-react";
+import { Users, MapPin, Settings, Layers, Droplet, Compass, Star } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const BASE_URL = import.meta.env.BASE_URL;
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
 
 const reviews = [
-  { text: "My skis have never glided smoother thanks to their edge bevels and hot-wax finish!", author: "Emma L.", rating: 5 },
-  { text: "Professional tuning service! The precision tuning made my downhill experience unbeatable.", author: "David W.", rating: 5 },
-  { text: "Adding Phantom Glide took my skis to the next level. Outstanding durability and glide.", author: "Sophia R.", rating: 5 },
+  {
+    text: "My skis have never glided smoother thanks to their edge bevels and hot-wax finish!",
+    author: "Emma L.",
+    rating: 5,
+  },
+  {
+    text: "Professional tuning service! The precision tuning made my downhill experience unbeatable.",
+    author: "David W.",
+    rating: 5,
+  },
+  {
+    text: "Adding Phantom Glide took my skis to the next level. Outstanding durability and glide.",
+    author: "Sophia R.",
+    rating: 5,
+  },
 ];
 
 export default function SkiTuningPage() {
   return (
     <>
-      {/* Navigation */}
       <NavBar />
 
       {/* Hero Section */}
@@ -41,10 +53,12 @@ export default function SkiTuningPage() {
 
       {/* Main Content */}
       <div className="container-custom py-16">
+        {/* Title */}
         <h1 className="section-title text-steamboat-darkBlue mb-8">
           Premium Ski Tuning
         </h1>
 
+        {/* Expert Technicians */}
         <section className="bg-gray-50 rounded-lg p-8 mb-12">
           <div className="flex items-start space-x-4">
             <Users className="text-steamboat-blue" size={32} />
@@ -53,12 +67,13 @@ export default function SkiTuningPage() {
                 Expert Ski Technicians
               </h3>
               <p className="text-lg text-steamboat-gray">
-                Our experienced technicians use top-tier equipment and proven techniques to deliver precise ski tuning that boosts performance and longevity, ensuring smooth, controlled turns on every run.
+                Our experienced technicians use top-tier equipment and proven techniques to deliver precise ski tuning that boosts performance and longevity.
               </p>
             </div>
           </div>
         </section>
 
+        {/* Features Grid */}
         <section className="mb-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="flex items-start space-x-3">
@@ -107,17 +122,14 @@ export default function SkiTuningPage() {
             </div>
           </div>
         </section>
-      </div>
 
-      {/* Phantom Glide Banner (full width) */}
-      {/* Reviews Section */}
-      <div className="container-custom pb-16">
-        <div className="mt-16">
+        {/* Reviews Section */}
+        <section className="mt-16">
           <div className="flex items-center space-x-4 mb-8">
             <Star className="text-steamboat-blue" size={32} />
             <h2 className="text-2xl font-bold text-steamboat-darkBlue">What Our Customers Say</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((review, idx) => (
               <Card key={idx} className="border-2">
                 <CardContent className="p-6">
@@ -132,51 +144,32 @@ export default function SkiTuningPage() {
               </Card>
             ))}
           </div>
-        </div>
+        </section>
       </div>
 
-      {/* Phantom Glide Banner (full-width) */}
+      {/* Phantom Glide Banner (full width) */}
       <section className="w-full bg-black text-white flex flex-col lg:flex-row overflow-hidden my-12">
-        {/* Text Block */}
         <div className="lg:w-3/4 p-6 flex items-center">
           <div>
             <h3 className="text-2xl lg:text-3xl font-extrabold uppercase mb-4 text-steamboat-red">
               Ask About Adding a Phantom Glide To Your Next Ski Tune
             </h3>
             <p className="text-base text-white">
-              PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.
+              PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability.
             </p>
           </div>
         </div>
-        {/* Image Block */}
         <div className="lg:w-1/4 flex items-center">
           <img
             src={`${BASE_URL}images/phantom-glide.png`}
             alt="PHANTOM Glide Single Application Kit"
-            className="w-full h-auto object-contain"
+            className="w-full object-contain"
           />
         </div>
       </section>
 
-      {/* Footer CTAs */}
+      {/* Contact Info */}
       <div className="container-custom py-16">
-        <section className="mb-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <a
-            href="tel:9708799144"
-            className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow border border-steamboat-blue transition hover:bg-white hover:text-steamboat-blue"
-          >
-            Call Us With Questions
-          </a>
-          <a
-            href={GOOGLE_MAPS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 border border-steamboat-blue text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
-          >
-            Bring Your Skis In Today
-          </a>
-        </section>
-
         <section className="mt-12 bg-gray-50 border border-steamboat-blue/20 rounded-lg p-6">
           <div className="flex items-start space-x-4">
             <MapPin className="text-steamboat-blue" size={28} />
