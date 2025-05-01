@@ -6,6 +6,12 @@ import { Users, MapPin, Settings, Layers, Droplet, Compass } from "lucide-react"
 const BASE_URL = import.meta.env.BASE_URL;
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D";
 
+const reviews = [
+  { text: "My skis have never glided smoother thanks to their edge bevels and hot-wax finish!", author: "Emma L.", rating: 5 },
+  { text: "Professional tuning service! The precision tuning made my downhill experience unbeatable.", author: "David W.", rating: 5 },
+  { text: "Adding Phantom Glide took my skis to the next level. Outstanding durability and glide.", author: "Sophia R.", rating: 5 },
+];
+
 export default function SkiTuningPage() {
   return (
     <>
@@ -109,7 +115,7 @@ export default function SkiTuningPage() {
         <div className="lg:w-3/4 p-6 flex items-center">
           <div>
             <h3 className="text-2xl lg:text-3xl font-extrabold uppercase mb-4 text-steamboat-red">
-              Ask About Adding a Phantom Treatment To Your Next Ski Tune
+              Ask About Adding a Phantom Glide To Your Next Ski Tune
             </h3>
             <p className="text-base text-white">
               PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.
