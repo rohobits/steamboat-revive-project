@@ -9,17 +9,17 @@ const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bik
 
 const reviews = [
   {
-    text: "My skis have never glided smoother thanks to their edge bevels and hot-wax finish!",
+    text: “The expert staff at this shop knew exactly what my skis needed. I’ve never had such smooth edge control on the mountain — it’s like riding a whole new setup!”,
     author: "Emma L.",
     rating: 5,
   },
   {
-    text: "Professional tuning service! The precision tuning made my downhill experience unbeatable.",
+    text: “Everyone at the shop was so friendly and welcoming. They took the time to explain the tuning process and had my skis ready overnight. Super impressed!”,
     author: "David W.",
     rating: 5,
   },
   {
-    text: "Adding Phantom Glide took my skis to the next level. Outstanding durability and glide.",
+    text: “Hands down the best tune I’ve had in years. Fast turnaround, great service, and the quality of the tune made a noticeable difference on the slopes.”,
     author: "Sophia R.",
     rating: 5,
   },
