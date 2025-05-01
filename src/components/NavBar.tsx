@@ -15,7 +15,7 @@ const NavBar = () => {
     { name: "Boot Fitting", to: "/Boot-fitting" }, 
     { name: "Ski Tuning", to: "/ski-tuning" }, 
     { name: "About", hash: "about" },
-    { name: "Shop", to: "/shop"},
+    { name: "Shop", to: "/ShopPage},
     { name: "Events", to: "/events"},
     { name: "Contact", hash: "contact" },
   ];
