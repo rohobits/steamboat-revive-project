@@ -52,7 +52,7 @@ export default function SkiTuningPage() {
       </section>
 
       {/* Main Content */}
-      <div className="container-custom py-16">
+      <div className="container-custom py-8">
         {/* Title */}
         <h1 className="section-title text-steamboat-darkBlue mb-8">
           Premium Ski Tuning
@@ -170,7 +170,7 @@ export default function SkiTuningPage() {
 
       {/* Contact Info */}
       <div className="container-custom py-16">
-        <section className="mt-12 bg-gray-50 border border-steamboat-blue/20 rounded-lg p-6">
+        <section className="mt-4 bg-gray-50 border border-steamboat-blue/20 rounded-lg p-6">
           <div className="flex items-start space-x-4">
             <MapPin className="text-steamboat-blue" size={28} />
             <div>
