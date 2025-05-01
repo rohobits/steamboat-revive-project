@@ -7,6 +7,7 @@ import EventsPage from "./pages/EventsPage";
 import BootFittingPage from "./pages/Boot-fitting";
 import SkiTuningPage from "./pages/ski-tuning";    // ← import your new page
 import NotFound from "./pages/NotFound";
+import ShopPage from "./pages/ShopPage";
 
 const App = () => (
   <BrowserRouter basename="/steamboat-revive-project">
