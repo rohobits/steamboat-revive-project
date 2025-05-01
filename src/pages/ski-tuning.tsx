@@ -104,20 +104,25 @@ export default function SkiTuningPage() {
       </div>
 
       {/* Phantom Glide Banner (full-width) */}
-      <section className="w-full bg-black text-white flex flex-col lg:flex-row overflow-hidden my-12">
-        <div className="lg:w-2/3 p-4 lg:px-16 flex items-center">
-          <h3 className="text-2xl lg:text-3xl font-extrabold uppercase text-steamboat-red">
-            Ask About Adding a Phantom Glide To Your Next Ski Tune
-          </h3>
-        </div>
-        <div className="lg:w-1/3">
-          <img
-            src={`${BASE_URL}images/phantom-glide.png`}
-            alt="PHANTOM Glide Single Application Kit"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </section>
+      <section className="w-full bg-black text-white flex flex-col lg:flex-row overflow-hidden my-12 px-6 lg:px-16">
+  {/* Text Content */}
+  <div className="lg:w-2/3 flex flex-col justify-center p-6">
+    <h3 className="text-2xl lg:text-3xl font-extrabold uppercase mb-2 text-steamboat-red">
+      Ask About Adding a Phantom Glide To Your Next Ski Tune
+    </h3>
+    <p className="text-base text-white mb-4">
+      PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.
+    </p>
+  </div>
+  {/* Image */}
+  <div className="lg:w-1/4 relative">
+    <img
+      src={`${BASE_URL}images/phantom-glide.png`}
+      alt="PHANTOM Glide Single Application Kit"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+  </div>
+</section>
 
       {/* Footer Actions */}
       <div className="container-custom py-16">
