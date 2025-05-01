@@ -109,7 +109,7 @@ export default function SkiTuningPage() {
         <div className="lg:w-3/4 p-6 flex items-center">
           <div>
             <h3 className="text-2xl lg:text-3xl font-extrabold uppercase mb-4 text-steamboat-red">
-              Ask About Adding a Phantom Glide To Your Next Ski Tune
+              Ask About Adding a Phantom Treatment To Your Next Ski Tune
             </h3>
             <p className="text-base text-white">
               PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability. Pair it with any premium ski tuning for the ultimate ride.
