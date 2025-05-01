@@ -9,18 +9,18 @@ const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Steamboat+Ski+%26+Bik
 
 const reviews = [
   {
-    text: “The expert staff at this shop knew exactly what my skis needed. I’ve never had such smooth edge control on the mountain — it’s like riding a whole new setup!”,
-    author: "Emma L.",
+    text: "The expert staff at this shop knew exactly what my skis needed. I’ve never had such smooth edge control on the mountain — it’s like riding a whole new setup!",
+    author: "Kyle B.",
     rating: 5,
   },
   {
-    text: “Everyone at the shop was so friendly and welcoming. They took the time to explain the tuning process and had my skis ready overnight. Super impressed!”,
-    author: "David W.",
+    text: "Everyone at the shop was so friendly and welcoming. They took the time to explain the tuning process and had my skis ready overnight. Super impressed!",
+    author: "Rachel S.",
     rating: 5,
   },
   {
-    text: “Hands down the best tune I’ve had in years. Fast turnaround, great service, and the quality of the tune made a noticeable difference on the slopes.”,
-    author: "Sophia R.",
+    text: "Hands down the best tune I’ve had in years. Fast turnaround, great service, and the quality of the tune made a noticeable difference on the slopes.",
+    author: "Jeremy M.",
     rating: 5,
   },
 ];
@@ -152,7 +152,7 @@ export default function SkiTuningPage() {
         <div className="lg:w-3/4 p-6 flex items-center">
           <div>
             <h3 className="text-2xl lg:text-3xl font-extrabold uppercase mb-4 text-steamboat-red">
-              Ask About Adding a Phantom Treatment To Your Next Ski Tune
+              Ask About Adding a Phantom Glide To Your Next Ski Tune
             </h3>
             <p className="text-base text-white">
               PHANTOM Glide™ is the only permanent base treatment, offering unmatched glide performance and durability.
