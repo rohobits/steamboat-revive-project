@@ -110,6 +110,32 @@ export default function SkiTuningPage() {
       </div>
 
       {/* Phantom Glide Banner (full width) */}
+      {/* Reviews Section */}
+      <div className="container-custom pb-16">
+        <div className="mt-16">
+          <div className="flex items-center space-x-4 mb-8">
+            <Star className="text-steamboat-blue" size={32} />
+            <h2 className="text-2xl font-bold text-steamboat-darkBlue">What Our Customers Say</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {reviews.map((review, idx) => (
+              <Card key={idx} className="border-2">
+                <CardContent className="p-6">
+                  <div className="flex mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="text-steamboat-orange" size={20} fill="currentColor" />
+                    ))}
+                  </div>
+                  <p className="text-steamboat-gray mb-4 italic">"{review.text}"</p>
+                  <p className="font-semibold text-steamboat-darkBlue">- {review.author}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Phantom Glide Banner (full-width) */}
       <section className="w-full bg-black text-white flex flex-col lg:flex-row overflow-hidden my-12">
         {/* Text Block */}
         <div className="lg:w-3/4 p-6 flex items-center">
@@ -122,7 +148,7 @@ export default function SkiTuningPage() {
             </p>
           </div>
         </div>
-        {/* Image Block - scaled down to 25% width, responsive height */}
+        {/* Image Block */}
         <div className="lg:w-1/4 flex items-center">
           <img
             src={`${BASE_URL}images/phantom-glide.png`}
