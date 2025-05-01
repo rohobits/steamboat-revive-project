@@ -1,30 +1,30 @@
 import React from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Shoe, Compass, Layers, Wrench, CheckCircle, Star } from "lucide-react";
+import { Compass, Layers, Wrench, CheckCircle, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const BASE_URL = import.meta.env.BASE_URL;
 
 const testimonials = [
   {
-    text: "The expert staff at this shop knew exactly how to dial in my boots. I’ve never skied more comfortably!",
-    author: "Harry",
+    text: "The expert staff at this shop knew exactly how to dial in my boots. I’ve never skied more comfortably! Harry is the best boot fitter around",
+    author: "Jeremy K.",
     rating: 5,
   },
   {
     text: "MJ and the team were so friendly and took the time to explain every step. My boots feel custom-built!",
-    author: "MJ",
+    author: "Clair J.",
     rating: 5,
   },
   {
-    text: "Willie’s quality tunes made a world of difference on the slopes. Boot fitting has never been so precise.",
-    author: "Willie",
+    text: "Willie’s attention to detail made a world of difference on the slopes. Boot fitting has never been so precise.",
+    author: "Emma S.",
     rating: 5,
   },
   {
     text: "Brendan’s attention to detail is unmatched. Free lifetime adjustments seal the deal—best in Colorado!",
-    author: "Brendan",
+    author: "Lu T.",
     rating: 5,
   },
 ];
@@ -59,7 +59,7 @@ export default function BootFittingPage() {
       <div className="container-custom py-16">
         {/* Page Title */}
         <div className="flex items-center space-x-4 mb-8">
-          <Shoe className="text-steamboat-blue" size={36} />
+          <Wrench className="text-steamboat-blue" size={36} />
           <h1 className="section-title mb-0">Boot Fitting Services</h1>
         </div>
 
