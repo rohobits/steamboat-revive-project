@@ -9,7 +9,7 @@ const NavBar: React.FC = () => {
   const { pathname, hash } = useLocation();
 
   // Build the correct path to your logo.svg in the public folder
-  const logoSrc = `${import.meta.env.BASE_URL}logo.svg`;
+  const logoSrc = `${import.meta.env.BASE_URL}logo.png`;
 
   const navItems = [
     { name: "Home", to: "/" },
