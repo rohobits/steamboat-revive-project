@@ -7,19 +7,18 @@ export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // give the DOM a moment to settle
-    setTimeout(() => {
-      if (hash) {
-        const id = hash.replace("#", "");
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-          return;
-        }
+    // If there's a hash (home-page anchor), smooth scroll to it:
+    if (hash) {
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return;
       }
-      // no hash or element not found → scroll to top
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 50);
+    }
+
+    // Otherwise, jump immediately to top of new page:
+    window.scrollTo(0, 0);
   }, [pathname, hash]);
 
   return null;
