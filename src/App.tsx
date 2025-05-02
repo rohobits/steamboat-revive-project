@@ -1,35 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// src/App.tsx
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 
-import Index           from "./pages/Index";
-import BikeService     from "./pages/BikeService";
-import EventsPage      from "./pages/EventsPage";
+import Index from "./pages/Index";
+import BikeService from "./pages/BikeService";
+import EventsPage from "./pages/EventsPage";
 import BootFittingPage from "./pages/Boot-fitting";
-import SkiTuningPage   from "./pages/ski-tuning";
-import ShopPage        from "./pages/ShopPage";
-import NotFound        from "./pages/NotFound";
+import SkiTuningPage from "./pages/ski-tuning";
+import ShopPage from "./pages/ShopPage";
+import NotFound from "./pages/NotFound";
 
 const App = () => (
-  <Router basename={import.meta.env.BASE_URL}>
+  <BrowserRouter basename="/steamboat-revive-project">
     <ScrollToTop />
-
     <Routes>
-      {/* Home */}
       <Route path="/" element={<Index />} />
-
-      {/* Services */}
       <Route path="/bike-service" element={<BikeService />} />
-      <Route path="/events"       element={<EventsPage />} />
-      <Route path="/boot-fitting" element={<BootFittingPage />} />
-      <Route path="/ski-tuning"   element={<SkiTuningPage />} />
-
-      {/* Shop */}
-      <Route path="/shop" element={<ShopPage />} />
-
-      {/* Catch-all for anything else */}
+      <Route path="/events" element={<EventsPage />} />
+      <Route path="/Boot-fitting" element={<BootFittingPage />} />
+      <Route path="/ski-tuning" element={<SkiTuningPage />} />
+      <Route path="/ShopPage" element={<ShopPage />} />  {/* ← Add this line */}
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
-  </Router>
+  </BrowserRouter>
 );
 
 export default App;
