@@ -1,3 +1,5 @@
+// src/App.tsx
+
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -12,7 +14,8 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    // import.meta.env.BASE_URL is "/" in dev and "/steamboat-revive-project/" in prod
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
 
       <Routes>
