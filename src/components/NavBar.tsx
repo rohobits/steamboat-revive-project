@@ -9,7 +9,7 @@ const NavBar: React.FC = () => {
   const { pathname, hash } = useLocation();
 
   // Reference logo.png in your public folder
-  const logoSrc = `${import.meta.env.BASE_URL}logo.png`;
+  const logoSrc = `${import.meta.env.BASE_URL}images/logo.png`;
 
   const navItems = [
     { name: "Home", to: "/" },
