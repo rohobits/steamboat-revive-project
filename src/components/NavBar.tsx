@@ -8,7 +8,7 @@ const NavBar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { pathname, hash } = useLocation();
 
-  // Build the correct path to your logo.svg in the public folder
+  // Reference logo.png in your public folder
   const logoSrc = `${import.meta.env.BASE_URL}logo.png`;
 
   const navItems = [
