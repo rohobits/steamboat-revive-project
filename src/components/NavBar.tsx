@@ -86,8 +86,8 @@ const NavBar: React.FC = () => {
         )}
       </nav>
 
-      {/* Spacer so content isn’t hidden under the fixed nav */}
-      <div className="h-16" />
+      {/* Only add this spacer on non-home pages */}
+      {pathname !== "/" && <div className="h-16" />}
     </>
   );
 };
