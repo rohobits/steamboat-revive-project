@@ -2,8 +2,6 @@
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Import the NavBar and ScrollToTop from their actual relative locations
 import NavBar from './components/NavBar';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -14,16 +12,16 @@ import BootFittingPage from './pages/Boot-fitting';
 import SkiTuningPage from './pages/ski-tuning';
 import ShopPage from './pages/ShopPage';
 import EventsPage from './pages/EventsPage';
+import SkiRentalsPage from './pages/SkiRentalsPage';
+import SkiRentalsMountainPage from './pages/SkiRentalsMountainPage';
+import SkiRentalsDowntownPage from './pages/SkiRentalsDowntownPage';
 import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
-    // Make sure basename matches your Vite base in production
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      {/* NavBar is now always rendered, above every route */}
+      {/* Always present global nav and scroll handler */}
       <NavBar />
-
-      {/* Handles top-of-page jumps + smooth hash scrolling */}
       <ScrollToTop />
 
       <Routes>
@@ -33,6 +31,13 @@ export default function App() {
         <Route path="/ski-tuning" element={<SkiTuningPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/events" element={<EventsPage />} />
+
+        {/* Ski Rentals section */}
+        <Route path="/ski-rentals" element={<SkiRentalsPage />} />
+        <Route path="/ski-rentals/mountain" element={<SkiRentalsMountainPage />} />
+        <Route path="/ski-rentals/downtown" element={<SkiRentalsDowntownPage />} />
+
+        {/* Catch-all fallback */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
