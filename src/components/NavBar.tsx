@@ -8,7 +8,6 @@ const NavBar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { pathname, hash } = useLocation();
 
-  // All navItems now map to a `to` prop — even the in-page anchors
   const navItems = [
     { name: "Home", to: "/" },
     { name: "Bike Rentals", to: "/#bike" },
@@ -22,63 +21,74 @@ const NavBar: React.FC = () => {
   ];
 
   return (
-    <nav className="bg-white shadow sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link to="/" onClick={() => setMobileOpen(false)}>
-          <img src="/logo.svg" alt="Steamboat Ski and Bike Kare" className="h-12 w-auto" />
-        </Link>
+    <>
+      {/* Fixed nav bar */}
+      <nav className="bg-white shadow fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" onClick={() => setMobileOpen(false)}>
+            <img
+              src="/logo.svg"
+              alt="Steamboat Ski and Bike Kare"
+              className="h-12 w-auto"
+            />
+          </Link>
 
-        {/* Desktop menu */}
-        <div className="hidden md:flex space-x-6">
-          {navItems.map((item) => {
-            // Determine if this link is “active”
-            const linkIsActive =
-              (item.to === "/" && pathname === "/") ||
-              (item.to !== "/" && pathname + hash === item.to);
+          {/* Desktop menu */}
+          <div className="hidden md:flex space-x-6">
+            {navItems.map((item) => {
+              const linkIsActive =
+                (item.to === "/" && pathname === "/") ||
+                (item.to !== "/" && pathname + hash === item.to);
 
-            return (
+              return (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  onClick={() => setMobileOpen(false)}
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    linkIsActive
+                      ? "text-steamboat-blue"
+                      : "text-steamboat-darkGray"
+                  } hover:text-steamboat-blue`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileOpen((o) => !o)}
+              className="text-steamboat-darkGray hover:text-steamboat-blue p-2 rounded-md focus:outline-none"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu list */}
+        {mobileOpen && (
+          <div className="md:hidden px-2 pt-2 pb-3 space-y-1 bg-white shadow">
+            {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  linkIsActive ? "text-steamboat-blue" : "text-steamboat-darkGray"
-                } hover:text-steamboat-blue`}
+                className="block px-3 py-2 rounded-md text-base font-medium text-steamboat-darkGray hover:text-steamboat-blue"
               >
                 {item.name}
               </Link>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        )}
+      </nav>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setMobileOpen((o) => !o)}
-            className="text-steamboat-darkGray hover:text-steamboat-blue p-2 rounded-md focus:outline-none"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden px-2 pt-2 pb-3 space-y-1 bg-white shadow">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.to}
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-steamboat-darkGray hover:text-steamboat-blue"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-      )}
-    </nav>
+      {/* Spacer so content isn’t hidden under the fixed nav */}
+      <div className="h-16" />
+    </>
   );
 };
 
