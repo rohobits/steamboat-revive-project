@@ -52,19 +52,21 @@ export default function SkiRentalsPage() {
                   alt="On The Mountain"
                   className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
                 />
+                {/* Overlay Container */}
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                  <span className="text-white text-4xl font-semibold">
+                  {/* Title hidden on hover */}
+                  <span className="text-white text-4xl font-semibold transition-opacity duration-300 group-hover:opacity-0">
                     On The Mountain
                   </span>
+                  {/* Secondary Button appears on hover */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <button className="bg-white text-steamboat-blue px-4 py-2 rounded-md shadow-lg">
+                      See Package Options
+                    </button>
+                  </motion.div>
                 </div>
-                {/* Secondary Button on Hover */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                  <button className="bg-white text-steamboat-blue px-4 py-2 rounded-md shadow-lg">
-                    See Package Options
-                  </button>
-                </motion.div>
               </Link>
               <p className="mt-6 text-center text-base md:text-lg text-steamboat-gray max-w-sm leading-relaxed">
                 Enjoy free ski storage steps from the ticket office for ultimate convenience.
@@ -82,19 +84,21 @@ export default function SkiRentalsPage() {
                   alt="Downtown"
                   className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
                 />
+                {/* Overlay Container */}
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                  <span className="text-white text-4xl font-semibold">
+                  {/* Title hidden on hover */}
+                  <span className="text-white text-4xl font-semibold transition-opacity duration-300 group-hover:opacity-0">
                     Downtown
                   </span>
+                  {/* Secondary Button appears on hover */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <button className="bg-white text-steamboat-blue px-4 py-2 rounded-md shadow-lg">
+                      See Package Options
+                    </button>
+                  </motion.div>
                 </div>
-                {/* Secondary Button on Hover */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                  <button className="bg-white text-steamboat-blue px-4 py-2 rounded-md shadow-lg">
-                    See Package Options
-                  </button>
-                </motion.div>
               </Link>
               <p className="mt-6 text-center text-base md:text-lg text-steamboat-gray max-w-sm leading-relaxed">
                 Rent near local shops and restaurants with easy access to lodging and après-ski fun.
