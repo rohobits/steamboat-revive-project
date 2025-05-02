@@ -8,9 +8,6 @@ const NavBar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { pathname, hash } = useLocation();
 
-  // Reference logo.png in your public folder
-  const logoSrc = `${import.meta.env.BASE_URL}images/logo.png`;
-
   const navItems = [
     { name: "Home", to: "/" },
     { name: "Bike Rentals", to: "/#bike" },
@@ -19,6 +16,7 @@ const NavBar: React.FC = () => {
     { name: "Ski Tuning", to: "/ski-tuning" },
     { name: "Shop", to: "/shop" },
     { name: "Events", to: "/events" },
+    { name: "Ski Rentals", to: "/ski-rentals" },
     { name: "About", to: "/#about" },
     { name: "Contact", to: "/#contact" },
   ];
@@ -31,7 +29,7 @@ const NavBar: React.FC = () => {
           {/* Logo */}
           <Link to="/" onClick={() => setMobileOpen(false)}>
             <img
-              src={logoSrc}
+              src={`${import.meta.env.BASE_URL}images/logo.png`}
               alt="Steamboat Ski and Bike Kare"
               className="h-12 w-auto"
             />
