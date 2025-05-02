@@ -18,7 +18,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: "Willie’s attention to detail made a world of difference on the slopes. Boot fitting has never been so precise.",
+    text: "Willie’s expertise transformed my skiing experience - my feet have never felt better.",
     author: "Emma S.",
     rating: 5,
   },
