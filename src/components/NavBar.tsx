@@ -8,6 +8,9 @@ const NavBar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { pathname, hash } = useLocation();
 
+  // Build the correct path to your logo.svg in the public folder
+  const logoSrc = `${import.meta.env.BASE_URL}logo.svg`;
+
   const navItems = [
     { name: "Home", to: "/" },
     { name: "Bike Rentals", to: "/#bike" },
@@ -28,7 +31,7 @@ const NavBar: React.FC = () => {
           {/* Logo */}
           <Link to="/" onClick={() => setMobileOpen(false)}>
             <img
-              src="/logo.svg"
+              src={logoSrc}
               alt="Steamboat Ski and Bike Kare"
               className="h-12 w-auto"
             />
