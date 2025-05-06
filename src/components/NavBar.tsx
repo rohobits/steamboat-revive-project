@@ -79,7 +79,7 @@ const NavBar: React.FC = () => {
               <div key={item.name} className="relative group">
                 {item.children ? (
                   <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
-                    {item.icon}
+                    <span className="md:hidden">{item.icon}</span>
                     <span className="ml-2">{item.name}</span>
                     <ChevronDown size={16} className="ml-1" />
                   </button>
@@ -97,7 +97,7 @@ const NavBar: React.FC = () => {
                         to={child.to!}
                         className="flex items-center px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
                       >
-                        {child.icon}
+                        <span className="md:hidden">{child.icon}</span>
                         <span className="ml-2">{child.name}</span>
                       </Link>
                     ))}
