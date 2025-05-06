@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Home, Bicycle, Wrench, Calendar, ShoppingCart, Sun, Snowflake } from "lucide-react";
+import { Menu, X, ChevronDown, Home, Bike, Wrench, Calendar, ShoppingCart, Sun, Snowflake } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavItem {
