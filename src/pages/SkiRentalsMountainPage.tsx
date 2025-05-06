@@ -79,7 +79,7 @@ export default function SkiRentalsMountainPage() {
                 <img
                   src={`${BASE_URL}images/${pkg.image}`}
                   alt={pkg.name}
-                  className="w-full h-48 object-cover rounded mb-4"
+                  className="w-full h-64 object-contain rounded mb-4"
                 />
 
                 <h2 className="text-xl font-semibold mb-2">{pkg.name}</h2>
