@@ -32,6 +32,11 @@ const NavBar: React.FC = () => {
     { name: "Boot Fitting", to: "/boot-fitting" },
   ];
 
+    const aboutItems: NavItem[] = [
+    { name: "About Us", to: "/#about" },
+    { name: "Contact Us", to: "/#contact" },
+  ];
+
   const navItems: NavItem[] = isSummer
     ? [
         { name: "Home", to: "/" },
@@ -39,6 +44,7 @@ const NavBar: React.FC = () => {
         { name: "Events", to: "/events" },
         { name: "Shop", to: "/shop" },
         { name: "Winter", children: winterItems },
+        { name: "About", children: aboutItems },
       ]
     : [
         { name: "Home", to: "/" },
@@ -48,6 +54,7 @@ const NavBar: React.FC = () => {
         { name: "Events", to: "/events" },
         { name: "Shop", to: "/shop" },
         { name: "Summer", children: summerItems },
+        { name: "About", children: aboutItems },
       ];
 
   function handleMouseEnter(name: string) {
