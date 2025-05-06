@@ -12,8 +12,7 @@ const mountainPackages = [
     sizes: "130-170",
     description:
       "The Sport Ski Package is perfect for someone new to skiing or with only a few days on the mountain. A soft flex lets the edges engage easily to inspire confidence.",
-    includes: ["Boots", "Poles"],
-    storageNote: "Enjoy Free Ski-Only Storage on the Mountain",
+    image: "sport-ski.jpg",
     link: "https://rentals.steamboatskiandbike.com/product/12",
   },
   {
@@ -22,8 +21,7 @@ const mountainPackages = [
     sizes: "130-176",
     description:
       "Featuring brand-new skis this season: wider for deeper snow, quicker turns, and playful performance.",
-    includes: ["Boots", "Poles"],
-    storageNote: "Enjoy Free Ski-Only Storage on the Mountain",
+    image: "premium-ski.jpg",
     link: "https://rentals.steamboatskiandbike.com/product/10",
   },
   {
@@ -32,8 +30,7 @@ const mountainPackages = [
     sizes: "148-184",
     description:
       "For skiers of all levels. Choose from a wide range of demo skis for hard-packed or powder conditions—our staff will pick the perfect model.",
-    includes: ["Boots", "Poles"],
-    storageNote: "Enjoy Free Ski-Only Storage on the Mountain",
+    image: "demo-ski.jpg",
     link: "https://rentals.steamboatskiandbike.com/rent/mountain-location-only/demo-ski-package-mountain",
   },
   {
@@ -42,11 +39,7 @@ const mountainPackages = [
     sizes: "67-151cm",
     description:
       "Great for first-timers or seasoned young skiers alike, with boots and poles sized just right.",
-    includes: [
-      "Boots - kids boot package",
-      "Poles - kids pole package (if needed)",
-    ],
-    storageNote: "Enjoy Free Ski-Only Storage on the Mountain",
+    image: "kids-ski.jpg",
     link: "https://rentals.steamboatskiandbike.com/product/13",
   },
   {
@@ -54,8 +47,7 @@ const mountainPackages = [
     price: "$34.95/Day",
     sizes: "115-163cm",
     description: "Versatile snowboard for all conditions, with boots included.",
-    includes: ["Boots - snowboard boot package"],
-    storageNote: "Enjoy Free Board-Only Storage on the Mountain",
+    image: "snowboard.jpg",
     link: "https://rentals.steamboatskiandbike.com/product/15",
   },
   {
@@ -64,8 +56,7 @@ const mountainPackages = [
     sizes: "80-120cm",
     description:
       "Perfect for kids of all ages, with boots sized for young riders.",
-    includes: ["Boots - kids snowboard boot package"],
-    storageNote: "Enjoy Free Board-Only Storage on the Mountain",
+    image: "kids-snowboard.jpg",
     link: "https://rentals.steamboatskiandbike.com/product/14",
   },
 ];
@@ -84,19 +75,20 @@ export default function SkiRentalsMountainPage() {
           {mountainPackages.map((pkg, idx) => (
             <Card key={idx} className="border-2">
               <CardContent className="p-6">
+                {/* Package image placeholder */}
+                <img
+                  src={`${BASE_URL}images/${pkg.image}`}
+                  alt={pkg.name}
+                  className="w-full h-48 object-cover rounded mb-4"
+                />
+
                 <h2 className="text-xl font-semibold mb-2">{pkg.name}</h2>
                 <p className="text-steamboat-blue font-semibold mb-1">{pkg.price}</p>
-                <p className="text-steamboat-gray mb-2">Sizes: {pkg.sizes}</p>
+                <p className="text-steamboat-gray mb-4">Sizes: {pkg.sizes}</p>
                 <p className="text-steamboat-gray mb-4">{pkg.description}</p>
-                <div className="mb-2">
-                  <p className="font-semibold">Rental Includes:</p>
-                  <ul className="list-disc list-inside text-steamboat-gray">
-                    {pkg.includes.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="italic text-sm mb-4">{pkg.storageNote}</p>
+                <p className="italic text-sm mb-4">
+                  Package includes free storage steps away from the base area
+                </p>
                 <a
                   href={pkg.link}
                   target="_blank"
