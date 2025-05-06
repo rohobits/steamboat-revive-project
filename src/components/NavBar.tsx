@@ -172,7 +172,7 @@ const NavBar: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'auto' }); }}
             />
 
             {/* Drawer */}
@@ -186,7 +186,7 @@ const NavBar: React.FC = () => {
               <div className="w-16 h-1 bg-steamboat-gray/50 rounded-full mx-auto mt-2 mb-6" />
               <button
                 className="absolute top-4 right-4 text-steamboat-darkGray hover:text-steamboat-blue"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'auto' }); }}
                 aria-label="Close menu"
               >
                 <X size={24} />
@@ -211,7 +211,7 @@ const NavBar: React.FC = () => {
                               <Link
                                 to={child.to!}
                                 className="block text-lg text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
-                                onClick={() => setMenuOpen(false)}
+                                onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'auto' }); }}
                               >
                                 {child.name}
                               </Link>
@@ -223,7 +223,7 @@ const NavBar: React.FC = () => {
                       <Link
                         to={item.to!}
                         className="text-xl font-semibold text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'auto' }); }}
                       >
                         {item.name}
                       </Link>
