@@ -14,7 +14,6 @@ const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Determine season: April (3) to August (7) inclusive = Summer
-    // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
   // Allow manual override via ?season=summer or ?season=winter for testing
   const params = new URLSearchParams(window.location.search);
@@ -76,7 +75,7 @@ const NavBar: React.FC = () => {
                     {item.name}
                     <ChevronDown size={16} className="ml-1" />
                   </button>
-                  <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded hidden group-hover:block">
+                  <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 group-hover:pointer-events-auto">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
@@ -115,7 +114,7 @@ const NavBar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white bg-opacity-95 backdrop-blur-md z-40">
+        <div className="md:hidden fixed inset-0 bg-white z-40 overflow-auto">
           <div className="container-custom pt-20">
             <ul className="space-y-6">
               {navItems.map((item) => (
