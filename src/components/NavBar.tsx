@@ -1,12 +1,11 @@
 // src/components/NavBar.tsx
 
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const NavBar: React.FC = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const { pathname, hash } = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
     { name: "Home", to: "/" },
@@ -17,76 +16,66 @@ const NavBar: React.FC = () => {
     { name: "Shop", to: "/shop" },
     { name: "Events", to: "/events" },
     { name: "Ski Rentals", to: "/ski-rentals" },
-    { name: "About", to: "/#about" },
-    { name: "Contact", to: "/#contact" },
   ];
 
   return (
-    <>
-      {/* Fixed nav bar */}
-      <nav className="bg-white shadow fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" onClick={() => setMobileOpen(false)}>
-            <img
-              src={`${import.meta.env.BASE_URL}images/logo.png`}
-              alt="Steamboat Ski and Bike Kare"
-              className="h-12 w-auto"
-            />
-          </Link>
+    <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
+      <div className="container-custom flex items-center justify-between h-16">
+        {/* Logo */}
+        <Link to="/" onClick={() => setMenuOpen(false)} className="flex-shrink-0">
+          <img
+            src={`${import.meta.env.BASE_URL}images/logo.png`}
+            alt="Steamboat Ski & Bike Kare"
+            className="h-10 w-auto"
+          />
+        </Link>
 
-          {/* Desktop menu */}
-          <div className="hidden md:flex space-x-6">
-            {navItems.map((item) => {
-              const linkIsActive =
-                (item.to === "/" && pathname === "/") ||
-                (item.to !== "/" && pathname + hash === item.to);
-
-              return (
-                <Link
-                  key={item.name}
-                  to={item.to}
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    linkIsActive
-                      ? "text-steamboat-blue"
-                      : "text-steamboat-darkGray"
-                  } hover:text-steamboat-blue`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setMobileOpen((o) => !o)}
-              className="text-steamboat-darkGray hover:text-steamboat-blue p-2 rounded-md focus:outline-none"
+        {/* Desktop Links */}
+        <nav className="hidden md:flex space-x-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.to}
+              className="relative text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+              onClick={() => setMenuOpen(false)}
             >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              {item.name}
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-steamboat-blue transition-all duration-200 hover:w-full"></span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile Button */}
+        <button
+          className="md:hidden p-2 text-steamboat-darkGray hover:text-steamboat-blue"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div className="md:hidden fixed inset-0 bg-white bg-opacity-95 backdrop-blur-md z-40">
+          <div className="container-custom pt-20">
+            <ul className="space-y-6">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.to}
+                    className="block text-xl font-medium text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-
-        {/* Mobile menu list */}
-        {mobileOpen && (
-          <div className="md:hidden px-2 pt-2 pb-3 space-y-1 bg-white shadow">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-steamboat-darkGray hover:text-steamboat-blue"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        )}
-      </nav>
-    </>
+      )}
+    </header>
   );
 };
 
