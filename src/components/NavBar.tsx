@@ -1,6 +1,6 @@
 // src/components/NavBar.tsx
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,7 +14,7 @@ interface NavItem {
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const closeTimeout = React.useRef<number | null>(null);
+  const closeTimeout = useRef<number | null>(null);
 
   // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
@@ -57,7 +57,6 @@ const NavBar: React.FC = () => {
     }
     setActiveDropdown(name);
   }
-
   function handleMouseLeave() {
     closeTimeout.current = window.setTimeout(() => {
       setActiveDropdown(null);
@@ -65,8 +64,22 @@ const NavBar: React.FC = () => {
     }, 200);
   }
 
-  return (
+  // Animation variants for mobile drawer
+  const drawerVariants = {
+    hidden: { y: '100%' },
+    visible: { y: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
+    exit: { y: '100%', transition: { ease: 'easeInOut' } },
+  };
+  const listVariants = {
+    visible: { transition: { staggerChildren: 0.05 } },
+    hidden: {},
+  };
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
+  return (
     <>
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
         <div className="container-custom flex items-center justify-between h-16">
@@ -85,8 +98,8 @@ const NavBar: React.FC = () => {
               <div
                 key={item.name}
                 className="relative pb-2"
-                onMouseEnter={() => item.children && setActiveDropdown(item.name)}
-                onMouseLeave={() => item.children && setActiveDropdown(null)}
+                onMouseEnter={() => item.children && handleMouseEnter(item.name)}
+                onMouseLeave={() => item.children && handleMouseLeave()}
               >
                 {item.children ? (
                   <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
@@ -102,9 +115,13 @@ const NavBar: React.FC = () => {
                   </Link>
                 )}
 
-                {/* Dropdown using JS state */}
+                {/* Dropdown using JS state with delay and expanded hit area */}
                 {item.children && activeDropdown === item.name && (
-                  <div className="absolute left-0 top-full mt-0 w-48 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded z-50">
+                  <div
+                    className="absolute left-0 top-full mt-0 w-48 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded z-50"
+                    onMouseEnter={() => handleMouseEnter(item.name)}
+                    onMouseLeave={() => handleMouseLeave()}
+                  >
                     {item.children.map(child => (
                       <Link
                         key={child.name}
@@ -161,7 +178,13 @@ const NavBar: React.FC = () => {
               >
                 <X size={24} />
               </button>
-              <motion.ul className="space-y-4 px-6" initial="hidden" animate="visible" exit="hidden" variants={listVariants}>
+              <motion.ul
+                className="space-y-4 px-6"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={listVariants}
+              >
                 {navItems.map(item => (
                   <motion.li key={item.name} variants={itemVariants}>
                     {item.children ? (
