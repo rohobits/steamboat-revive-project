@@ -36,11 +36,11 @@ export default function AboutSection() {
 
           {/* Image column */}
           <div className="order-first lg:order-last">
-            <div className="relative h-64 md:h-auto w-full overflow-hidden rounded-lg shadow-lg">
+            <div className="relative h-64 md:h-full w-full overflow-hidden">
               <img
                 src={`${BASE_URL}images/about-image.jpg`}
                 alt="Mountain landscape in Steamboat Springs"
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full rounded-lg shadow-lg"
               />
               <div className="absolute bottom-0 right-0 z-10 p-6 -mb-6 -mr-6 bg-white rounded-lg shadow-xl md:max-w-xs">
                 <h3 className="mb-2 text-xl font-semibold text-steamboat-blue">
