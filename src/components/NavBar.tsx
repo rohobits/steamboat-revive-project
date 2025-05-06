@@ -21,16 +21,18 @@ const NavBar: React.FC = () => {
     ? seasonParam === 'summer'
     : month >= 3 && month <= 7;
 
+  // Seasonal submenus
   const summerItems: NavItem[] = [
     { name: "Bike Rentals", to: "/#bike" },
     { name: "Bike Service", to: "/bike-service" },
   ];
   const winterItems: NavItem[] = [
-    { name: "Boot Fitting", to: "/boot-fitting" },
-    { name: "Ski Tuning", to: "/ski-tuning" },
     { name: "Ski Rentals", to: "/ski-rentals" },
+    { name: "Ski Tuning", to: "/ski-tuning" },
+    { name: "Boot Fitting", to: "/boot-fitting" },
   ];
 
+  // Build nav items
   const navItems: NavItem[] = isSummer
     ? [
         { name: "Home", to: "/" },
@@ -42,9 +44,7 @@ const NavBar: React.FC = () => {
       ]
     : [
         { name: "Home", to: "/" },
-        { name: "Ski Rentals", to: "/ski-rentals" },
-        { name: "Ski Tuning", to: "/ski-tuning" },
-        { name: "Boot Fitting", to: "/boot-fitting" },
+        { name: "Winter", children: winterItems },
         { name: "Events", to: "/events" },
         { name: "Shop", to: "/shop" },
         { name: "Summer", children: summerItems },
@@ -52,7 +52,6 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      {/* Header */}
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
         <div className="container-custom flex items-center justify-between h-16">
           {/* Logo */}
@@ -64,7 +63,7 @@ const NavBar: React.FC = () => {
             />
           </Link>
 
-          {/* Desktop Links */}
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
@@ -82,9 +81,9 @@ const NavBar: React.FC = () => {
                   </Link>
                 )}
 
-                {/* Dropdown */}
+                {/* Dropdown menu */}
                 {item.children && (
-                  <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                  <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
@@ -111,62 +110,38 @@ const NavBar: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Overlay */}
-      {/* Mobile Overlay Drawer */}
-{menuOpen && (
-  <>
-    {/* Semi-transparent backdrop */}
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 z-50"
-      onClick={() => setMenuOpen(false)}
-    />
-    {/* Sliding drawer */}
-    <div className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg z-60 p-6 overflow-auto">
-      {/* Close button */}
-      <button
-        className="absolute top-4 right-4 text-steamboat-darkGray hover:text-steamboat-blue"
-        onClick={() => setMenuOpen(false)}
-        aria-label="Close menu"
-      >
-        <X size={24} />
-      </button>
-      <ul className="mt-12 space-y-6">
-        {navItems.map((item) => (
-          <li key={item.name}>
-            {item.children ? (
-              <div>
-                <p className="text-xl font-medium text-steamboat-darkGray mb-2">
-                  {item.name}
-                </p>
-                <ul className="space-y-2">
-                  {item.children.map((child) => (
-                    <li key={child.name}>
-                      <Link
-                        to={child.to!}
-                        className="block text-lg text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {child.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <Link
-                to={item.to!}
-                className="block text-xl font-medium text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </>
-)}
+      {/* Mobile Drawer */}
+      {menuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={() => setMenuOpen(false)}
+          />
+          {/* Drawer */}
+          <div className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg z-50 p-6 overflow-auto">
+            <button
+              className="absolute top-4 right-4 text-steamboat-darkGray hover:text-steamboat-blue"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+            <ul className="mt-12 space-y-6">
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  {item.children ? (
+                    <div>
+                      <p className="text-xl font-medium text-steamboat-darkGray mb-2">
+                        {item.name}
+                      </p>
+                      <ul className="space-y-2">
+                        {item.children.map((child) => (
+                          <li key={child.name}>
+                            <Link
+                              to={child.to!}
+                              className="block text-lg text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                              onClick={() => setMenuOpen(false)}
                             >
                               {child.name}
                             </Link>
@@ -187,7 +162,7 @@ const NavBar: React.FC = () => {
               ))}
             </ul>
           </div>
-        </div>
+        </>
       )}
     </>
   );
