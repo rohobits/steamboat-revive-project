@@ -84,8 +84,8 @@ const NavBar: React.FC = () => {
                     <ChevronDown size={16} className="ml-1" />
                   </button>
                 ) : (
-                  <Link to={item.to!} className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
-                    {item.icon}
+                  <Link to={item.to!} className="text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
+                    <span className="md:hidden">{item.icon}</span>
                     <span className="ml-2">{item.name}</span>
                   </Link>
                 )}
@@ -95,7 +95,7 @@ const NavBar: React.FC = () => {
                       <Link
                         key={child.name}
                         to={child.to!}
-                        className="flex items-center px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
+                        className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
                       >
                         <span className="md:hidden">{child.icon}</span>
                         <span className="ml-2">{child.name}</span>
