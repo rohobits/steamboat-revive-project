@@ -13,6 +13,7 @@ interface NavItem {
 
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
@@ -48,7 +49,7 @@ const NavBar: React.FC = () => {
         { name: "Summer", children: summerItems },
       ];
 
-  // Drawer animation variants
+  // Mobile drawer animation
   const drawerVariants = {
     hidden: { y: '100%' },
     visible: { y: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
@@ -67,6 +68,7 @@ const NavBar: React.FC = () => {
     <>
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
         <div className="container-custom flex items-center justify-between h-16">
+          {/* Logo */}
           <Link to="/" onClick={() => setMenuOpen(false)} className="flex-shrink-0">
             <img
               src={`${import.meta.env.BASE_URL}images/logo.png`}
@@ -78,25 +80,17 @@ const NavBar: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map(item => (
-              <div key={item.name} className="relative group">
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => item.children && setActiveDropdown(item.name)}
+                onMouseLeave={() => item.children && setActiveDropdown(null)}
+              >
                 {item.children ? (
-                  <>
-                    <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
-                      {item.name}
-                      <ChevronDown size={16} className="ml-1" />
-                    </button>
-                    <div className="absolute left-0 top-full mt-2 w-40 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-opacity duration-200 z-50">
-                      {item.children.map(child => (
-                        <Link
-                          key={child.name}
-                          to={child.to!}
-                          className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
-                        >
-                          {child.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </>
+                  <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
+                    {item.name}
+                    <ChevronDown size={16} className="ml-1" />
+                  </button>
                 ) : (
                   <Link
                     to={item.to!}
@@ -104,6 +98,22 @@ const NavBar: React.FC = () => {
                   >
                     {item.name}
                   </Link>
+                )}
+
+                {/* Dropdown using JS state */}
+                {item.children && activeDropdown === item.name && (
+                  <div className="absolute left-0 top-full mt-1 w-48 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded z-50">
+                    {item.children.map(child => (
+                      <Link
+                        key={child.name}
+                        to={child.to!}
+                        className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
                 )}
               </div>
             ))}
@@ -132,6 +142,7 @@ const NavBar: React.FC = () => {
               exit={{ opacity: 0 }}
               onClick={() => setMenuOpen(false)}
             />
+
             {/* Drawer */}
             <motion.div
               className="fixed left-0 right-0 bottom-0 h-3/4 bg-white bg-opacity-90 backdrop-blur-lg shadow-xl z-50 rounded-t-lg overflow-auto"
