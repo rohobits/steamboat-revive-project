@@ -16,16 +16,16 @@ const Index = () => {
     {
       name: "Cruiser E-Bike",
       description:
-        "Finally, an e-bike for the rest of us—go faster, farther, and funner on Electra's Townie Go! 7D.",
-      price: "From $74/3 Hours",
+        "Finally, an e-bike for the rest of us—go faster, farther, and funner on our E-bikes",
+      price: "From $74",
       image: `${BASE_URL}images/cruiser.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/cruiser-e-bike",
     },
     {
       name: "Gravel Bike Rental",
       description:
-        "Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s roads.",
-      price: "From $49/3 Hours",
+        "Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s county roads.",
+      price: "From $49",
       image: `${BASE_URL}images/road-bike.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/gravel-bike-rental",
     },
@@ -33,7 +33,7 @@ const Index = () => {
       name: "Full Suspension",
       description:
         "Dual-suspension comfort to climb, descend, and charge the whole mountain with confidence.",
-      price: "From $64/3 Hours",
+      price: "From $64",
       image: `${BASE_URL}images/full-suspension.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension",
     },
@@ -41,7 +41,7 @@ const Index = () => {
       name: "Mountain E-Bike",
       description:
         "Rail 5 trail tech + Bosch power—go further up and down the mountain.",
-      price: "From $74/3 Hours",
+      price: "From $74",
       image: `${BASE_URL}images/electric.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/mountain-e-bike",
     },
