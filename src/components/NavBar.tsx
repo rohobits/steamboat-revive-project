@@ -12,17 +12,16 @@ interface NavItem {
 
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
 
   // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
-  // Allow manual override via ?season=summer or ?season=winter for testing
   const params = new URLSearchParams(window.location.search);
   const seasonParam = params.get('season');
   const isSummer = seasonParam
     ? seasonParam === 'summer'
     : month >= 3 && month <= 7;
 
-  // Define seasonal items
   const summerItems: NavItem[] = [
     { name: "Bike Rentals", to: "/#bike" },
     { name: "Bike Service", to: "/bike-service" },
@@ -33,7 +32,6 @@ const NavBar: React.FC = () => {
     { name: "Ski Rentals", to: "/ski-rentals" },
   ];
 
-  // Build nav items based on season
   const navItems: NavItem[] = isSummer
     ? [
         { name: "Home", to: "/" },
@@ -68,35 +66,40 @@ const NavBar: React.FC = () => {
         {/* Desktop Links */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <div key={item.name} className="relative group">
+            <div
+              key={item.name}
+              className="relative"
+              onMouseEnter={() => item.children && setDropdownOpen(item.name)}
+              onMouseLeave={() => setDropdownOpen(null)}
+            >
               {item.children ? (
-                <>
-                  <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
-                    {item.name}
-                    <ChevronDown size={16} className="ml-1" />
-                  </button>
-                  <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 group-hover:pointer-events-auto">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        to={child.to!}
-                        className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
-                </>
+                <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
+                  {item.name}
+                  <ChevronDown size={16} className="ml-1" />
+                </button>
               ) : (
                 <Link
                   to={item.to!}
-                  className="relative text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                  className="text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.name}
-                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-steamboat-blue transition-all duration-200 group-hover:w-full"></span>
                 </Link>
+              )}
+
+              {item.children && dropdownOpen === item.name && (
+                <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded z-50">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.name}
+                      to={child.to!}
+                      className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {child.name}
+                    </Link>
+                  ))}
+                </div>
               )}
             </div>
           ))}
@@ -114,7 +117,7 @@ const NavBar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-40 overflow-auto">
+        <div className="md:hidden fixed inset-0 bg-white z-50 overflow-auto">
           <div className="container-custom pt-20">
             <ul className="space-y-6">
               {navItems.map((item) => (
