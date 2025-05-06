@@ -104,4 +104,5 @@ export default function Footer() {
         © {new Date().getFullYear()} Steamboat Ski &amp; Bike Kare. All rights reserved.
       </div>
     </footer>
+  );
 }
