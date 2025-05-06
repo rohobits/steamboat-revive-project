@@ -2,19 +2,17 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Home, Bike, Wrench, Calendar, ShoppingCart, Sun, Snowflake } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavItem {
   name: string;
   to?: string;
-  icon: React.ReactNode;
   children?: NavItem[];
 }
 
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
@@ -23,34 +21,34 @@ const NavBar: React.FC = () => {
   const isSummer = seasonParam ? seasonParam === 'summer' : month >= 3 && month <= 7;
 
   const summerItems: NavItem[] = [
-    { name: "Bike Rentals", to: "/#bike", icon: <Bike size={20} /> },
-    { name: "Bike Service", to: "/bike-service", icon: <Wrench size={20} /> },
+    { name: "Bike Rentals", to: "/#bike" },
+    { name: "Bike Service", to: "/bike-service" },
   ];
   const winterItems: NavItem[] = [
-    { name: "Ski Rentals", to: "/ski-rentals", icon: <Snowflake size={20} /> },
-    { name: "Ski Tuning", to: "/ski-tuning", icon: <Wrench size={20} /> },
-    { name: "Boot Fitting", to: "/boot-fitting", icon: <Wrench size={20} /> },
+    { name: "Ski Rentals", to: "/ski-rentals" },
+    { name: "Ski Tuning", to: "/ski-tuning" },
+    { name: "Boot Fitting", to: "/boot-fitting" },
   ];
 
   const navItems: NavItem[] = isSummer
     ? [
-        { name: "Home", to: "/", icon: <Home size={20} /> },
+        { name: "Home", to: "/" },
         ...summerItems,
-        { name: "Events", to: "/events", icon: <Calendar size={20} /> },
-        { name: "Shop", to: "/shop", icon: <ShoppingCart size={20} /> },
-        { name: "Winter", icon: <Snowflake size={20} />, children: winterItems },
+        { name: "Events", to: "/events" },
+        { name: "Shop", to: "/shop" },
+        { name: "Winter", children: winterItems },
       ]
     : [
-        { name: "Home", to: "/", icon: <Home size={20} /> },
-        { name: "Ski Rentals", to: "/ski-rentals", icon: <Snowflake size={20} /> },
-        { name: "Ski Tuning", to: "/ski-tuning", icon: <Wrench size={20} /> },
-        { name: "Boot Fitting", to: "/boot-fitting", icon: <Wrench size={20} /> },
-        { name: "Events", to: "/events", icon: <Calendar size={20} /> },
-        { name: "Shop", to: "/shop", icon: <ShoppingCart size={20} /> },
-        { name: "Summer", icon: <Sun size={20} />, children: summerItems },
+        { name: "Home", to: "/" },
+        { name: "Ski Rentals", to: "/ski-rentals" },
+        { name: "Ski Tuning", to: "/ski-tuning" },
+        { name: "Boot Fitting", to: "/boot-fitting" },
+        { name: "Events", to: "/events" },
+        { name: "Shop", to: "/shop" },
+        { name: "Summer", children: summerItems },
       ];
 
-  // Animation variants
+  // Drawer animation variants
   const drawerVariants = {
     hidden: { y: '100%' },
     visible: { y: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
@@ -70,42 +68,42 @@ const NavBar: React.FC = () => {
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
         <div className="container-custom flex items-center justify-between h-16">
           <Link to="/" onClick={() => setMenuOpen(false)} className="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Logo" className="h-10 w-auto" />
+            <img
+              src={`${import.meta.env.BASE_URL}images/logo.png`}
+              alt="Logo"
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map(item => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => item.children && setActiveDropdown(item.name)}
-                onMouseLeave={() => item.children && setActiveDropdown(null)}
-              >
+              <div key={item.name} className="relative group">
                 {item.children ? (
-                  <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
-                    {item.name}
-                    <ChevronDown size={16} className="ml-1" />
-                  </button>
+                  <>
+                    <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
+                      {item.name}
+                      <ChevronDown size={16} className="ml-1" />
+                    </button>
+                    <div className="absolute left-0 top-full mt-2 w-40 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-opacity duration-200 z-50">
+                      {item.children.map(child => (
+                        <Link
+                          key={child.name}
+                          to={child.to!}
+                          className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
                 ) : (
-                  <Link to={item.to!} className="text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
+                  <Link
+                    to={item.to!}
+                    className="text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                  >
                     {item.name}
                   </Link>
-                )}
-
-                {/* JS-controlled Dropdown */}
-                {item.children && activeDropdown === item.name && (
-                  <div className="absolute left-0 mt-1 w-40 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded z-50">
-                    {item.children.map(child => (
-                      <Link
-                        key={child.name}
-                        to={child.to!}
-                        className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
                 )}
               </div>
             ))}
@@ -155,20 +153,18 @@ const NavBar: React.FC = () => {
                   <motion.li key={item.name} variants={itemVariants}>
                     {item.children ? (
                       <div>
-                        <p className="flex items-center text-xl font-semibold text-steamboat-darkGray mb-2">
-                          {item.icon}
-                          <span className="ml-2">{item.name}</span>
+                        <p className="text-xl font-semibold text-steamboat-darkGray mb-2">
+                          {item.name}
                         </p>
                         <ul className="space-y-2 pl-6">
                           {item.children.map(child => (
                             <motion.li key={child.name} variants={itemVariants}>
                               <Link
                                 to={child.to!}
-                                className="flex items-center text-lg text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                                className="block text-lg text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
                                 onClick={() => setMenuOpen(false)}
                               >
-                                {child.icon}
-                                <span className="ml-2">{child.name}</span>
+                                {child.name}
                               </Link>
                             </motion.li>
                           ))}
@@ -177,11 +173,10 @@ const NavBar: React.FC = () => {
                     ) : (
                       <Link
                         to={item.to!}
-                        className="flex items-center text-xl font-semibold text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                        className="text-xl font-semibold text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
                         onClick={() => setMenuOpen(false)}
                       >
-                        {item.icon}
-                        <span className="ml-2">{item.name}</span>
+                        {item.name}
                       </Link>
                     )}
                   </motion.li>
