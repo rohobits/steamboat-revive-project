@@ -84,7 +84,14 @@ const NavBar: React.FC = () => {
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
         <div className="container-custom flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" onClick={() => setMenuOpen(false)} className="flex-shrink-0">
+          <Link
+            to="/"
+            onClick={() => {
+              setMenuOpen(false);
+              window.scrollTo({ top: 0, behavior: 'auto' });
+            }}
+            className="flex-shrink-0"
+          >
             <img
               src={`${import.meta.env.BASE_URL}images/logo.png`}
               alt="Logo"
@@ -109,6 +116,12 @@ const NavBar: React.FC = () => {
                 ) : (
                   <Link
                     to={item.to!}
+                    onClick={() => {
+                      if (item.to === '/') {
+                        window.scrollTo({ top: 0, behavior: 'auto' });
+                      }
+                      setMenuOpen(false);
+                    }}
                     className="text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
                   >
                     {item.name}
