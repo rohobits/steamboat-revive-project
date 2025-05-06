@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 // Page components
 import Index from './pages/Index';
 import BikeService from './pages/BikeService';
+import BikeRentalsPage from './pages/BikeRentalsPage';
 import BootFittingPage from './pages/Boot-fitting';
 import SkiTuningPage from './pages/ski-tuning';
 import ShopPage from './pages/ShopPage';
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/bike-service" element={<BikeService />} />
         <Route path="/boot-fitting" element={<BootFittingPage />} />
         <Route path="/ski-tuning" element={<SkiTuningPage />} />
+        <Route path="/bike-rentals" element={<BikeRentalsPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/events" element={<EventsPage />} />
 
