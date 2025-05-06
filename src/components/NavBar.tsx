@@ -14,6 +14,7 @@ interface NavItem {
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimeout = React.useRef<number | null>(null);
 
   // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
@@ -49,22 +50,23 @@ const NavBar: React.FC = () => {
         { name: "Summer", children: summerItems },
       ];
 
-  // Mobile drawer animation
-  const drawerVariants = {
-    hidden: { y: '100%' },
-    visible: { y: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
-    exit: { y: '100%', transition: { ease: 'easeInOut' } },
-  };
-  const listVariants = {
-    visible: { transition: { staggerChildren: 0.05 } },
-    hidden: {},
-  };
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  function handleMouseEnter(name: string) {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+    setActiveDropdown(name);
+  }
+
+  function handleMouseLeave() {
+    closeTimeout.current = window.setTimeout(() => {
+      setActiveDropdown(null);
+      closeTimeout.current = null;
+    }, 200);
+  }
 
   return (
+
     <>
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
         <div className="container-custom flex items-center justify-between h-16">
