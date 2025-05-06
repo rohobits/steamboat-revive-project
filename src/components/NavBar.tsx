@@ -84,7 +84,7 @@ const NavBar: React.FC = () => {
             {navItems.map(item => (
               <div
                 key={item.name}
-                className="relative"
+                className="relative pb-2"
                 onMouseEnter={() => item.children && setActiveDropdown(item.name)}
                 onMouseLeave={() => item.children && setActiveDropdown(null)}
               >
@@ -104,7 +104,7 @@ const NavBar: React.FC = () => {
 
                 {/* Dropdown using JS state */}
                 {item.children && activeDropdown === item.name && (
-                  <div className="absolute left-0 top-full mt-1 w-48 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded z-50">
+                  <div className="absolute left-0 top-full mt-0 w-48 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded z-50">
                     {item.children.map(child => (
                       <Link
                         key={child.name}
