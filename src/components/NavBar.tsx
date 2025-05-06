@@ -112,22 +112,61 @@ const NavBar: React.FC = () => {
       </header>
 
       {/* Mobile Overlay */}
-      {menuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-50">
-          <div className="container-custom pt-20">
-            <ul className="space-y-6">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  {item.children ? (
-                    <div>
-                      <p className="text-xl font-medium text-steamboat-darkGray">{item.name}</p>
-                      <ul className="mt-2 space-y-2">
-                        {item.children.map((child) => (
-                          <li key={child.name}>
-                            <Link
-                              to={child.to!}
-                              className="block text-lg text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
-                              onClick={() => setMenuOpen(false)}
+      {/* Mobile Overlay Drawer */}
+{menuOpen && (
+  <>
+    {/* Semi-transparent backdrop */}
+    <div
+      className="fixed inset-0 bg-black bg-opacity-50 z-50"
+      onClick={() => setMenuOpen(false)}
+    />
+    {/* Sliding drawer */}
+    <div className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg z-60 p-6 overflow-auto">
+      {/* Close button */}
+      <button
+        className="absolute top-4 right-4 text-steamboat-darkGray hover:text-steamboat-blue"
+        onClick={() => setMenuOpen(false)}
+        aria-label="Close menu"
+      >
+        <X size={24} />
+      </button>
+      <ul className="mt-12 space-y-6">
+        {navItems.map((item) => (
+          <li key={item.name}>
+            {item.children ? (
+              <div>
+                <p className="text-xl font-medium text-steamboat-darkGray mb-2">
+                  {item.name}
+                </p>
+                <ul className="space-y-2">
+                  {item.children.map((child) => (
+                    <li key={child.name}>
+                      <Link
+                        to={child.to!}
+                        className="block text-lg text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {child.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <Link
+                to={item.to!}
+                className="block text-xl font-medium text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </>
+)}
                             >
                               {child.name}
                             </Link>
