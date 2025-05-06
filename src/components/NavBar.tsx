@@ -12,7 +12,6 @@ interface NavItem {
 
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
 
   // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
@@ -52,72 +51,69 @@ const NavBar: React.FC = () => {
       ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
-      <div className="container-custom flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link to="/" onClick={() => setMenuOpen(false)} className="flex-shrink-0">
-          <img
-            src={`${import.meta.env.BASE_URL}images/logo.png`}
-            alt="Steamboat Ski & Bike Kare"
-            className="h-10 w-auto"
-          />
-        </Link>
+    <>
+      {/* Header */}
+      <header className="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-md z-50">
+        <div className="container-custom flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" onClick={() => setMenuOpen(false)} className="flex-shrink-0">
+            <img
+              src={`${import.meta.env.BASE_URL}images/logo.png`}
+              alt="Steamboat Ski & Bike Kare"
+              className="h-10 w-auto"
+            />
+          </Link>
 
-        {/* Desktop Links */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <div
-              key={item.name}
-              className="relative"
-              onMouseEnter={() => item.children && setDropdownOpen(item.name)}
-              onMouseLeave={() => setDropdownOpen(null)}
-            >
-              {item.children ? (
-                <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
-                  {item.name}
-                  <ChevronDown size={16} className="ml-1" />
-                </button>
-              ) : (
-                <Link
-                  to={item.to!}
-                  className="text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              )}
+          {/* Desktop Links */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <div key={item.name} className="relative group">
+                {item.children ? (
+                  <button className="flex items-center text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200">
+                    {item.name}
+                    <ChevronDown size={16} className="ml-1" />
+                  </button>
+                ) : (
+                  <Link
+                    to={item.to!}
+                    className="text-steamboat-darkGray hover:text-steamboat-blue transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                )}
 
-              {item.children && dropdownOpen === item.name && (
-                <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded z-50">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.name}
-                      to={child.to!}
-                      className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {child.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+                {/* Dropdown */}
+                {item.children && (
+                  <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.name}
+                        to={child.to!}
+                        className="block px-4 py-2 text-steamboat-darkGray hover:bg-steamboat-blue hover:text-white transition"
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
 
-        {/* Mobile Button */}
-        <button
-          className="md:hidden p-2 text-steamboat-darkGray hover:text-steamboat-blue"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden p-2 text-steamboat-darkGray hover:text-steamboat-blue"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Overlay */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-50 overflow-auto">
+        <div className="md:hidden fixed inset-0 bg-white z-50">
           <div className="container-custom pt-20">
             <ul className="space-y-6">
               {navItems.map((item) => (
@@ -154,7 +150,7 @@ const NavBar: React.FC = () => {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 
