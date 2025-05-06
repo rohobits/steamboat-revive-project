@@ -5,6 +5,16 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 
 export default function Footer() {
+  // Determine season: April (3) to August (7) inclusive = Summer, with URL override
+  const month = new Date().getMonth();
+  const params = new URLSearchParams(window.location.search);
+  const seasonParam = params.get('season');
+  const isSummer = seasonParam ? seasonParam === 'summer' : month >= 3 && month <= 7;
+
+  // Seasonal hours
+  const weekdayHours = isSummer ? "9am – 6pm" : "8am – 6pm";
+  const sundayHours  = isSummer ? "9am – 5pm" : "8am – 5pm";
+
   return (
     <footer className="bg-steamboat-darkBlue text-white py-8">
       <div className="container-custom grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -29,7 +39,7 @@ export default function Footer() {
 
           <h5 className="font-semibold mb-2">Mountain Store</h5>
           <a
-            href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare+-+Gondola+Square/@40.4565424,-106.804615,17z/data=!3m1!4b1!4m6!3m5!1s0x87426eba1111b891:0xf42b39da70b52b27!8m2!3d40.4565424!4d-106.804615!16s%2Fg%2F11g9vxtwmb?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D"
+            href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare+-+Gondola+Square/@40.4565424,-106.804615,17z"
             target="_blank"
             rel="noopener noreferrer"
             className="not-italic text-steamboat-gray hover:underline block"
@@ -43,7 +53,7 @@ export default function Footer() {
 
           <h5 className="font-semibold mt-4 mb-2">Downtown Store</h5>
           <a
-            href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z/data=!3m1!4b1!4m6!3m5!1s0x874268da15fbba5f:0x7a95cdcaa994ae5b!8m2!3d40.4842759!4d-106.8311456!16s%2Fg%2F1tff8264?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
+            href="https://www.google.com/maps/place/Steamboat+Ski+%26+Bike+Kare/@40.4842758,-106.8360165,17z"
             target="_blank"
             rel="noopener noreferrer"
             className="not-italic text-steamboat-gray hover:underline block"
@@ -64,9 +74,9 @@ export default function Footer() {
 
         {/* Hours & Social */}
         <div>
-          <h4 className="font-semibold mb-4">Hours & Social</h4>
-          <p className="mb-2 text-steamboat-gray">Mon–Sat: 9am – 6pm</p>
-          <p className="mb-4 text-steamboat-gray">Sun: 9am – 5pm</p>
+          <h4 className="font-semibold mb-4">Hours &amp; Social</h4>
+          <p className="mb-2 text-steamboat-gray">Mon–Sat: {weekdayHours}</p>
+          <p className="mb-4 text-steamboat-gray">Sun: {sundayHours}</p>
           <div className="flex space-x-4">
             <a
               href="https://www.facebook.com/steamboatskiandbikekare"
@@ -91,8 +101,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-8 text-center text-sm text-steamboat-gray">
-        © {new Date().getFullYear()} Steamboat Ski & Bike Kare. All rights reserved.
+        © {new Date().getFullYear()} Steamboat Ski &amp; Bike Kare. All rights reserved.
       </div>
     </footer>
-  );
 }
