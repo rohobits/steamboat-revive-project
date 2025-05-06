@@ -104,18 +104,22 @@ export default function Footer() {
         {/* Hours & Social */}
         <div>
           <h4 className="font-semibold mb-4">Hours & Social</h4>
-          <p className="mb-2 text-steamboat-gray">Mon–Sat: 9am – 6pm</p>
-          <p className="mb-4 text-steamboat-gray">Sun: 9am – 5pm</p>
+          <p className="mb-2 text-steamboat-gray">Mon–Sat: 10am – 6pm</p>
+          <p className="mb-4 text-steamboat-gray">Sun: 10am – 5pm</p>
           <div className="flex space-x-4">
             <a
-              href="#"
+              href="https://www.facebook.com/steamboatskiandbikekare"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="hover:text-steamboat-lightBlue"
             >
               <Facebook size={24} />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/steamboatskiandbikekare/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="hover:text-steamboat-lightBlue"
             >
