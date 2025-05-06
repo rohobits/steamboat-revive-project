@@ -14,8 +14,14 @@ const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Determine season: April (3) to August (7) inclusive = Summer
+    // Determine season: April (3) to August (7) inclusive = Summer
   const month = new Date().getMonth();
-  const isSummer = month >= 3 && month <= 7;
+  // Allow manual override via ?season=summer or ?season=winter for testing
+  const params = new URLSearchParams(window.location.search);
+  const seasonParam = params.get('season');
+  const isSummer = seasonParam
+    ? seasonParam === 'summer'
+    : month >= 3 && month <= 7;
 
   // Define seasonal items
   const summerItems: NavItem[] = [
@@ -29,7 +35,6 @@ const NavBar: React.FC = () => {
   ];
 
   // Build nav items based on season
-    // Build nav items based on season
   const navItems: NavItem[] = isSummer
     ? [
         { name: "Home", to: "/" },
