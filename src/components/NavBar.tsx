@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Home, Scooter, Wrench, Calendar, ShoppingCart, Sun, Snowflake } from "lucide-react";
+import { Menu, X, ChevronDown, Home, Bicycle, Wrench, Calendar, ShoppingCart, Sun, Snowflake } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavItem {
@@ -22,7 +22,7 @@ const NavBar: React.FC = () => {
   const isSummer = seasonParam ? seasonParam === 'summer' : month >= 3 && month <= 7;
 
   const summerItems: NavItem[] = [
-    { name: "Bike Rentals", to: "/#bike", icon: <Scooter size={20} /> },
+    { name: "Bike Rentals", to: "/#bike", icon: <Bicycle size={20} /> },
     { name: "Bike Service", to: "/bike-service", icon: <Wrench size={20} /> },
   ];
   const winterItems: NavItem[] = [
@@ -49,7 +49,6 @@ const NavBar: React.FC = () => {
         { name: "Summer", icon: <Sun size={20} />, children: summerItems },
       ];
 
-  // Animation variants
   const drawerVariants = {
     hidden: { y: '100%' },
     visible: { y: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
@@ -120,7 +119,6 @@ const NavBar: React.FC = () => {
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Glass-backdrop */}
             <motion.div
               className="fixed inset-0 bg-white bg-opacity-40 backdrop-blur-lg z-40"
               initial={{ opacity: 0 }}
@@ -128,7 +126,6 @@ const NavBar: React.FC = () => {
               exit={{ opacity: 0 }}
               onClick={() => setMenuOpen(false)}
             />
-            {/* Bottom drawer */}
             <motion.div
               className="fixed left-0 right-0 bottom-0 h-3/4 bg-white bg-opacity-90 backdrop-blur-lg shadow-xl z-50 rounded-t-lg overflow-auto"
               initial="hidden"
@@ -136,9 +133,7 @@ const NavBar: React.FC = () => {
               exit="exit"
               variants={drawerVariants}
             >
-              {/* Drag handle */}
               <div className="w-16 h-1 bg-steamboat-gray/50 rounded-full mx-auto mt-2 mb-6" />
-              {/* Close icon */}
               <button
                 className="absolute top-4 right-4 text-steamboat-darkGray hover:text-steamboat-blue"
                 onClick={() => setMenuOpen(false)}
