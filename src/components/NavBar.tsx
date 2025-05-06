@@ -22,7 +22,7 @@ const NavBar: React.FC = () => {
   const isSummer = seasonParam ? seasonParam === 'summer' : month >= 3 && month <= 7;
 
   const summerItems: NavItem[] = [
-    { name: "Bike Rentals", to: "/#bike", icon: <Bicycle size={20} /> },
+    { name: "Bike Rentals", to: "/#bike", icon: <Bike size={20} /> },
     { name: "Bike Service", to: "/bike-service", icon: <Wrench size={20} /> },
   ];
   const winterItems: NavItem[] = [
