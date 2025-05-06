@@ -119,7 +119,7 @@ const NavBar: React.FC = () => {
             onClick={() => setMenuOpen(false)}
           />
           {/* Drawer */}
-          <div className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg z-50 p-6 overflow-auto">
+          <div className="fixed top-0 right-0 bottom-12 w-3/4 max-w-xs bg-white bg-opacity-90 shadow-lg z-50 p-6 overflow-auto rounded-b-lg">
             <button
               className="absolute top-4 right-4 text-steamboat-darkGray hover:text-steamboat-blue"
               onClick={() => setMenuOpen(false)}
