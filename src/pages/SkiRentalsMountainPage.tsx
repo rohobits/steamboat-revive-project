@@ -12,7 +12,7 @@ const mountainPackages = [
     sizes: "130-170",
     description:
       "The Sport Ski Package is perfect for someone new to skiing or with only a few days on the mountain. A soft flex lets the edges engage easily to inspire confidence.",
-    image: "sport-ski.jpg",
+    image: "sport-ski.png",
     link: "https://rentals.steamboatskiandbike.com/product/12",
   },
   {
@@ -21,7 +21,7 @@ const mountainPackages = [
     sizes: "130-176",
     description:
       "Featuring brand-new skis this season: wider for deeper snow, quicker turns, and playful performance.",
-    image: "premium-ski.jpg",
+    image: "premium-ski.png",
     link: "https://rentals.steamboatskiandbike.com/product/10",
   },
   {
@@ -30,7 +30,7 @@ const mountainPackages = [
     sizes: "148-184",
     description:
       "For skiers of all levels. Choose from a wide range of demo skis for hard-packed or powder conditions—our staff will pick the perfect model.",
-    image: "demo-ski.jpg",
+    image: "demo-ski.png",
     link: "https://rentals.steamboatskiandbike.com/rent/mountain-location-only/demo-ski-package-mountain",
   },
   {
@@ -39,7 +39,7 @@ const mountainPackages = [
     sizes: "67-151cm",
     description:
       "Great for first-timers or seasoned young skiers alike, with boots and poles sized just right.",
-    image: "kids-ski.jpg",
+    image: "kids-ski.png",
     link: "https://rentals.steamboatskiandbike.com/product/13",
   },
   {
@@ -47,7 +47,7 @@ const mountainPackages = [
     price: "$34.95/Day",
     sizes: "115-163cm",
     description: "Versatile snowboard for all conditions, with boots included.",
-    image: "snowboard.jpg",
+    image: "snowboard.png",
     link: "https://rentals.steamboatskiandbike.com/product/15",
   },
   {
@@ -56,7 +56,7 @@ const mountainPackages = [
     sizes: "80-120cm",
     description:
       "Perfect for kids of all ages, with boots sized for young riders.",
-    image: "kids-snowboard.jpg",
+    image: "kids-snowboard.png",
     link: "https://rentals.steamboatskiandbike.com/product/14",
   },
 ];
