@@ -39,36 +39,26 @@ const Index: React.FC = () => {
       {isSummer ? (
         <HeroSection />
       ) : (
-        <section className="relative w-full h-96 overflow-hidden">
-          <img
-            src={`${BASE_URL}images/winter-hero.jpg`}
-            alt="Winter Adventures in Steamboat Springs"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-4">
-            <h1 className="text-4xl lg:text-5xl font-extrabold drop-shadow-lg">
+        <section
+          className="relative w-full h-screen bg-cover bg-center"
+          style={{ backgroundImage: `url('${BASE_URL}images/winter-hero.jpg')` }}
+        >
+          <div className="hero-overlay"></div>
+          <div className="container-custom relative z-10 flex flex-col items-center justify-center h-full text-center">
+            <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl">
               Your Steamboat Adventures Await
             </h1>
-            <p className="mt-3 text-xl lg:text-2xl drop-shadow-md">
+            <p className="mb-8 text-xl text-white/90 max-w-2xl">
               Locally rooted and family-approved, we make ski days smoother with premium ski rentals, custom boot fitting, and overnight tunes.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/ski-rentals"
-                className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow hover:bg-white hover:text-steamboat-blue transition"
-              >
+            <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+              <Link to="/ski-rentals" className="btn-primary" onClick={() => window.scrollTo(0, 0)}>
                 Ski Rentals
               </Link>
-              <Link
-                to="/boot-fitting"
-                className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow hover:bg-white hover:text-steamboat-blue transition"
-              >
+              <Link to="/boot-fitting" className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
                 Boot Fitting
               </Link>
-              <Link
-                to="/ski-tuning"
-                className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow hover:bg-white hover:text-steamboat-blue transition"
-              >
+              <Link to="/ski-tuning" className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
                 Ski Tuning
               </Link>
             </div>
