@@ -112,7 +112,7 @@ export default function Index() {
         <>
           {/* Winter Hero */}
           <section
-            className="relative w-full h-screen bg-cover bg-center"
+            className="relative w-full h-64 sm:h-80 md:h-screen bg-cover bg-center"
             style={{ backgroundImage: `url('${BASE_URL}images/winter-hero.jpg')` }}
           >
             <div className="hero-overlay"></div>
