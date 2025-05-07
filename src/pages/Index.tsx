@@ -95,7 +95,7 @@ const Index: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
               <div className="overflow-hidden rounded-lg shadow-lg">
                 <img
-                  src={`${BASE_URL}images/boot-fitting.jpg`}
+                  src={`${BASE_URL}images/boot-fitting.png`}
                   alt="Boot Fitting"
                   className="object-cover w-full h-48"
                 />
