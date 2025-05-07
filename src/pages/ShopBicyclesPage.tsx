@@ -6,31 +6,44 @@ import Footer from "@/components/Footer";
 
 export default function ShopBicyclesPage() {
   useEffect(() => {
-    // Inject custom styles to hide Locally branding and enforce responsiveness
+    // 1) Inject custom styles for responsiveness & hide the fallback anchor
     const style = document.createElement("style");
     style.innerHTML = `
       /* Hide Locally "Powered by" anchor */
       #lcly-button-0 > a { display: none !important; }
-      /* Ensure widget respects container width */
+      /* Ensure widget uses full width */
       #lcly-button-0 { width: 100% !important; }
       /* Allow horizontal scroll on small screens */
       .locally-wrapper { overflow-x: auto; }
     `;
     document.head.appendChild(style);
 
-    // Dynamically inject the Locally widget script
+    // 2) Create the <script> that loads the widget
     const script = document.createElement("script");
     script.async = true;
     script.id = "lcly-script-0";
+
+    // 3) Once the script loads, remove unwanted filter‐groups
+    script.onload = () => {
+      const unwanted = ["Department", "Category", "Sub Category", "Type"];
+      const groups = document.querySelectorAll("#lcly-button-0 .lcly-facet-group");
+      groups.forEach((group) => {
+        const title = group.querySelector(".lcly-facet-group__title")?.textContent?.trim();
+        if (title && unwanted.includes(title)) {
+          group.remove();
+        }
+      });
+    };
+
     document.body.appendChild(script);
 
-    // Configure the widget for only the "Bicycles" category
-    // (case-sensitive—matches your Locally dashboard naming)
+    // 4) Configure the widget to only show Bicycles + those three brands
     var __lcly_channel_domain_0 = "locally";
     var lcly_config_0 = {
       store: "20274",
       uri: "search",
-      category: "Bicycles"
+      category: "Bicycles",
+      brand: "Electra OR Liv OR Trek"
     };
     var lcly_query_0 = Object.keys(lcly_config_0)
       .map((k) =>
@@ -62,7 +75,7 @@ export default function ShopBicyclesPage() {
             data-switchlive-impression-id-PL="1"
             className="flex justify-center"
           >
-            {/* Fallback anchor (hidden by CSS) required by widget */}
+            {/* Fallback anchor (hidden by CSS) */}
             <a
               id="lcly-link-0"
               data-switchlive="true"
