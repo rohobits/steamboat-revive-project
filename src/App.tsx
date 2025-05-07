@@ -12,6 +12,7 @@ import BikeRentalsPage from './pages/BikeRentalsPage';
 import BootFittingPage from './pages/Boot-fitting';
 import SkiTuningPage from './pages/ski-tuning';
 import ShopPage from './pages/ShopPage';
+import ShopBicyclesPage from './pages/ShopBicyclesPage';
 import EventsPage from './pages/EventsPage';
 import SkiRentalsPage from './pages/SkiRentalsPage';
 import SkiRentalsMountainPage from './pages/SkiRentalsMountainPage';
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/ski-tuning" element={<SkiTuningPage />} />
         <Route path="/bike-rentals" element={<BikeRentalsPage />} />
         <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/bicycles" element={<ShopBicyclesPage />} />
         <Route path="/events" element={<EventsPage />} />
 
         {/* Ski Rentals section */}
