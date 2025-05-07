@@ -6,59 +6,67 @@ import Footer from "@/components/Footer";
 
 export default function ShopBicyclesPage() {
   useEffect(() => {
-    // 1) Inject custom styles for responsiveness & hide the fallback anchor
+    // 1) Inject some base styles + hide all filter groups
     const style = document.createElement("style");
     style.innerHTML = `
-      /* Hide Locally "Powered by" anchor */
+      /* Hide the Locally “Powered by” link + force full-width widget */
       #lcly-button-0 > a { display: none !important; }
-      /* Ensure widget uses full width */
       #lcly-button-0 { width: 100% !important; }
-      /* Allow horizontal scroll on small screens */
       .locally-wrapper { overflow-x: auto; }
+
+      /* Initially hide every facet group */
+      #lcly-button-0 .lcly-facet-group { display: none !important; }
     `;
     document.head.appendChild(style);
 
-    // 2) Create the <script> that loads the widget
+    // 2) Create & append the Locally widget script
     const script = document.createElement("script");
     script.async = true;
     script.id = "lcly-script-0";
 
-    // 3) Once the script loads, remove unwanted filter‐groups
+    // 3) Once loaded, surgically unwrap only the Brand group and prune its options
     script.onload = () => {
-      const unwanted = ["Department", "Category", "Sub Category", "Type"];
-      const groups = document.querySelectorAll("#lcly-button-0 .lcly-facet-group");
+      const wrapper = document.querySelector("#lcly-button-0");
+      if (!wrapper) return;
+
+      // Find all facet groups
+      const groups = wrapper.querySelectorAll<HTMLElement>(".lcly-facet-group");
       groups.forEach((group) => {
-        const title = group.querySelector(".lcly-facet-group__title")?.textContent?.trim();
-        if (title && unwanted.includes(title)) {
-          group.remove();
+        // A) Identify the title
+        const titleEl = group.querySelector<HTMLElement>(".lcly-facet-group__title");
+        if (titleEl && titleEl.textContent?.trim() === "Brand") {
+          // B) Show the Brand group
+          group.style.display = "";
+
+          // C) Remove every option that isn’t Electra, Liv, or Trek
+          group
+            .querySelectorAll<HTMLElement>(".lcly-facet-group__option")
+            .forEach((opt) => {
+              const label = opt
+                .querySelector<HTMLElement>(".lcly-facet-group__option-label")
+                ?.textContent?.trim();
+              if (label && !["Electra", "Liv", "Trek"].includes(label)) {
+                opt.remove();
+              }
+            });
         }
       });
     };
 
     document.body.appendChild(script);
 
-    // 4) Configure the widget to only show Bicycles + those three brands
-    var __lcly_channel_domain_0 = "locally";
-    var lcly_config_0 = {
+    // 4) Configure the widget to only show “Bicycles”
+    //    (pre-filters your inventory to that sub-category)
+    ;(window as any).__lcly_channel_domain_0 = "locally";
+    const lcly_config_0 = {
       store: "20274",
       uri: "search",
       category: "Bicycles",
-      brand: "Electra OR Liv OR Trek"
     };
-    var lcly_query_0 = Object.keys(lcly_config_0)
-      .map((k) =>
-        encodeURIComponent(k) +
-        "=" +
-        encodeURIComponent(
-          typeof (lcly_config_0 as any)[k] === "object"
-            ? JSON.stringify((lcly_config_0 as any)[k])
-            : (lcly_config_0 as any)[k]
-        )
-      )
+    const lcly_query_0 = Object.entries(lcly_config_0)
+      .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
       .join("&");
-    script.src =
-      "https://SteamboatSkiandBikeKare.locally.com/widgets/search.js?" +
-      lcly_query_0;
+    script.src = `https://SteamboatSkiandBikeKare.locally.com/widgets/search.js?${lcly_query_0}`;
   }, []);
 
   return (
@@ -75,7 +83,7 @@ export default function ShopBicyclesPage() {
             data-switchlive-impression-id-PL="1"
             className="flex justify-center"
           >
-            {/* Fallback anchor (hidden by CSS) */}
+            {/* Fallback anchor (hidden by our CSS) */}
             <a
               id="lcly-link-0"
               data-switchlive="true"
