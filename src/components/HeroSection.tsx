@@ -32,7 +32,7 @@ export default function HeroSection() {
           </a>
           <Link
             to="/bike-service"
-            className="btn-secondary"
+            className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
             onClick={() => window.scrollTo(0, 0)}
           >
             Bike Service
