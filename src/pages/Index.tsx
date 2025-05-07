@@ -52,13 +52,25 @@ const Index: React.FC = () => {
               Locally rooted and family-approved, we make ski days smoother with premium ski rentals, custom boot fitting, and overnight tunes.
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-              <Link to="/ski-rentals" className="btn-primary" onClick={() => window.scrollTo(0, 0)}>
+              <Link
+                to="/ski-rentals"
+                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Ski Rentals
               </Link>
-              <Link to="/boot-fitting" className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
+              <Link
+                to="/boot-fitting"
+                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Boot Fitting
               </Link>
-              <Link to="/ski-tuning" className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
+              <Link
+                to="/ski-tuning"
+                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Ski Tuning
               </Link>
             </div>
