@@ -114,7 +114,7 @@ const Index: React.FC = () => {
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg">
                 <img
-                  src={`${BASE_URL}images/ski-tuning.jpg`}
+                  src={`${BASE_URL}images/ski-tuning.png`}
                   alt="Ski Tuning"
                   className="object-cover w-full h-48"
                 />
