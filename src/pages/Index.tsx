@@ -126,21 +126,21 @@ export default function Index() {
               <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                 <Link
                   to="/ski-rentals"
-                  className="btn-primary text-white bg-white hover:bg-steamboat-blue hover:text-white"
+                  className="btn-primary text-steamboat-blue bg-white hover:bg-steamboat-blue hover:text-white"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   Ski Rentals
                 </Link>
                 <Link
                   to="/boot-fitting"
-                  className="btn-secondary text-white bg-white hover:bg-steamboat-blue hover:text-white"
+                  className="btn-secondary text-steamboat-blue bg-white hover:bg-steamboat-blue hover:text-white"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   Boot Fitting
                 </Link>
                 <Link
                   to="/ski-tuning"
-                  className="btn-secondary text-white bg-white hover:bg-steamboat-blue hover:text-white"
+                  className="btn-secondary text-steamboat-blue bg-white hover:bg-steamboat-blue hover:text-white"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   Ski Tuning
