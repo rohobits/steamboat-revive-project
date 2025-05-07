@@ -97,7 +97,7 @@ const Index: React.FC = () => {
                 <img
                   src={`${BASE_URL}images/boot-fitting.png`}
                   alt="Boot Fitting"
-                  className="object-cover object-center w-full h-48"
+                  className="object-cover object-bottom w-full h-48"
                 />
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold mb-2">Boot Fitting</h3>
@@ -116,7 +116,7 @@ const Index: React.FC = () => {
                 <img
                   src={`${BASE_URL}images/ski-tuning.png`}
                   alt="Ski Tuning"
-                  className="object-cover w-full h-48"
+                  className="object-cover object-bottom w-full h-48"
                 />
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold mb-2">Ski Tuning</h3>
