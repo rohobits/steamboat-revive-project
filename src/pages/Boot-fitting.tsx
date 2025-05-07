@@ -1,3 +1,5 @@
+// src/pages/Boot-fitting.tsx
+
 import React from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -8,18 +10,13 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 const testimonials = [
   {
-    text: "The expert staff at this shop knew exactly how to dial in my boots. I’ve never skied more comfortably! Harry is the best boot fitter around",
+    text: "Willie’s expertise transformed my skiing experience – my feet have never felt better.",
     author: "Jeremy K.",
     rating: 5,
   },
   {
     text: "MJ and the team were so friendly and took the time to explain every step. My boots feel custom-built!",
     author: "Clair J.",
-    rating: 5,
-  },
-  {
-    text: "Willie’s expertise transformed my skiing experience - my feet have never felt better.",
-    author: "Emma S.",
     rating: 5,
   },
   {
@@ -66,7 +63,11 @@ export default function BootFittingPage() {
         {/* Intro Copy */}
         <section className="mb-12">
           <p className="text-lg text-steamboat-gray">
-            Our expert boot fitters combine advanced fitting technology with hands-on craftsmanship to create a custom fit that's unrivaled in Colorado. From shell selection and heat molding to precision alignment and footbeds, we tailor every step to your unique anatomy and skiing style.
+            Our expert boot fitters combine advanced fitting technology with
+            hands-on craftsmanship to create a custom fit that's unrivaled in
+            Colorado. From shell selection and heat molding to precision
+            alignment and footbeds, we tailor every step to your unique anatomy
+            and skiing style.
           </p>
         </section>
 
@@ -75,29 +76,49 @@ export default function BootFittingPage() {
           <div className="flex items-start space-x-3">
             <Compass className="text-steamboat-blue" size={32} />
             <div>
-              <h4 className="text-lg font-semibold text-steamboat-darkBlue">Shell Selection</h4>
-              <p className="text-steamboat-gray">Guided by our experts to choose the ideal boot for your foot shape and riding style.</p>
+              <h4 className="text-lg font-semibold text-steamboat-darkBlue">
+                Shell Selection
+              </h4>
+              <p className="text-steamboat-gray">
+                Guided by our experts to choose the ideal boot for your foot
+                shape and riding style.
+              </p>
             </div>
           </div>
           <div className="flex items-start space-x-3">
             <Layers className="text-steamboat-blue" size={32} />
             <div>
-              <h4 className="text-lg font-semibold text-steamboat-darkBlue">Custom Footbeds</h4>
-              <p className="text-steamboat-gray">Individually cast and heat-formed for perfect arch support and alignment.</p>
+              <h4 className="text-lg font-semibold text-steamboat-darkBlue">
+                Custom Footbeds
+              </h4>
+              <p className="text-steamboat-gray">
+                Individually cast and heat-formed for perfect arch support and
+                alignment.
+              </p>
             </div>
           </div>
           <div className="flex items-start space-x-3">
             <Wrench className="text-steamboat-blue" size={32} />
             <div>
-              <h4 className="text-lg font-semibold text-steamboat-darkBlue">Precision Adjustments</h4>
-              <p className="text-steamboat-gray">Fine-tuning shell punches and canting to eliminate pressure points.</p>
+              <h4 className="text-lg font-semibold text-steamboat-darkBlue">
+                Precision Adjustments
+              </h4>
+              <p className="text-steamboat-gray">
+                Fine-tuning shell punches and canting to eliminate pressure
+                points.
+              </p>
             </div>
           </div>
           <div className="flex items-start space-x-3">
             <CheckCircle className="text-steamboat-blue" size={32} />
             <div>
-              <h4 className="text-lg font-semibold text-steamboat-darkBlue">Final Dial-In</h4>
-              <p className="text-steamboat-gray">Comprehensive performance check to ensure optimal control on every run.</p>
+              <h4 className="text-lg font-semibold text-steamboat-darkBlue">
+                Final Dial-In
+              </h4>
+              <p className="text-steamboat-gray">
+                Comprehensive performance check to ensure optimal control on
+                every run.
+              </p>
             </div>
           </div>
         </section>
@@ -106,7 +127,9 @@ export default function BootFittingPage() {
         <section className="mb-16">
           <div className="flex items-center space-x-4 mb-8">
             <Star className="text-steamboat-blue" size={32} />
-            <h2 className="text-2xl font-bold text-steamboat-darkBlue">What Our Customers Say</h2>
+            <h2 className="text-2xl font-bold text-steamboat-darkBlue">
+              What Our Customers Say
+            </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((t, i) => (
@@ -114,11 +137,18 @@ export default function BootFittingPage() {
                 <CardContent className="p-6">
                   <div className="flex mb-4">
                     {[...Array(t.rating)].map((_, j) => (
-                      <Star key={j} className="text-steamboat-orange" size={20} fill="currentColor" />
+                      <Star
+                        key={j}
+                        className="text-steamboat-orange"
+                        size={20}
+                        fill="currentColor"
+                      />
                     ))}
                   </div>
                   <p className="text-steamboat-gray mb-4 italic">"{t.text}"</p>
-                  <p className="font-semibold text-steamboat-darkBlue">- {t.author}</p>
+                  <p className="font-semibold text-steamboat-darkBlue">
+                    - {t.author}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -127,15 +157,20 @@ export default function BootFittingPage() {
 
         {/* Guarantee Banner */}
         <section className="bg-gray-50 text-center rounded-lg p-8 mb-16">
-          <h3 className="text-2xl font-bold text-steamboat-blue">Free Lifetime Adjustments</h3>
-          <p className="text-steamboat-gray mt-2">Purchase your boots from us and enjoy unlimited adjustments for life.</p>
+          <h3 className="text-2xl font-bold text-steamboat-blue">
+            Free Lifetime Adjustments
+          </h3>
+          <p className="text-steamboat-gray mt-2">
+            Purchase your boots from us and enjoy unlimited adjustments for
+            life.
+          </p>
         </section>
 
         {/* Call to Action */}
         <section className="text-center mb-16">
           <a
             href="tel:9708799144"
-            className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow hover:bg-white hover:text-steamboat-blue transition"
+            className="inline-block whitespace-nowrap px-6 py-3 bg-steamboat-blue text-white font-semibold rounded-lg shadow hover:bg-white hover:text-steamboat-blue transition-colors duration-300"
           >
             Call Us to Schedule Your Appointment Today
           </a>
