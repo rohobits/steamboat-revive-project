@@ -39,6 +39,13 @@ export default function HeroSection() {
           >
             Bike Service
           </Link>
+          <Link
+            to="/shop"
+            className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            Shop
+          </Link>
         </div>
       </div>
     </section>
