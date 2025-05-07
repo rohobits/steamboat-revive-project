@@ -1,4 +1,6 @@
 // src/components/HeroSection.tsx
+
+import React from "react";
 import { Link } from "react-router-dom";
 
 // Vite injects your base ("/steamboat-revive-project/") automatically
@@ -25,14 +27,14 @@ export default function HeroSection() {
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           <a
             href="#bike"
-            className="btn-primary"
+            className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
             onClick={() => window.scrollTo(0, 0)}
           >
             Rent a Bike
           </a>
           <Link
             to="/bike-service"
-            className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
+            className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
             onClick={() => window.scrollTo(0, 0)}
           >
             Bike Service
