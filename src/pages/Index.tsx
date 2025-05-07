@@ -50,7 +50,7 @@ const Index: React.FC = () => {
               Your Steamboat Adventures Await
             </h1>
             <p className="mt-3 text-xl lg:text-2xl drop-shadow-md">
-              Locally rooted and family-approved, we make ski days smoother with custom boot fitting, premium rentals, and overnight tunes—so your whole crew can hit the slopes happy, warm, and ready to shred.
+              Locally rooted and family-approved, we make ski days smoother with premium rentals, custom boot fitting, and overnight tunes.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <Link
