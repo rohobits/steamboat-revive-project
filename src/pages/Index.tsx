@@ -128,7 +128,8 @@ const Index: React.FC = () => {
 
       {/* Shared Sections */}
       <AboutSection />
-      <EventsSection />
+      {/* Only show events on summer */}
+      {isSummer && <EventsSection />}
       <TestimonialSection />
       <section id="contact">
         <ContactSection />
