@@ -27,7 +27,8 @@ export default function Index() {
   const bikeServices = [
     {
       name: "Cruiser E-Bike",
-      description: "Finally, an e-bike for the rest of us—go faster, farther, and funner on Electra's Townie Go! 7D.",
+      description:
+        "Finally, an e-bike for the rest of us—go faster, farther, and funner on Electra's Townie Go! 7D.",
       price: "From $74",
       image: `${BASE_URL}images/cruiser.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/cruiser-e-bike",
@@ -35,7 +36,8 @@ export default function Index() {
     },
     {
       name: "Gravel Bike Rental",
-      description: "Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s roads.",
+      description:
+        "Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s roads.",
       price: "From $49",
       image: `${BASE_URL}images/road-bike.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/gravel-bike-rental",
@@ -43,7 +45,8 @@ export default function Index() {
     },
     {
       name: "Full Suspension",
-      description: "Dual-suspension comfort to climb, descend, and charge the whole mountain with confidence.",
+      description:
+        "Dual-suspension comfort to climb, descend, and charge the whole mountain with confidence.",
       price: "From $64",
       image: `${BASE_URL}images/full-suspension.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension",
@@ -51,7 +54,8 @@ export default function Index() {
     },
     {
       name: "Mountain E-Bike",
-      description: "Rail 5 trail tech + Bosch power—go further up and down the mountain.",
+      description:
+        "Rail 5 trail tech + Bosch power—go further up and down the mountain.",
       price: "From $74",
       image: `${BASE_URL}images/electric.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/mountain-e-bike",
@@ -59,14 +63,16 @@ export default function Index() {
     },
     {
       name: "Hardtail Mountain Bike",
-      description: "Versatile hardtail bikes ideal for cross-country and trail riding.",
+      description:
+        "Versatile hardtail bikes ideal for cross-country and trail riding.",
       price: "From $45",
       image: `${BASE_URL}images/hardtail.jpg`,
       callToAction: "First come, first serve only",
     },
     {
       name: "Kids Bike",
-      description: "Quality bikes sized for young riders with options for various ages and abilities.",
+      description:
+        "Quality bikes sized for young riders with options for various ages and abilities.",
       price: "From $25",
       image: `${BASE_URL}images/kids-bike.jpg`,
       callToAction: "First come, first serve only",
@@ -77,14 +83,16 @@ export default function Index() {
   const winterServices = [
     {
       name: "Boot Fitting",
-      description: "Precision boot fitting tailored to your foot anatomy and skiing style.",
+      description:
+        "Precision boot fitting tailored to your foot anatomy and skiing style.",
       image: `${BASE_URL}images/boot-fitting.png`,
       link: "/boot-fitting",
       callToAction: "Learn More",
     },
     {
       name: "Ski Tuning",
-      description: "Advanced tuning to keep your skis sharp, fast, and ready for the mountain.",
+      description:
+        "Advanced tuning to keep your skis sharp, fast, and ready for the mountain.",
       image: `${BASE_URL}images/ski-tuning.png`,
       link: "/ski-tuning",
       callToAction: "Learn More",
@@ -110,9 +118,9 @@ export default function Index() {
         </>
       ) : (
         <>
-          {/* Winter Hero */}
+          {/* Winter Hero (matches Summer HeroSection exactly) */}
           <section
-            className="relative w-full h-64 sm:h-80 md:h-screen bg-cover bg-center"
+            className="relative w-full h-screen bg-cover bg-center"
             style={{ backgroundImage: `url('${BASE_URL}images/winter-hero.jpg')` }}
           >
             <div className="hero-overlay"></div>
@@ -121,26 +129,28 @@ export default function Index() {
                 Your Steamboat Adventures Await
               </h1>
               <p className="mb-8 text-xl text-white/90 max-w-2xl">
-                Locally rooted and family-approved, we make ski days smoother with premium ski rentals, custom boot fitting, and overnight tunes
+                Locally rooted and family-approved, we make ski days smoother
+                with premium ski rentals, custom boot fitting, and overnight
+                tunes
               </p>
               <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                 <Link
                   to="/ski-rentals"
-                  className="btn-primary text-steamboat-blue bg-white hover:bg-steamboat-blue hover:text-white"
+                  className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   Ski Rentals
                 </Link>
                 <Link
                   to="/boot-fitting"
-                  className="btn-secondary text-steamboat-blue bg-white hover:bg-steamboat-blue hover:text-white"
+                  className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   Boot Fitting
                 </Link>
                 <Link
                   to="/ski-tuning"
-                  className="btn-secondary text-steamboat-blue bg-white hover:bg-steamboat-blue hover:text-white"
+                  className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   Ski Tuning
