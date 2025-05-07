@@ -26,7 +26,7 @@ const Index: React.FC = () => {
       description: "Advanced full-suspension bikes for technical terrain and trail riding.",
       price: "From $65/day",
       image: `${BASE_URL}images/full-suspension.jpg`,
-      link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension", 
+      link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension",
     },
     // ... other bike services, each with link property
   ];
@@ -47,10 +47,10 @@ const Index: React.FC = () => {
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-4">
             <h1 className="text-4xl lg:text-5xl font-extrabold drop-shadow-lg">
-              Winter Adventures Await
+              Your Steamboat Adventures Await
             </h1>
             <p className="mt-3 text-xl lg:text-2xl drop-shadow-md">
-              Discover ski rentals, expert boot fitting, and precision tuning
+              Locally rooted and family-approved, we make ski days smoother with custom boot fitting, premium rentals, and overnight tunes—so your whole crew can hit the slopes happy, warm, and ready to shred.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <Link
