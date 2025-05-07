@@ -50,7 +50,7 @@ const Index: React.FC = () => {
               Your Steamboat Adventures Await
             </h1>
             <p className="mt-3 text-xl lg:text-2xl drop-shadow-md">
-              Locally rooted and family-approved, we make ski days smoother with premium rentals, custom boot fitting, and overnight tunes.
+              Locally rooted and family-approved, we make ski days smoother with custom boot fitting, premium rentals, and overnight tunes—so your whole crew can hit the slopes happy, warm, and ready to shred.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <Link
@@ -95,9 +95,9 @@ const Index: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
               <div className="overflow-hidden rounded-lg shadow-lg">
                 <img
-                  src={`${BASE_URL}images/boot-fitting.png`}
+                  src={`${BASE_URL}images/boot-fitting.jpg`}
                   alt="Boot Fitting"
-                  className="object-cover w-full h-48"
+                  className="object-cover object-center w-full h-48"
                 />
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold mb-2">Boot Fitting</h3>
@@ -114,7 +114,7 @@ const Index: React.FC = () => {
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg">
                 <img
-                  src={`${BASE_URL}images/ski-tuning.png`}
+                  src={`${BASE_URL}images/ski-tuning.jpg`}
                   alt="Ski Tuning"
                   className="object-cover w-full h-48"
                 />
