@@ -1,5 +1,6 @@
 // src/pages/Index.tsx
 import React from "react";
+import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
 import ServiceSection from "@/components/ServiceSection";
@@ -8,8 +9,8 @@ import EventsSection from "@/components/EventsSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
 
+// Vite will inject your base public path (e.g. "/steamboat-revive-project/")
 const BASE_URL = import.meta.env.BASE_URL;
 
 const Index: React.FC = () => {
@@ -24,11 +25,45 @@ const Index: React.FC = () => {
     {
       name: "Full Suspension Mountain Bike",
       description: "Advanced full-suspension bikes for technical terrain and trail riding.",
-      price: "From $65/day",
-      image: `${BASE_URL}images/full-suspension.jpg`,
+      price: "From $65",
+      image: `${BASE_URL}images/full-suspension.png`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension",
     },
-    // ... other bike services, each with link property
+    {
+      name: "Hardtail Mountain Bike",
+      description: "Versatile hardtail bikes ideal for cross-country and trail riding.",
+      price: "From $45",
+      image: `${BASE_URL}images/hardtail.png`,
+      callToAction: "First come, first serve only",
+    },
+    {
+      name: "Electric Mountain Bike",
+      description: "Pedal-assisted e-bikes for extended range and climbing capabilities.",
+      price: "From $75",
+      image: `${BASE_URL}images/electric.png`,
+      link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/mountain-e-bike",
+    },
+    {
+      name: "Road Bike",
+      description: "Lightweight road bikes for pavement riding and exploring Steamboat's scenic roads.",
+      price: "From $55",
+      image: `${BASE_URL}images/road-bike.png`,
+      link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/gravel-bike-rental",
+    },
+    {
+      name: "Cruiser Bike",
+      description: "Comfortable cruiser bikes for casual riding around town and on bike paths.",
+      price: "From $30",
+      image: `${BASE_URL}images/cruiser.png`,
+      link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/cruiser-e-bike",
+    },
+    {
+      name: "Kids Bike",
+      description: "Quality bikes sized for young riders with options for various ages and abilities.",
+      price: "From $25",
+      image: `${BASE_URL}images/kids-bike.png`,
+      callToAction: "First come, first serve only",
+    },
   ];
 
   return (
@@ -52,25 +87,13 @@ const Index: React.FC = () => {
               Locally rooted and family-approved, we make ski days smoother with premium ski rentals, custom boot fitting, and overnight tunes.
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-              <Link
-                to="/ski-rentals"
-                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
-                onClick={() => window.scrollTo(0, 0)}
-              >
+              <Link to="/ski-rentals" className="btn-primary" onClick={() => window.scrollTo(0, 0)}>
                 Ski Rentals
               </Link>
-              <Link
-                to="/boot-fitting"
-                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
-                onClick={() => window.scrollTo(0, 0)}
-              >
+              <Link to="/boot-fitting" className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
                 Boot Fitting
               </Link>
-              <Link
-                to="/ski-tuning"
-                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded shadow hover:bg-steamboat-blue hover:text-white transition"
-                onClick={() => window.scrollTo(0, 0)}
-              >
+              <Link to="/ski-tuning" className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
                 Ski Tuning
               </Link>
             </div>
@@ -78,7 +101,7 @@ const Index: React.FC = () => {
         </section>
       )}
 
-      {/* Services Section: Bike rentals in summer, Winter services in winter */}
+      {/* Services Section: Bike rentals or Winter services */}
       {isSummer ? (
         <ServiceSection
           id="bike"
@@ -90,7 +113,7 @@ const Index: React.FC = () => {
       ) : (
         <section id="winter-services" className="py-20 bg-white">
           <div className="container-custom">
-            <h2 className="section-title text-center">Winter Services</h2>
+            <h2 className="section-title text-center">Winter Services</n            </h2>
             <p className="section-subtitle text-center">
               Precision tuning and expert boot fitting for your best season yet
             </p>
@@ -114,6 +137,7 @@ const Index: React.FC = () => {
                   </Link>
                 </div>
               </div>
+
               <div className="overflow-hidden rounded-lg shadow-lg">
                 <img
                   src={`${BASE_URL}images/ski-tuning.png`}
@@ -123,7 +147,7 @@ const Index: React.FC = () => {
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold mb-2">Ski Tuning</h3>
                   <p className="text-steamboat-gray mb-4">
-                    Professional ski tuning for edge precision and optimal glide.
+                    Professional ski tuning to keep your gear responsive and smooth on any terrain.
                   </p>
                   <Link
                     to="/ski-tuning"
@@ -140,12 +164,12 @@ const Index: React.FC = () => {
 
       {/* Shared Sections */}
       <AboutSection />
-      {/* Only show events on summer */}
-      {isSummer && <EventsSection />}
+      {isSummer && <EventsSection />}   {/* Only show events in summer */}
       <TestimonialSection />
       <section id="contact">
         <ContactSection />
       </section>
+
       <Footer />
     </>
   );
