@@ -49,8 +49,8 @@ const NavBar: React.FC = () => {
     : [
         { name: "Home", to: "/" },
         { name: "Ski Rentals", to: "/ski-rentals" },
-        { name: "Ski Tuning", to: "/ski-tuning" },
         { name: "Boot Fitting", to: "/boot-fitting" },
+        { name: "Ski Tuning", to: "/ski-tuning" },
         { name: "Events", to: "/events" },
         { name: "Shop", to: "/shop" },
         { name: "Summer", children: summerItems },
