@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 import HeroSection from "@/components/HeroSection";
 import ServiceSection from "@/components/ServiceSection";
-import AboutSection from "@/components/AboutSection";
 import EventsSection from "@/components/EventsSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
