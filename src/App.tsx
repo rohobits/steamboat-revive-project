@@ -1,7 +1,6 @@
 // src/App.tsx
-
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -21,7 +20,7 @@ import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <Router>
       {/* Always present global nav and scroll handler */}
       <NavBar />
       <ScrollToTop />
@@ -44,6 +43,6 @@ export default function App() {
         {/* Catch-all fallback */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
