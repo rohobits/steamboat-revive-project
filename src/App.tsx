@@ -1,9 +1,10 @@
 // src/App.tsx
+
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-
 import NavBar from '@/components/NavBar';
 import ScrollToTop from '@/components/ScrollToTop';
+import Footer from '@/components/Footer';
 
 // Page components
 import Index from '@/pages/Index';
@@ -35,15 +36,14 @@ export default function App() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/bicycles" element={<ShopBicyclesPage />} />
         <Route path="/events" element={<EventsPage />} />
-
-        {/* Ski Rentals section */}
         <Route path="/ski-rentals" element={<SkiRentalsPage />} />
         <Route path="/ski-rentals/mountain" element={<SkiRentalsMountainPage />} />
         <Route path="/ski-rentals/downtown" element={<SkiRentalsDowntownPage />} />
-
-        {/* Catch-all fallback */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      {/* Global footer */}
+      <Footer />
     </Router>
   );
 }
