@@ -1,5 +1,6 @@
 // src/pages/Index.tsx
 
+import ServiceCard, { Service } from '@/components/ServiceCard';
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
