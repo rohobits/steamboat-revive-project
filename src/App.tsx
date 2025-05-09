@@ -1,24 +1,34 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+// src/App.tsx
+import React from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "@/components/ScrollToTop";
 
-function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        {/* Add other routes as needed */}
-      </Routes>
-      <Footer />
-    </Router>
-  );
-}
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+
+import Index from "./pages/Index";
+import BikeService from "./pages/BikeService";
+import EventsPage from "./pages/EventsPage";
+import BootFittingPage from "./pages/Boot-fitting";
+import SkiTuningPage from "./pages/ski-tuning";
+import NotFound from "./pages/NotFound";
+import ShopPage from "./pages/ShopPage";
+
+const App = () => (
+  <Router basename="/steamboat-revive-project">
+    <ScrollToTop />
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/bike-service" element={<BikeService />} />
+      <Route path="/events" element={<EventsPage />} />
+      <Route path="/boot-fitting" element={<BootFittingPage />} />
+      <Route path="/ski-tuning" element={<SkiTuningPage />} />
+      <Route path="/shop" element={<ShopPage />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    <Footer />
+  </Router>
+);
 
 export default App;
