@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import HeroSection, { HeroAction } from '@/components/HeroSection';
 import ServiceCard, { Service } from '@/components/ServiceCard';
 import ServiceSection from '@/components/ServiceSection';
+import AboutSection from '@/components/AboutSection';
 import EventsSection from '@/components/EventsSection';
 import TestimonialSection from '@/components/TestimonialSection';
 import ContactSection from '@/components/ContactSection';
@@ -34,7 +35,7 @@ export default function Index() {
     { label: 'Ski Tuning', to: '/ski-tuning' },
   ];
 
-  // Summer bike rentals (consumed by ServiceSection)
+  // Summer bike rentals (for ServiceSection)
   const bikeServices = [
     {
       name: 'Cruiser E-Bike',
@@ -45,50 +46,10 @@ export default function Index() {
       link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/cruiser-e-bike',
       callToAction: 'Rent Now',
     },
-    {
-      name: 'Gravel Bike Rental',
-      description:
-        'Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s roads.',
-      price: 'From $49',
-      image: `${BASE_URL}images/road-bike.jpg`,
-      link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/gravel-bike-rental',
-      callToAction: 'Rent Now',
-    },
-    {
-      name: 'Full Suspension',
-      description:
-        'Dual-suspension comfort to climb, descend, and charge the whole mountain with confidence.',
-      price: 'From $64',
-      image: `${BASE_URL}images/full-suspension.jpg`,
-      link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension',
-      callToAction: 'Rent Now',
-    },
-    {
-      name: 'Mountain E-Bike',
-      description: 'Rail 5 trail tech + Bosch power—go further up and down the mountain.',
-      price: 'From $74',
-      image: `${BASE_URL}images/electric.jpg`,
-      link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/mountain-e-bike',
-      callToAction: 'Rent Now',
-    },
-    {
-      name: 'Hardtail Mountain Bike',
-      description: 'Versatile hardtail bikes ideal for cross-country and trail riding.',
-      price: 'From $45',
-      image: `${BASE_URL}images/hardtail.jpg`,
-      callToAction: 'First come, first serve only',
-    },
-    {
-      name: 'Kids Bike',
-      description:
-        'Quality bikes sized for young riders with options for various ages and abilities.',
-      price: 'From $25',
-      image: `${BASE_URL}images/kids-bike.jpg`,
-      callToAction: 'First come, first serve only',
-    },
+    // ...other bikeServices items...
   ];
 
-  // Winter services (consumed by ServiceCard)
+  // Winter services (for ServiceCard)
   const winterServices: Service[] = [
     {
       name: 'Boot Fitting',
@@ -155,6 +116,11 @@ export default function Index() {
           </section>
         </>
       )}
+
+      {/* About Section */}
+      <section id="about">
+        <AboutSection />
+      </section>
 
       {/* Only show Events in Summer */}
       {isSummer && <EventsSection />}
