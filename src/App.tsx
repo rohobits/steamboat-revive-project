@@ -1,34 +1,49 @@
 // src/App.tsx
-import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import ScrollToTop from "@/components/ScrollToTop";
 
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import ScrollToTop from './components/ScrollToTop';
 
-import Index from "./pages/Index";
-import BikeService from "./pages/BikeService";
-import EventsPage from "./pages/EventsPage";
-import BootFittingPage from "./pages/Boot-fitting";
-import SkiTuningPage from "./pages/ski-tuning";
-import NotFound from "./pages/NotFound";
-import ShopPage from "./pages/ShopPage";
+// Page components
+import Index from './pages/Index';
+import BikeService from './pages/BikeService';
+import BikeRentalsPage from './pages/BikeRentalsPage';
+import BootFittingPage from './pages/Boot-fitting';
+import SkiTuningPage from './pages/ski-tuning';
+import ShopPage from './pages/ShopPage';
+import ShopBicyclesPage from './pages/ShopBicyclesPage';
+import EventsPage from './pages/EventsPage';
+import SkiRentalsPage from './pages/SkiRentalsPage';
+import SkiRentalsMountainPage from './pages/SkiRentalsMountainPage';
+import SkiRentalsDowntownPage from './pages/SkiRentalsDowntownPage';
+import NotFound from './pages/NotFound';
 
-const App = () => (
-  <Router basename="/steamboat-revive-project">
-    <ScrollToTop />
-    <NavBar />
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/bike-service" element={<BikeService />} />
-      <Route path="/events" element={<EventsPage />} />
-      <Route path="/boot-fitting" element={<BootFittingPage />} />
-      <Route path="/ski-tuning" element={<SkiTuningPage />} />
-      <Route path="/shop" element={<ShopPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-    <Footer />
-  </Router>
-);
+export default function App() {
+  return (
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      {/* Always present global nav and scroll handler */}
+      <NavBar />
+      <ScrollToTop />
 
-export default App;
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/bike-service" element={<BikeService />} />
+        <Route path="/boot-fitting" element={<BootFittingPage />} />
+        <Route path="/ski-tuning" element={<SkiTuningPage />} />
+        <Route path="/bike-rentals" element={<BikeRentalsPage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/bicycles" element={<ShopBicyclesPage />} />
+        <Route path="/events" element={<EventsPage />} />
+
+        {/* Ski Rentals section */}
+        <Route path="/ski-rentals" element={<SkiRentalsPage />} />
+        <Route path="/ski-rentals/mountain" element={<SkiRentalsMountainPage />} />
+        <Route path="/ski-rentals/downtown" element={<SkiRentalsDowntownPage />} />
+
+        {/* Catch-all fallback */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
