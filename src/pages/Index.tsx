@@ -113,13 +113,13 @@ export default function Index() {
         </>
       ) : (
         <>
-          {/* Winter Hero */}
+          {/* Winter Hero (no longer full-screen) */}
           <section
-            className="relative w-full h-screen bg-cover bg-center"
+            className="relative w-full bg-cover bg-center"
             style={{ backgroundImage: `url('${BASE_URL}images/winter-hero.jpg')` }}
           >
             <div className="hero-overlay" />
-            <div className="container-custom relative z-10 flex flex-col items-center justify-center h-full text-center">
+            <div className="container-custom relative z-10 flex flex-col items-center justify-center py-20 text-center">
               <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl">
                 Your Steamboat Adventures Await
               </h1>
