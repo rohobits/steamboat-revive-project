@@ -1,49 +1,24 @@
-// src/App.tsx
-
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import ScrollToTop from './components/ScrollToTop';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-// Page components
-import Index from './pages/Index';
-import BikeService from './pages/BikeService';
-import BikeRentalsPage from './pages/BikeRentalsPage';
-import BootFittingPage from './pages/Boot-fitting';
-import SkiTuningPage from './pages/ski-tuning';
-import ShopPage from './pages/ShopPage';
-import ShopBicyclesPage from './pages/ShopBicyclesPage';
-import EventsPage from './pages/EventsPage';
-import SkiRentalsPage from './pages/SkiRentalsPage';
-import SkiRentalsMountainPage from './pages/SkiRentalsMountainPage';
-import SkiRentalsDowntownPage from './pages/SkiRentalsDowntownPage';
-import NotFound from './pages/NotFound';
-
-export default function App() {
+function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      {/* Always present global nav and scroll handler */}
-      <NavBar />
-      <ScrollToTop />
-
+    <Router>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/bike-service" element={<BikeService />} />
-        <Route path="/boot-fitting" element={<BootFittingPage />} />
-        <Route path="/ski-tuning" element={<SkiTuningPage />} />
-        <Route path="/bike-rentals" element={<BikeRentalsPage />} />
-        <Route path="/shop" element={<ShopPage />} />
-        <Route path="/shop/bicycles" element={<ShopBicyclesPage />} />
-        <Route path="/events" element={<EventsPage />} />
-
-        {/* Ski Rentals section */}
-        <Route path="/ski-rentals" element={<SkiRentalsPage />} />
-        <Route path="/ski-rentals/mountain" element={<SkiRentalsMountainPage />} />
-        <Route path="/ski-rentals/downtown" element={<SkiRentalsDowntownPage />} />
-
-        {/* Catch-all fallback */}
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        {/* Add other routes as needed */}
       </Routes>
-    </BrowserRouter>
+      <Footer />
+    </Router>
   );
 }
+
+export default App;
