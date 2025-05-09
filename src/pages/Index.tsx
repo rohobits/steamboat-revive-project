@@ -2,26 +2,33 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-
+import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
 import ServiceSection from "@/components/ServiceSection";
+import AboutSection from "@/components/AboutSection";
 import EventsSection from "@/components/EventsSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
-// Vite injects this at build time
-const BASE_URL = import.meta.env.BASE_URL || "/";
+// Vite injects your base public path (e.g. "/steamboat-revive-project/")
+const BASE_URL = import.meta.env.BASE_URL;
 
 export default function Index() {
+  // Season logic (April–August = summer)
   const month = new Date().getMonth();
   const params = new URLSearchParams(window.location.search);
   const seasonParam = params.get("season");
-  const isSummer = seasonParam ? seasonParam === "summer" : month >= 3 && month <= 7;
+  const isSummer = seasonParam
+    ? seasonParam === "summer"
+    : month >= 3 && month <= 7;
 
+  // Summer bike rentals
   const bikeServices = [
     {
       name: "Cruiser E-Bike",
-      description: "Finally, an e-bike for the rest of us—go faster, farther, and funner on Electra's Townie Go! 7D.",
+      description:
+        "Finally, an e-bike for the rest of us—go faster, farther, and funner on Electra's Townie Go! 7D.",
       price: "From $74",
       image: `${BASE_URL}images/cruiser.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/cruiser-e-bike",
@@ -29,7 +36,8 @@ export default function Index() {
     },
     {
       name: "Gravel Bike Rental",
-      description: "Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s roads.",
+      description:
+        "Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s roads.",
       price: "From $49",
       image: `${BASE_URL}images/road-bike.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/gravel-bike-rental",
@@ -37,7 +45,8 @@ export default function Index() {
     },
     {
       name: "Full Suspension",
-      description: "Dual-suspension comfort to climb, descend, and charge the whole mountain with confidence.",
+      description:
+        "Dual-suspension comfort to climb, descend, and charge the whole mountain with confidence.",
       price: "From $64",
       image: `${BASE_URL}images/full-suspension.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension",
@@ -45,7 +54,8 @@ export default function Index() {
     },
     {
       name: "Mountain E-Bike",
-      description: "Rail 5 trail tech + Bosch power—go further up and down the mountain.",
+      description:
+        "Rail 5 trail tech + Bosch power—go further up and down the mountain.",
       price: "From $74",
       image: `${BASE_URL}images/electric.jpg`,
       link: "https://rentals.steamboatskiandbike.com/rent/bike-rentals/mountain-e-bike",
@@ -53,31 +63,36 @@ export default function Index() {
     },
     {
       name: "Hardtail Mountain Bike",
-      description: "Versatile hardtail bikes ideal for cross-country and trail riding.",
+      description:
+        "Versatile hardtail bikes ideal for cross-country and trail riding.",
       price: "From $45",
       image: `${BASE_URL}images/hardtail.jpg`,
       callToAction: "First come, first serve only",
     },
     {
       name: "Kids Bike",
-      description: "Quality bikes sized for young riders with options for various ages and abilities.",
+      description:
+        "Quality bikes sized for young riders with options for various ages and abilities.",
       price: "From $25",
       image: `${BASE_URL}images/kids-bike.jpg`,
       callToAction: "First come, first serve only",
     },
   ];
 
+  // Winter services grid
   const winterServices = [
     {
       name: "Boot Fitting",
-      description: "Precision boot fitting tailored to your foot anatomy and skiing style.",
+      description:
+        "Precision boot fitting tailored to your foot anatomy and skiing style.",
       image: `${BASE_URL}images/boot-fitting.png`,
       link: "/boot-fitting",
       callToAction: "Learn More",
     },
     {
       name: "Ski Tuning",
-      description: "Advanced tuning to keep your skis sharp, fast, and ready for the mountain.",
+      description:
+        "Advanced tuning to keep your skis sharp, fast, and ready for the mountain.",
       image: `${BASE_URL}images/ski-tuning.png`,
       link: "/ski-tuning",
       callToAction: "Learn More",
@@ -86,9 +101,13 @@ export default function Index() {
 
   return (
     <>
+      <NavBar />
+
       {isSummer ? (
         <>
+          {/* Summer Hero & Bike Section */}
           <HeroSection />
+
           <ServiceSection
             id="bike"
             title="Bike Rentals"
@@ -99,6 +118,7 @@ export default function Index() {
         </>
       ) : (
         <>
+          {/* Winter Hero (matches Summer HeroSection exactly) */}
           <section
             className="relative w-full h-screen bg-cover bg-center"
             style={{ backgroundImage: `url('${BASE_URL}images/winter-hero.jpg')` }}
@@ -109,31 +129,68 @@ export default function Index() {
                 Your Steamboat Adventures Await
               </h1>
               <p className="mb-8 text-xl text-white/90 max-w-2xl">
-                Locally rooted and family-approved, we make ski days smoother with premium ski rentals, custom boot fitting, and overnight tunes
+                Locally rooted and family-approved, we make ski days smoother
+                with premium ski rentals, custom boot fitting, and overnight
+                tunes
               </p>
               <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-                <Link to="/ski-rentals" className="btn-primary">Ski Rentals</Link>
-                <Link to="/boot-fitting" className="btn-primary">Boot Fitting</Link>
-                <Link to="/ski-tuning" className="btn-primary">Ski Tuning</Link>
+                <Link
+                  to="/ski-rentals"
+                  className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  Ski Rentals
+                </Link>
+                <Link
+                  to="/boot-fitting"
+                  className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  Boot Fitting
+                </Link>
+                <Link
+                  to="/ski-tuning"
+                  className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  Ski Tuning
+                </Link>
               </div>
             </div>
           </section>
 
+          {/* Winter Services */}
           <section id="winter-services" className="py-20 bg-white">
             <div className="container-custom">
               <h2 className="section-title text-center">Winter Services</h2>
-              <p className="section-subtitle text-center">Precision tuning and expert boot fitting for your best season yet.</p>
+              <p className="section-subtitle text-center">
+                Precision tuning and expert boot fitting for your best season yet.
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
                 {winterServices.map((svc) => (
-                  <div key={svc.name} className="overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div
+                    key={svc.name}
+                    className="overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl"
+                  >
                     <div className="h-56 overflow-hidden">
-                      <img src={svc.image} alt={svc.name} className="object-cover w-full h-full object-center" />
+                      <img
+                        src={svc.image}
+                        alt={svc.name}
+                        className="object-cover w-full h-full object-center"
+                      />
                     </div>
                     <div className="p-6">
-                      <h3 className="mb-2 text-xl font-semibold text-steamboat-darkBlue">{svc.name}</h3>
+                      <h3 className="mb-2 text-xl font-semibold text-steamboat-darkBlue">
+                        {svc.name}
+                      </h3>
                       <p className="mb-4 text-steamboat-gray">{svc.description}</p>
                       <div className="flex justify-center">
-                        <Link to={svc.link} className="btn-secondary">{svc.callToAction}</Link>
+                        <Link
+                          to={svc.link}
+                          className="px-6 py-3 bg-steamboat-blue text-white font-semibold rounded shadow hover:bg-white hover:text-steamboat-blue transition"
+                        >
+                          {svc.callToAction}
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -144,6 +201,7 @@ export default function Index() {
         </>
       )}
 
+      {/* Only show Events in Summer */}
       {isSummer && <EventsSection />}
 
       <TestimonialSection />
@@ -151,6 +209,8 @@ export default function Index() {
       <section id="contact">
         <ContactSection />
       </section>
+
+      <Footer />
     </>
   );
 }
