@@ -86,66 +86,24 @@ export default function NavBar() {
     }, 200);
   }
 
-  // Utility: native anchor scroll + close dropdown
-  const onAnchorClick = (hash: string) => {
-    setActiveDropdown(null);
-    setMenuOpen(false);
-    // use a tiny timeout to let Link/anchor update URL first
-    setTimeout(() => {
-      const el = document.getElementById(hash);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 50);
-  };
-
-  // Render either a <Link> or <a> depending on whether it's an in-page anchor
-  const RenderNavLink = ({
-    to,
-    children,
-  }: {
-    to: string;
-    children: React.ReactNode;
-  }) => {
-    if (to.startsWith("/#")) {
-      // strip the leading '/', use the fragment only
-      const hash = to.slice(2);
-      return (
-        <a
-          href={to}
-          onClick={(e) => {
-            e.preventDefault();
-            onAnchorClick(hash);
-          }}
-          className="text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold"
-        >
-          {children}
-        </a>
-      );
-    }
-    return (
-      <Link
-        to={to}
-        onClick={() => {
-          setMenuOpen(false);
-          window.scrollTo(0, 0);
-        }}
-        className="text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold"
-      >
-        {children}
-      </Link>
-    );
-  };
-
   return (
     <>
       <header className="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
         <div className="container-custom flex items-center justify-between h-20">
-          <RenderNavLink to="/">
+          <Link
+            to="/"
+            onClick={() => {
+              setMenuOpen(false);
+              window.scrollTo(0, 0);
+            }}
+            className="flex-shrink-0"
+          >
             <img
               src={`${import.meta.env.BASE_URL}images/logo.png`}
               alt="Logo"
               className="h-12 w-auto"
             />
-          </RenderNavLink>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-10">
@@ -157,19 +115,43 @@ export default function NavBar() {
                 onMouseLeave={() => item.children && handleMouseLeave()}
               >
                 {!item.children ? (
-                  <RenderNavLink to={item.to!}>{item.name}</RenderNavLink>
+                  <Link
+                    to={item.to!}
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold"
+                  >
+                    {item.name}
+                  </Link>
                 ) : (
                   <>
-                    <button className="flex items-center text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold">
+                    <Link
+                      to={item.name === "About" ? "/#about" : item.to!}
+                      onClick={() => {
+                        if (item.name === "About") {
+                          window.setTimeout(() => {
+                            document.getElementById("about")?.scrollIntoView({
+                              behavior: "smooth",
+                            });
+                          }, 0);
+                        }
+                        setActiveDropdown(item.name);
+                      }}
+                      className="flex items-center text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold"
+                    >
                       {item.name}
                       <ChevronDown size={16} className="ml-1" />
-                    </button>
+                    </Link>
                     {activeDropdown === item.name && (
                       <div className="absolute left-0 top-full mt-0 w-48 bg-white shadow-xl rounded-md z-50">
-                        {item.children.map((child) => (
-                          <div key={child.name}>
-                            <RenderNavLink to={child.to!}>{child.name}</RenderNavLink>
-                          </div>
+                        {item.children!.map((child) => (
+                          <Link
+                            key={child.name}
+                            to={child.to!}
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-4 py-2 text-steamboat-darkBlue hover:bg-steamboat-blue hover:text-white transition-colors duration-200 text-base"
+                          >
+                            {child.name}
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -226,16 +208,31 @@ export default function NavBar() {
                 {navItems.map((item) => (
                   <motion.li key={item.name} variants={itemVariants}>
                     {!item.children ? (
-                      <RenderNavLink to={item.to!}>{item.name}</RenderNavLink>
+                      <Link
+                        to={item.to!}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          window.scrollTo(0, 0);
+                        }}
+                        className="text-xl font-semibold text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200"
+                      >
+                        {item.name}
+                      </Link>
                     ) : (
                       <div>
                         <p className="text-xl font-semibold text-steamboat-darkBlue mb-2">
                           {item.name}
                         </p>
                         <ul className="space-y-2 pl-6">
-                          {item.children.map((child) => (
+                          {item.children!.map((child) => (
                             <motion.li key={child.name} variants={itemVariants}>
-                              <RenderNavLink to={child.to!}>{child.name}</RenderNavLink>
+                              <Link
+                                to={child.to!}
+                                onClick={() => setMenuOpen(false)}
+                                className="block text-lg text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200"
+                              >
+                                {child.name}
+                              </Link>
                             </motion.li>
                           ))}
                         </ul>
