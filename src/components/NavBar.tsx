@@ -115,10 +115,25 @@ export default function NavBar() {
                 onMouseLeave={() => item.children && handleMouseLeave()}
               >
                 {item.children ? (
-                  <button className="flex items-center text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold">
-                    {item.name}
-                    <ChevronDown size={16} className="ml-1" />
-                  </button>
+                  item.name === 'About' ? (
+                    <div className="flex items-center text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold">
+                      <Link
+                        to="/#about"
+                        onClick={() => {
+                          setActiveDropdown(item.name);
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                      <ChevronDown size={16} className="ml-1" />
+                    </div>
+                  ) : (
+                    <button className="flex items-center text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold">
+                      {item.name}
+                      <ChevronDown size={16} className="ml-1" />
+                    </button>
+                  )
                 ) : (
                   <Link
                     to={item.to!}
@@ -196,14 +211,27 @@ export default function NavBar() {
                   <motion.li key={item.name} variants={itemVariants}>
                     {item.children ? (
                       <div>
-                        <p className="text-xl font-semibold text-steamboat-darkBlue mb-2">{item.name}</p>
+                        {item.name === 'About' ? (
+                          <Link
+                            to="/#about"
+                            onClick={() => {
+                              setMenuOpen(false);
+                              window.scrollTo(0, 0);
+                            }}
+                            className="text-xl font-semibold text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200"
+                          >
+                            {item.name}
+                          </Link>
+                        ) : (
+                          <p className="text-xl font-semibold text-steamboat-darkBlue mb-2">{item.name}</p>
+                        )}
                         <ul className="space-y-2 pl-6">
                           {item.children.map((child) => (
                             <motion.li key={child.name} variants={itemVariants}>
                               <Link
                                 to={child.to!}
-                                className="block text-lg text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200"
                                 onClick={() => setMenuOpen(false)}
+                                className="block text-lg text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200"
                               >
                                 {child.name}
                               </Link>
