@@ -1,10 +1,19 @@
+**Updating Index.tsx for seasons**
+
+I need to update Index.tsx to reflect changes in HeroSection.tsx. First, I'll modify the imports to include HeroSection and HeroAction. Then, I’ll remove the hardcoded winter and summer sections, using conditional rendering to display HeroSection based on the season, passing the appropriate props. For summer, I’ll add ServiceSection with bikeServices, but keep it unchanged. I’ll use HeroSection with the correct title, subtitle, and actions, including the external flag for "Rent a Bike."
+
+
+Thought for 6 seconds
+
+
+```tsx
 // src/pages/Index.tsx
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import HeroSection, { HeroAction } from '@/components/HeroSection';
 import ServiceCard, { Service } from '@/components/ServiceCard';
-import HeroSection from '@/components/HeroSection';
 import ServiceSection from '@/components/ServiceSection';
 import EventsSection from '@/components/EventsSection';
 import TestimonialSection from '@/components/TestimonialSection';
@@ -22,7 +31,21 @@ export default function Index() {
     ? seasonParam === 'summer'
     : month >= 3 && month <= 7;
 
-  // Summer bike rentals (consumed by ServiceSection)
+  // Summer hero actions
+  const summerActions: HeroAction[] = [
+    { label: 'Rent a Bike', to: '#bike', external: true },
+    { label: 'Bike Service', to: '/bike-service' },
+    { label: 'Shop', to: '/shop' },
+  ];
+
+  // Winter hero actions
+  const winterActions: HeroAction[] = [
+    { label: 'Ski Rentals', to: '/ski-rentals' },
+    { label: 'Boot Fitting', to: '/boot-fitting' },
+    { label: 'Ski Tuning', to: '/ski-tuning' },
+  ];
+
+  // Summer bike rentals (for ServiceSection)
   const bikeServices = [
     {
       name: 'Cruiser E-Bike',
@@ -76,7 +99,7 @@ export default function Index() {
     },
   ];
 
-  // Winter services (consumed by ServiceCard)
+  // Winter services (for ServiceCard)
   const winterServices: Service[] = [
     {
       name: 'Boot Fitting',
@@ -100,9 +123,15 @@ export default function Index() {
     <>
       {isSummer ? (
         <>
-          {/* Summer Hero & Bike Section */}
-          <HeroSection />
+          {/* Summer Hero */}
+          <HeroSection
+            backgroundImage="images/hero.jpg"
+            title="Explore Steamboat Springs on Two Wheels"
+            subtitle="Premium bike rentals and expert service to experience the best mountain biking in Colorado"
+            actions={summerActions}
+          />
 
+          {/* Summer Bike Section */}
           <ServiceSection
             id="bike"
             title="Bike Rentals"
@@ -113,33 +142,13 @@ export default function Index() {
         </>
       ) : (
         <>
-          {/* Winter Hero (no longer full-screen) */}
-          <section
-            className="relative w-full bg-cover bg-center"
-            style={{ backgroundImage: `url('${BASE_URL}images/winter-hero.jpg')` }}
-          >
-            <div className="hero-overlay" />
-            <div className="container-custom relative z-10 flex flex-col items-center justify-center py-20 text-center">
-              <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl">
-                Your Steamboat Adventures Await
-              </h1>
-              <p className="mb-8 text-xl text-white/90 max-w-2xl">
-                Locally rooted and family-approved, we make ski days smoother with
-                premium ski rentals, custom boot fitting, and overnight tunes
-              </p>
-              <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-                <Link to="/ski-rentals" className="btn-primary">
-                  Ski Rentals
-                </Link>
-                <Link to="/boot-fitting" className="btn-primary">
-                  Boot Fitting
-                </Link>
-                <Link to="/ski-tuning" className="btn-primary">
-                  Ski Tuning
-                </Link>
-              </div>
-            </div>
-          </section>
+          {/* Winter Hero */}
+          <HeroSection
+            backgroundImage="images/winter-hero.jpg"
+            title="Your Steamboat Adventures Await"
+            subtitle="Locally rooted and family-approved, we make ski days smoother with premium ski rentals, custom boot fitting, and overnight tunes"
+            actions={winterActions}
+          />
 
           {/* Winter Services */}
           <section id="winter-services" className="py-20 bg-white">
@@ -161,11 +170,12 @@ export default function Index() {
       {/* Only show Events in Summer */}
       {isSummer && <EventsSection />}
 
+      {/* Testimonials & Contact */}
       <TestimonialSection />
-
       <section id="contact">
         <ContactSection />
       </section>
     </>
   );
 }
+```
