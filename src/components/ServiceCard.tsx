@@ -1,3 +1,5 @@
+// src/components/ServiceCard.tsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -21,6 +23,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           src={service.image}
           alt={service.name}
           className="object-cover w-full h-full object-center"
+          loading="lazy"
         />
       </div>
       <div className="p-6">
