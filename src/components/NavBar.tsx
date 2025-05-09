@@ -2,10 +2,10 @@
 
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Home, Sun, Snowflake, Wrench, Calendar, ShoppingCart } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Animation variants (unchanged)
+// Animation variants
 const drawerVariants = {
   hidden: { y: "100%" },
   visible: { y: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
@@ -25,13 +25,11 @@ export default function NavBar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const closeTimeout = useRef<number | null>(null);
 
-  // Season logic (same as before)
+  // Season logic
   const month = new Date().getMonth();
   const params = new URLSearchParams(window.location.search);
   const seasonParam = params.get("season");
-  const isSummer = seasonParam
-    ? seasonParam === "summer"
-    : month >= 3 && month <= 7;
+  const isSummer = seasonParam ? seasonParam === "summer" : month >= 3 && month <= 7;
 
   const summerItems: NavItem[] = [
     { name: "Bike Rentals", to: "/#bike" },
@@ -50,10 +48,13 @@ export default function NavBar() {
         { name: "Events", to: "/events" },
         { name: "Shop", to: "/shop" },
         { name: "Winter", children: winterItems },
-        { name: "About", children: [
+        {
+          name: "About",
+          children: [
             { name: "About Us", to: "/#about" },
             { name: "Contact Us", to: "/#contact" },
-          ] },
+          ],
+        },
       ]
     : [
         { name: "Home", to: "/" },
@@ -61,10 +62,13 @@ export default function NavBar() {
         { name: "Events", to: "/events" },
         { name: "Shop", to: "/shop" },
         { name: "Summer", children: summerItems },
-        { name: "About", children: [
+        {
+          name: "About",
+          children: [
             { name: "About Us", to: "/#about" },
             { name: "Contact Us", to: "/#contact" },
-          ] },
+          ],
+        },
       ];
 
   function handleMouseEnter(name: string) {
@@ -86,10 +90,12 @@ export default function NavBar() {
     <>
       <header className="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
         <div className="container-custom flex items-center justify-between h-20">
-          {/* Logo */}
           <Link
             to="/"
-            onClick={() => { setMenuOpen(false); window.scrollTo(0,0); }}
+            onClick={() => {
+              setMenuOpen(false);
+              window.scrollTo(0, 0);
+            }}
             className="flex-shrink-0"
           >
             <img
@@ -101,7 +107,7 @@ export default function NavBar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-10">
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <div
                 key={item.name}
                 className="relative"
@@ -109,16 +115,14 @@ export default function NavBar() {
                 onMouseLeave={() => item.children && handleMouseLeave()}
               >
                 {item.children ? (
-                  <button
-                    className="flex items-center text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold"
-                  >
+                  <button className="flex items-center text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold">
                     {item.name}
                     <ChevronDown size={16} className="ml-1" />
                   </button>
                 ) : (
                   <Link
                     to={item.to!}
-                    onClick={() => window.scrollTo(0,0)}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200 text-lg font-semibold"
                   >
                     {item.name}
@@ -128,7 +132,7 @@ export default function NavBar() {
                 {/* Dropdown */}
                 {item.children && activeDropdown === item.name && (
                   <div className="absolute left-0 top-full mt-0 w-48 bg-white shadow-xl rounded-md z-50">
-                    {item.children.map(child => (
+                    {item.children.map((child) => (
                       <Link
                         key={child.name}
                         to={child.to!}
@@ -144,7 +148,7 @@ export default function NavBar() {
             ))}
           </nav>
 
-          {/* Mobile Hamburger (unchanged) */}
+          {/* Mobile Hamburger */}
           <button
             className="md:hidden p-2 text-steamboat-darkBlue hover:text-steamboat-blue"
             onClick={() => setMenuOpen(true)}
@@ -155,7 +159,7 @@ export default function NavBar() {
         </div>
       </header>
 
-      {/* Mobile Drawer (unchanged) */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -188,15 +192,13 @@ export default function NavBar() {
                 exit="hidden"
                 variants={listVariants}
               >
-                {navItems.map(item => (
+                {navItems.map((item) => (
                   <motion.li key={item.name} variants={itemVariants}>
                     {item.children ? (
                       <div>
-                        <p className="text-xl font-semibold text-steamboat-darkBlue mb-2">
-                          {item.name}
-                        </p>
+                        <p className="text-xl font-semibold text-steamboat-darkBlue mb-2">{item.name}</p>
                         <ul className="space-y-2 pl-6">
-                          {item.children.map(child => (
+                          {item.children.map((child) => (
                             <motion.li key={child.name} variants={itemVariants}>
                               <Link
                                 to={child.to!}
@@ -213,7 +215,10 @@ export default function NavBar() {
                       <Link
                         to={item.to!}
                         className="text-xl font-semibold text-steamboat-darkBlue hover:text-steamboat-blue transition-colors duration-200"
-                        onClick={() => { setMenuOpen(false); window.scrollTo(0,0); }}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         {item.name}
                       </Link>
