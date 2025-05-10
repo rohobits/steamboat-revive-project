@@ -12,7 +12,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",  
     "preview": "vite preview",
-    "convert-images": "node scripts/convert-images.js"
+    "convert-images": "node scripts/convert-images.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
