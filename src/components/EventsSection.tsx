@@ -1,6 +1,8 @@
 // src/components/EventsSection.tsx
+
 import React from "react";
 import { Calendar, Clock } from "lucide-react";
+import Button from '@/components/Button';
 
 // Placeholder events — replace with real data when your calendar is ready
 const placeholderEvents = [
@@ -56,12 +58,13 @@ export default function EventsSection() {
           ))}
         </div>
         <div className="flex justify-center mt-8">
-          <a
-            href="/steamboat-revive-project/events"
-            className="btn-secondary"
+          <Button
+            to="/events"
+            variant="secondary"
+            onClick={() => window.scrollTo(0, 0)}
           >
             View Full Calendar
-          </a>
+          </Button>
         </div>
       </div>
     </section>
