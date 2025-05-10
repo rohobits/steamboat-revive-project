@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 
 export interface HeroAction {
   label: string;
-  to: string;
+  to: string;        // e.g. "#bike" or "/bike-service"
   external?: boolean;
 }
 
@@ -42,12 +42,14 @@ export default function HeroSection({
         <p className="mb-8 text-xl text-white/90 max-w-2xl">{subtitle}</p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           {actions.map((action) => {
-            // 1) In‐page anchors (#bike, #contact, etc.)
+            // In-page anchor (#bike, #contact, etc.)
             if (action.to.startsWith("#")) {
+              // Prefix with a slash so HashRouter remains at "/" path then anchors
+              const anchorHref = `/${action.to}`;
               return (
                 <Button
                   key={action.label}
-                  href={action.to}
+                  href={anchorHref}
                   variant="primary"
                 >
                   {action.label}
@@ -55,7 +57,7 @@ export default function HeroSection({
               );
             }
 
-            // 2) True external URLs (e.g. rentals on another domain)
+            // True external URLs (e.g. cross-domain)
             if (action.external) {
               return (
                 <Button
@@ -69,7 +71,7 @@ export default function HeroSection({
               );
             }
 
-            // 3) Internal routes
+            // Internal React Router link
             return (
               <Button
                 key={action.label}
