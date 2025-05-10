@@ -1,17 +1,18 @@
 // scripts/convert-images.cjs
 
-import fs from 'fs';
-import path from 'path';
-import sharp from 'sharp';
+const fs = require('fs');
+const path = require('path');
+const sharp = require('sharp');
 
 // Directory containing your source images (relative to project root)
 const IMAGES_DIR = path.join(process.cwd(), 'public/images');
 // File extensions to convert
 const EXTENSIONS = ['.jpg', '.jpeg', '.png'];
 
-for (const file of fs.readdirSync(IMAGES_DIR)) {
+// Read all files in the images directory and convert matching extensions to .webp
+fs.readdirSync(IMAGES_DIR).forEach((file) => {
   const ext = path.extname(file).toLowerCase();
-  if (!EXTENSIONS.includes(ext)) continue;
+  if (!EXTENSIONS.includes(ext)) return;
 
   const inputPath = path.join(IMAGES_DIR, file);
   const outputName = file.replace(ext, '.webp');
@@ -22,4 +23,4 @@ for (const file of fs.readdirSync(IMAGES_DIR)) {
     .toFile(outputPath)
     .then(() => console.log(`Converted ${file} → ${outputName}`))
     .catch((err) => console.error(`Error converting ${file}:`, err));
-}
+});
