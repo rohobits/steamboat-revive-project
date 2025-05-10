@@ -41,18 +41,46 @@ export default function HeroSection({
         </h1>
         <p className="mb-8 text-xl text-white/90 max-w-2xl">{subtitle}</p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-          {actions.map((action) => (
-            <Button
-              key={action.label}
-              to={action.external ? undefined : action.to}
-              href={action.external ? action.to : undefined}
-              external={action.external}
-              variant="primary"
-              onClick={() => window.scrollTo(0, 0)}
-            >
-              {action.label}
-            </Button>
-          ))}
+          {actions.map((action) => {
+            // In-page anchor?
+            if (action.to.startsWith("#")) {
+              return (
+                <Button
+                  key={action.label}
+                  href={action.to}
+                  variant="primary"
+                >
+                  {action.label}
+                </Button>
+              );
+            }
+
+            // External link to another domain?
+            if (action.external) {
+              return (
+                <Button
+                  key={action.label}
+                  href={action.to}
+                  external
+                  variant="primary"
+                >
+                  {action.label}
+                </Button>
+              );
+            }
+
+            // Internal React Router link
+            return (
+              <Button
+                key={action.label}
+                to={action.to}
+                variant="primary"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                {action.label}
+              </Button>
+            );
+          })}
         </div>
       </div>
     </section>
