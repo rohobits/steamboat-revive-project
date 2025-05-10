@@ -42,7 +42,7 @@ export default function Index() {
       description:
         "Finally, an e-bike for the rest of us—go faster, farther, and funner on Electra's Townie Go! 7D.",
       price: 'From $74',
-      image: `${BASE_URL}images/cruiser.jpg`,
+      image: `${BASE_URL}images/cruiser.webp`,
       link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/cruiser-e-bike',
       callToAction: 'Rent Now',
     },
@@ -51,7 +51,7 @@ export default function Index() {
       description:
         'Explore on the Giant Revolt—they’ve got the gearing and durability you need on Steamboat’s roads.',
       price: 'From $49',
-      image: `${BASE_URL}images/road-bike.jpg`,
+      image: `${BASE_URL}images/road-bike.webp`,
       link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/gravel-bike-rental',
       callToAction: 'Rent Now',
     },
@@ -60,7 +60,7 @@ export default function Index() {
       description:
         'Dual-suspension comfort to climb, descend, and charge the whole mountain with confidence.',
       price: 'From $64',
-      image: `${BASE_URL}images/full-suspension.jpg`,
+      image: `${BASE_URL}images/full-suspension.webp`,
       link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/full-suspension',
       callToAction: 'Rent Now',
     },
@@ -68,7 +68,7 @@ export default function Index() {
       name: 'Mountain E-Bike',
       description: 'Rail 5 trail tech + Bosch power—go further up and down the mountain.',
       price: 'From $74',
-      image: `${BASE_URL}images/electric.jpg`,
+      image: `${BASE_URL}images/electric.webp`,
       link: 'https://rentals.steamboatskiandbike.com/rent/bike-rentals/mountain-e-bike',
       callToAction: 'Rent Now',
     },
@@ -76,7 +76,7 @@ export default function Index() {
       name: 'Hardtail Mountain Bike',
       description: 'Versatile hardtail bikes ideal for cross-country and trail riding.',
       price: 'From $45',
-      image: `${BASE_URL}images/hardtail.jpg`,
+      image: `${BASE_URL}images/hardtail.webp`,
       callToAction: 'First come, first serve only',
     },
     {
@@ -84,7 +84,7 @@ export default function Index() {
       description:
         'Quality bikes sized for young riders with options for various ages and abilities.',
       price: 'From $25',
-      image: `${BASE_URL}images/kids-bike.jpg`,
+      image: `${BASE_URL}images/kids-bike.webp`,
       callToAction: 'First come, first serve only',
     },
   ];
@@ -95,7 +95,7 @@ export default function Index() {
       name: 'Boot Fitting',
       description:
         'Precision boot fitting tailored to your foot anatomy and skiing style.',
-      image: `${BASE_URL}images/boot-fitting.png`,
+      image: `${BASE_URL}images/boot-fitting.webp`,
       link: '/boot-fitting',
       callToAction: 'Learn More',
     },
@@ -103,7 +103,7 @@ export default function Index() {
       name: 'Ski Tuning',
       description:
         'Advanced tuning to keep your skis sharp, fast, and ready for the mountain.',
-      image: `${BASE_URL}images/ski-tuning.png`,
+      image: `${BASE_URL}images/ski-tuning.webp`,
       link: '/ski-tuning',
       callToAction: 'Learn More',
     },
@@ -115,7 +115,7 @@ export default function Index() {
         <>
           {/* Summer Hero */}
           <HeroSection
-            backgroundImage="images/hero.jpg"
+            backgroundImage="images/hero.webp"
             title="Explore Steamboat Springs on Two Wheels"
             subtitle="Premium bike rentals and expert service to experience the best mountain biking in Colorado"
             actions={summerActions}
@@ -134,7 +134,7 @@ export default function Index() {
         <>
           {/* Winter Hero */}
           <HeroSection
-            backgroundImage="images/winter-hero.jpg"
+            backgroundImage="images/winter-hero.webp"
             title="Your Steamboat Adventures Await"
             subtitle="Locally rooted and family-approved, we make ski days smoother with premium ski rentals, custom boot fitting, and overnight tunes"
             actions={winterActions}
