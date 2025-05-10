@@ -12,7 +12,7 @@ const downtownPackages = [
     sizes: "130-170",
     description:
       "Perfect for beginner to intermediate skiers: soft flex for smooth, confidence-building turns.",
-    image: "downtown-sport-ski.png",
+    image: "downtown-sport-ski.webp",
     link: "https://rentals.steamboatskiandbike.com/product/7",
   },
   {
@@ -21,7 +21,7 @@ const downtownPackages = [
     sizes: "140-185",
     description:
       "Our newest backcountry package: includes adjustable poles, premium A/T boots, skins, and top touring skis.",
-    image: "at-ski.png",
+    image: "at-ski.webp",
     callToAction: "Call For Availability",
   },
   {
@@ -30,7 +30,7 @@ const downtownPackages = [
     sizes: "67-151cm",
     description:
       "Great for young skiers: sized boots and poles for ages 3–12.",
-    image: "downtown-kids.png",
+    image: "downtown-kids.webp",
     link: "https://rentals.steamboatskiandbike.com/product/11",
   },
   {
@@ -38,7 +38,7 @@ const downtownPackages = [
     price: "$29.99/Day",
     sizes: "115-163cm",
     description: "Versatile snowboard for all conditions, with boots included.",
-    image: "downtown-snowboard.png",
+    image: "downtown-snowboard.webp",
     link: "https://rentals.steamboatskiandbike.com/product/8",
   },
   {
@@ -47,7 +47,7 @@ const downtownPackages = [
     sizes: "80-120cm",
     description:
       "Perfect for kids: boots sized for young riders, versatile board for all ages.",
-    image: "kids-snowboard.png",
+    image: "kids-snowboard.webp",
     link: "https://rentals.steamboatskiandbike.com/product/9",
   },
 ];
