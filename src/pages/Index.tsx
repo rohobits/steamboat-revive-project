@@ -25,7 +25,7 @@ export default function Index() {
 
   // Hero actions
   const summerActions: HeroAction[] = [
-    { label: 'Rent a Bike', to: '#bike', external: true },
+    { label: 'Rent a Bike', to: '#bike' },
     { label: 'Bike Service', to: '/bike-service' },
     { label: 'Shop', to: '/shop' },
   ];
