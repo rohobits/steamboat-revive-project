@@ -1,7 +1,7 @@
 // src/components/HeroSection.tsx
 
 import React from "react";
-import Button from '@/components/Button';
+import Button from "@/components/Button";
 
 export interface HeroAction {
   label: string;
@@ -42,7 +42,7 @@ export default function HeroSection({
         <p className="mb-8 text-xl text-white/90 max-w-2xl">{subtitle}</p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           {actions.map((action) => {
-            // In-page anchor?
+            // 1) In‐page anchors (#bike, #contact, etc.)
             if (action.to.startsWith("#")) {
               return (
                 <Button
@@ -55,7 +55,7 @@ export default function HeroSection({
               );
             }
 
-            // External link to another domain?
+            // 2) True external URLs (e.g. rentals on another domain)
             if (action.external) {
               return (
                 <Button
@@ -69,7 +69,7 @@ export default function HeroSection({
               );
             }
 
-            // Internal React Router link
+            // 3) Internal routes
             return (
               <Button
                 key={action.label}
