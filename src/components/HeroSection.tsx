@@ -1,6 +1,7 @@
 // src/components/HeroSection.tsx
+
 import React from "react";
-import { Link } from "react-router-dom";
+import Button from '@/components/Button';
 
 export interface HeroAction {
   label: string;
@@ -40,26 +41,18 @@ export default function HeroSection({
         </h1>
         <p className="mb-8 text-xl text-white/90 max-w-2xl">{subtitle}</p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-          {actions.map((a) =>
-            a.external ? (
-              <a
-                key={a.label}
-                href={a.to}
-                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
-              >
-                {a.label}
-              </a>
-            ) : (
-              <Link
-                key={a.label}
-                to={a.to}
-                className="px-6 py-3 bg-white text-steamboat-blue font-semibold rounded-lg shadow hover:bg-steamboat-blue hover:text-white transition-colors duration-300"
-                onClick={() => window.scrollTo(0, 0)}
-              >
-                {a.label}
-              </Link>
-            )
-          )}
+          {actions.map((action) => (
+            <Button
+              key={action.label}
+              to={action.external ? undefined : action.to}
+              href={action.external ? action.to : undefined}
+              external={action.external}
+              variant="primary"
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              {action.label}
+            </Button>
+          ))}
         </div>
       </div>
     </section>
