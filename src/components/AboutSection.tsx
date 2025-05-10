@@ -38,7 +38,7 @@ export default function AboutSection() {
           <div className="order-first lg:order-last">
             <div className="relative h-64 md:h-full w-full overflow-hidden">
               <img
-                src={`${BASE_URL}images/about-image.jpg`}
+                src={`${BASE_URL}images/about-image.webp`}
                 alt="Mountain landscape in Steamboat Springs"
                 className="object-cover w-full h-full rounded-lg shadow-lg"
               />
