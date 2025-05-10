@@ -1,7 +1,7 @@
 // src/components/ServiceCard.tsx
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from '@/components/Button';
 
 export interface Service {
   name: string;
@@ -33,11 +33,22 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         {service.description && (
           <p className="mb-4 text-steamboat-gray">{service.description}</p>
         )}
-        {service.link && (
+        {service.link ? (
           <div className="flex justify-center">
-            <Link to={service.link} className="btn-secondary">
+            <Button
+              to={service.link.startsWith('#') ? undefined : service.link}
+              href={service.link.startsWith('#') ? service.link : undefined}
+              external={!service.link.startsWith('#') && /^https?:\/\//.test(service.link)}
+              variant="secondary"
+            >
               {service.callToAction}
-            </Link>
+            </Button>
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <Button variant="secondary" className="cursor-default">
+              {service.callToAction}
+            </Button>
           </div>
         )}
       </div>
