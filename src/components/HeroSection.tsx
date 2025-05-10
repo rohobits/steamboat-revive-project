@@ -24,9 +24,10 @@ export default function HeroSection({
   subtitle,
   actions,
 }: HeroSectionProps) {
-  const bgUrl = backgroundImage.startsWith("http")
-    ? backgroundImage
-    : `${BASE}${backgroundImage}`;
+  const bgUrl =
+    backgroundImage.startsWith("http")
+      ? backgroundImage
+      : `${BASE}${backgroundImage}`;
 
   return (
     <section
@@ -42,14 +43,15 @@ export default function HeroSection({
         <p className="mb-8 text-xl text-white/90 max-w-2xl">{subtitle}</p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
           {actions.map((action) => {
-            // In-page anchor (#bike, #contact, etc.)
+            // In-page anchor -> scroll without navigation
             if (action.to.startsWith("#")) {
-              // Prefix with a slash so HashRouter remains at "/" path then anchors
-              const anchorHref = `/${action.to}`;
+              const anchorId = action.to.slice(1);
               return (
                 <Button
                   key={action.label}
-                  href={anchorHref}
+                  onClick={() => {
+                    document.getElementById(anchorId)?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   variant="primary"
                 >
                   {action.label}
@@ -57,7 +59,7 @@ export default function HeroSection({
               );
             }
 
-            // True external URLs (e.g. cross-domain)
+            // True external URLs
             if (action.external) {
               return (
                 <Button
